@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TCS TQT — Quantitative Aptitude Complete Study Material</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0c0c10;--bg2:#131318;--bg3:#1a1a22;--bg4:#202028;
+  --border:rgba(255,255,255,0.07);--text:#e6e4f0;--muted:#7e7c8e;
+  --a1:#5b8dee;--a2:#3ecfa0;--a3:#f0a030;--a4:#e05672;--a5:#b06ef5;--a6:#38c8d4;
+  --fh:'Syne',sans-serif;--fb:'Instrument Sans',sans-serif;--fm:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px;line-height:1.7;min-height:100vh}
+/* Header */
+.header{padding:38px 28px 0}
+.header-inner{max-width:960px;margin:0 auto}
+.tag-row{display:flex;gap:9px;margin-bottom:14px;flex-wrap:wrap}
+.tag{font-size:10px;font-weight:700;letter-spacing:.12em;padding:4px 11px;border-radius:20px;text-transform:uppercase}
+.t1{background:rgba(91,141,238,.18);color:#8ab0f5;border:1px solid rgba(91,141,238,.3)}
+.t2{background:rgba(62,207,160,.14);color:#3ecfa0;border:1px solid rgba(62,207,160,.28)}
+h1{font-family:var(--fh);font-size:clamp(28px,4.5vw,46px);font-weight:800;line-height:1.08;letter-spacing:-.025em}
+h1 em{color:var(--a1);font-style:normal}
+.sub{color:var(--muted);font-size:14px;margin-top:7px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 0}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:11px 16px}
+.sn{font-family:var(--fh);font-size:21px;font-weight:700}
+.sl{font-size:11px;color:var(--muted);margin-top:1px}
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,12,16,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 28px}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nb{font-family:var(--fb);font-size:12.5px;font-weight:500;background:none;border:none;color:var(--muted);padding:14px 16px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:6px}
+.nb:hover{color:var(--text)}
+.nb.active{color:var(--text);border-bottom-color:var(--a1)}
+.dot{width:7px;height:7px;border-radius:50%}
+/* Main */
+.main{max-width:960px;margin:0 auto;padding:28px 28px 80px}
+.sec{display:none}
+.sec.active{display:block}
+.sch{margin-bottom:24px}
+.sch h2{font-family:var(--fh);font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:5px}
+.sch p{color:var(--muted);font-size:13.5px}
+/* Cards */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.ct{font-family:var(--fh);font-size:15px;font-weight:700;margin-bottom:13px;display:flex;align-items:center;gap:8px}
+/* Formula box */
+.fbox{background:var(--bg4);border:1px solid rgba(91,141,238,.2);border-radius:10px;padding:14px 18px;font-family:var(--fm);font-size:13px;color:#8ab0f5;line-height:1.9;margin:8px 0}
+.fbox b{color:#3ecfa0;font-weight:500}
+.fbox .label{font-family:var(--fb);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;display:block}
+/* Rule list */
+.rl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rl li{padding:9px 13px;background:var(--bg3);border-radius:8px;border-left:3px solid var(--a1);font-size:13.5px;line-height:1.65}
+.rl li strong{color:var(--a2);font-weight:600}
+.rl.g li{border-left-color:var(--a2)}
+.rl.g li strong{color:var(--a2)}
+.rl.o li{border-left-color:var(--a3)}
+.rl.o li strong{color:var(--a3)}
+.rl.r li{border-left-color:var(--a4)}
+.rl.r li strong{color:var(--a4)}
+.rl.p li{border-left-color:var(--a5)}
+.rl.p li strong{color:var(--a5)}
+.rl.c li{border-left-color:var(--a6)}
+.rl.c li strong{color:var(--a6)}
+/* Example */
+.ex{background:rgba(91,141,238,.07);border:1px solid rgba(91,141,238,.18);border-radius:8px;padding:12px 15px;margin:10px 0;font-size:13.5px}
+.exl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.sol{color:var(--a2);line-height:1.75}
+.step-line{color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:3px}
+/* Two col */
+.tcol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.tcol{grid-template-columns:1fr}}
+/* Tip */
+.tip{background:rgba(240,160,48,.07);border:1px solid rgba(240,160,48,.2);border-radius:10px;padding:13px 17px;font-size:13px;color:#f5c060;line-height:1.6;margin-bottom:16px;display:flex;gap:9px}
+.tip::before{content:'⚡';font-size:15px;flex-shrink:0;margin-top:1px}
+/* Table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;padding:7px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border);font-weight:600}
+.tbl td{padding:8px 11px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;line-height:1.55}
+.tbl tr:last-child td{border-bottom:none}
+.th{color:#8ab0f5;font-weight:600;font-family:var(--fm)}
+.tv{color:var(--text)}
+.tnote{color:var(--muted);font-size:12px;font-style:italic}
+/* Accordion */
+.ai{border:1px solid var(--border);border-radius:10px;margin-bottom:9px;overflow:hidden}
+.ah{padding:13px 17px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:500;transition:background .15s}
+.ah:hover{background:var(--bg3)}
+.aarr{transition:transform .2s;font-size:11px;color:var(--muted)}
+.ab{display:none;padding:0 17px 15px;font-size:13.5px;line-height:1.75;color:var(--muted)}
+.ab.open{display:block}
+.aarr.open{transform:rotate(90deg)}
+/* Quiz */
+.qb{background:var(--bg3);border-radius:10px;padding:15px 17px;margin-bottom:11px}
+.qt{font-size:13.5px;margin-bottom:11px;line-height:1.7}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:9px}
+.opt{font-size:13px;padding:7px 15px;border-radius:7px;background:var(--bg2);border:1px solid var(--border);cursor:pointer;transition:all .15s;user-select:none;font-family:var(--fb)}
+.opt:hover{border-color:var(--a1);color:#8ab0f5}
+.opt.correct{background:rgba(62,207,160,.14);border-color:rgba(62,207,160,.5);color:#3ecfa0}
+.opt.wrong{background:rgba(224,86,114,.1);border-color:rgba(224,86,114,.4);color:#e05672}
+.expln{font-size:13px;color:var(--muted);padding:9px 12px;background:var(--bg2);border-radius:6px;border-left:3px solid var(--a2);display:none;line-height:1.65}
+.expln.show{display:block}
+.expln .math{color:#8ab0f5;font-family:var(--fm);font-size:12px}
+/* Score */
+.sbadge{display:inline-block;background:rgba(62,207,160,.13);color:#3ecfa0;border:1px solid rgba(62,207,160,.3);padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}
+/* Filter */
+.frow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.fbtn{font-family:var(--fb);font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer;transition:all .15s}
+.fbtn:hover{border-color:var(--a1);color:var(--text)}
+.fbtn.active{background:rgba(91,141,238,.14);border-color:rgba(91,141,238,.4);color:#8ab0f5}
+/* Flashcard */
+.fcwrap{perspective:1000px;margin:8px 0}
+.fc{width:100%;min-height:170px;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .5s}
+.fc.flipped{transform:rotateY(180deg)}
+.fcf{position:absolute;width:100%;min-height:170px;backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center}
+.fcfront{background:linear-gradient(135deg,rgba(91,141,238,.14),rgba(62,207,160,.07));border:1px solid rgba(91,141,238,.28)}
+.fcback{background:linear-gradient(135deg,rgba(62,207,160,.12),rgba(176,110,245,.07));border:1px solid rgba(62,207,160,.28);transform:rotateY(180deg)}
+.fctopic{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fcq{font-family:var(--fh);font-size:20px;font-weight:700;color:#8ab0f5;line-height:1.3;margin-bottom:6px}
+.fchint{font-size:12px;color:var(--muted)}
+.fca{font-family:var(--fm);font-size:17px;font-weight:500;color:#3ecfa0;margin-bottom:7px;line-height:1.4}
+.fcnote{font-size:12px;color:var(--muted);font-style:italic;max-width:360px;line-height:1.5}
+.fcnav{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.fcbtn{font-family:var(--fb);font-size:13px;padding:7px 17px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;transition:all .15s}
+.fcbtn:hover{border-color:var(--a1);color:#8ab0f5}
+.fcpb{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:13px;overflow:hidden}
+.fcpbf{height:100%;background:var(--a1);border-radius:2px;transition:width .3s}
+/* Cheat sheet */
+.csg{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:680px){.csg{grid-template-columns:1fr}}
+.csb{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:17px}
+.csb h3{font-family:var(--fh);font-size:13.5px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.csb ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.csb li{font-size:12.5px;color:var(--muted);padding-left:13px;position:relative;line-height:1.6}
+.csb li::before{content:'→';position:absolute;left:0;color:var(--a1);font-size:10px;top:3px}
+.csb li b{color:var(--text);font-weight:600}
+.csb li .fm2{font-family:var(--fm);font-size:11.5px;color:#8ab0f5}
+/* Highlight */
+.hl{color:var(--a2);font-weight:600}
+.hlo{color:var(--a3);font-weight:600}
+.hlr{color:var(--a4);font-weight:600}
+.hlp{color:var(--a5);font-weight:600}
+.hlb{color:var(--a1);font-weight:600}
+.hlc{color:var(--a6);font-weight:600}
+.mono{font-family:var(--fm);font-size:12.5px;color:#8ab0f5}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="tag-row">
+      <span class="tag t1">TCS TQT</span>
+      <span class="tag t2">Quantitative Aptitude</span>
+    </div>
+    <h1>Complete <em>Quant</em> Study Material</h1>
+    <p class="sub">Number System · Arithmetic · Algebra · Geometry · P&amp;C · Probability · DI — all in one place</p>
+    <div class="stats">
+      <div class="stat"><div class="sn" style="color:#8ab0f5">9</div><div class="sl">Topics covered</div></div>
+      <div class="stat"><div class="sn" style="color:#3ecfa0">150+</div><div class="sl">Formulas &amp; tricks</div></div>
+      <div class="stat"><div class="sn" style="color:#f0a030">45</div><div class="sl">Practice questions</div></div>
+      <div class="stat"><div class="sn" style="color:#b06ef5">30</div><div class="sl">Formula flashcards</div></div>
+      <div class="stat"><div class="sn" style="color:#e05672">10</div><div class="sl">Days to exam</div></div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nb active" onclick="sw('numbers',this)"><span class="dot" style="background:#8ab0f5"></span>Numbers</button>
+    <button class="nb" onclick="sw('arithmetic',this)"><span class="dot" style="background:#3ecfa0"></span>Arithmetic</button>
+    <button class="nb" onclick="sw('algebra',this)"><span class="dot" style="background:#f0a030"></span>Algebra</button>
+    <button class="nb" onclick="sw('geometry',this)"><span class="dot" style="background:#b06ef5"></span>Geometry</button>
+    <button class="nb" onclick="sw('pc',this)"><span class="dot" style="background:#e05672"></span>P&amp;C &amp; Prob</button>
+    <button class="nb" onclick="sw('di',this)"><span class="dot" style="background:#38c8d4"></span>DI &amp; Misc</button>
+    <button class="nb" onclick="sw('flashcards',this)"><span class="dot" style="background:#8ab0f5"></span>Flashcards</button>
+    <button class="nb" onclick="sw('quiz',this)"><span class="dot" style="background:#3ecfa0"></span>Practice Quiz</button>
+    <button class="nb" onclick="sw('cheatsheet',this)"><span class="dot" style="background:#f0a030"></span>Cheat Sheet</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ══════════════ NUMBERS ══════════════ -->
+<div id="numbers" class="sec active">
+  <div class="sch"><h2>Number System</h2><p>Divisibility, LCM/HCF, remainders, surds, indices — the foundation of all quant</p></div>
+  <div class="tip">TCS TQT has 3–5 number system questions per exam. Divisibility rules and remainders are the most tested subtopics.</div>
+
+  <div class="card">
+    <div class="ct">⚡ Divisibility Rules (Must memorise)</div>
+    <ul class="rl">
+      <li><strong>Div by 2:</strong> Last digit is 0, 2, 4, 6, or 8</li>
+      <li><strong>Div by 3:</strong> Sum of all digits is divisible by 3. (e.g. 123 → 1+2+3=6 ✓)</li>
+      <li><strong>Div by 4:</strong> Last two digits form a number divisible by 4. (e.g. 1732 → 32÷4=8 ✓)</li>
+      <li><strong>Div by 6:</strong> Divisible by both 2 AND 3</li>
+      <li><strong>Div by 7:</strong> Double the last digit, subtract from remaining number; repeat until small. (e.g. 343 → 34−6=28, 28÷7=4 ✓)</li>
+      <li><strong>Div by 8:</strong> Last three digits divisible by 8. (e.g. 1000 → 000÷8=0 ✓)</li>
+      <li><strong>Div by 9:</strong> Sum of all digits divisible by 9. (e.g. 729 → 7+2+9=18 ✓)</li>
+      <li><strong>Div by 11:</strong> (Sum of digits at odd positions) − (Sum at even positions) = 0 or divisible by 11. (e.g. 1331 → (1+3)−(3+1)=0 ✓)</li>
+      <li><strong>Div by 25:</strong> Last two digits are 00, 25, 50, or 75</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔢 HCF &amp; LCM — Formulas &amp; Methods</div>
+    <div class="fbox">
+      <span class="label">Key relationship</span>
+      <b>HCF × LCM = Product of the two numbers</b><br>
+      HCF(a,b) × LCM(a,b) = a × b<br><br>
+      <span class="label">For fractions</span>
+      HCF of fractions = HCF of numerators / LCM of denominators<br>
+      LCM of fractions = LCM of numerators / HCF of denominators
+    </div>
+    <ul class="rl g" style="margin-top:10px">
+      <li><strong>Division method for HCF:</strong> Divide larger by smaller, take remainder, repeat. Last non-zero remainder = HCF.</li>
+      <li><strong>LCM by prime factorisation:</strong> Write each number as product of primes. LCM = product of highest power of each prime present.</li>
+      <li><strong>HCF of numbers that leave same remainder r when divided by them:</strong> HCF = HCF of their differences.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Example</div>
+      <div class="step-line">Find HCF of 36 and 48 → 48 = 36×1 + 12; 36 = 12×3 + 0 → <span class="hl">HCF = 12</span></div>
+      <div class="step-line">LCM = (36 × 48) / 12 = <span class="hl">144</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">➗ Remainders — Patterns &amp; Tricks</div>
+    <ul class="rl o">
+      <li><strong>Cyclicity of remainders:</strong> Find the repeating cycle of rⁿ mod m, then use (n mod cycle_length) to find the remainder quickly.</li>
+      <li><strong>Remainder of aⁿ / m:</strong> Find a mod m, then raise to power n, taking mod at each step.</li>
+      <li><strong>Fermat's Little Theorem:</strong> If p is prime and gcd(a,p)=1, then a^(p-1) ≡ 1 (mod p). Very useful for TCS remainder questions.</li>
+      <li><strong>Sum of remainders:</strong> Remainder of (a+b)/m = [remainder(a/m) + remainder(b/m)] mod m</li>
+      <li><strong>Product of remainders:</strong> Remainder of (a×b)/m = [remainder(a/m) × remainder(b/m)] mod m</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Classic TCS pattern: Find remainder of 7⁵⁰ ÷ 6</div>
+      <div class="step-line">7 mod 6 = 1 → 7ⁿ mod 6 = 1ⁿ = <span class="hl">1</span> for any n → Remainder = 1</div>
+    </div>
+    <div class="ex">
+      <div class="exl">Find last two digits of 7⁴ = 2401 → last two digits = 01</div>
+      <div class="step-line">Pattern of 7ⁿ last 2 digits: 07, 49, 43, 01, 07, 49… (cycle 4) → 7¹⁰⁰ → 100/4=25 → cycle position 4 → <span class="hl">01</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📊 Number Types &amp; Properties</div>
+    <div class="tcol">
+      <ul class="rl" style="font-size:13px">
+        <li><strong>Perfect squares up to 30²:</strong> 1,4,9,16,25,36,49,64,81,100,121,144,169,196,225,256,289,324,361,400,441,484,529,576,625,676,729,784,841,900</li>
+        <li><strong>Perfect cubes:</strong> 1,8,27,64,125,216,343,512,729,1000</li>
+        <li><strong>Sum of first n natural numbers:</strong> n(n+1)/2</li>
+        <li><strong>Sum of first n odd numbers:</strong> n²</li>
+      </ul>
+      <ul class="rl g" style="font-size:13px">
+        <li><strong>Sum of squares of first n:</strong> n(n+1)(2n+1)/6</li>
+        <li><strong>Sum of cubes of first n:</strong> [n(n+1)/2]²</li>
+        <li><strong>Factorial: n! = n×(n−1)×…×1</strong><br>0! = 1, 1! = 1</li>
+        <li><strong>Trailing zeros in n!:</strong> Count factors of 5: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + …</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🧮 Surds &amp; Indices</div>
+    <div class="fbox">
+      <b>aᵐ × aⁿ = aᵐ⁺ⁿ</b>  |  <b>aᵐ / aⁿ = aᵐ⁻ⁿ</b>  |  <b>(aᵐ)ⁿ = aᵐⁿ</b><br>
+      <b>a⁰ = 1</b>  |  <b>a⁻ⁿ = 1/aⁿ</b>  |  <b>aᵐ/ⁿ = ⁿ√(aᵐ)</b><br>
+      <b>√(ab) = √a × √b</b>  |  <b>√(a/b) = √a/√b</b><br>
+      Rationalising: multiply numerator and denominator by conjugate<br>
+      1/(√a+√b) × (√a−√b)/(√a−√b) = (√a−√b)/(a−b)
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ARITHMETIC ══════════════ -->
+<div id="arithmetic" class="sec">
+  <div class="sch"><h2>Arithmetic — Core Topics</h2><p>Percentages, Profit &amp; Loss, Time &amp; Work, Speed &amp; Distance, Simple &amp; Compound Interest</p></div>
+  <div class="tip">Arithmetic accounts for 40–50% of TCS TQT quant. Master percentages and time-work first — they appear in almost every exam.</div>
+
+  <!-- Percentages -->
+  <div class="card">
+    <div class="ct">📊 Percentages — Formulas &amp; Shortcuts</div>
+    <div class="fbox">
+      <b>% change = (Change / Original) × 100</b><br>
+      <b>A is what % of B = (A/B) × 100</b><br>
+      <b>A% of B = B% of A</b>  ← massive time-saver!<br><br>
+      <span class="label">Successive % changes</span>
+      If x% increase then y% decrease: Net = x − y − (xy/100)<br>
+      Two successive increases of a%: Net = 2a + a²/100
+    </div>
+    <ul class="rl" style="margin-top:10px">
+      <li><strong>Percentage fraction equivalents</strong> (memorise these for speed):<br>
+        1/8=12.5%, 1/6=16.67%, 1/5=20%, 1/4=25%, 1/3=33.33%, 3/8=37.5%, 2/5=40%, 1/2=50%, 3/5=60%, 5/8=62.5%, 2/3=66.67%, 3/4=75%, 4/5=80%, 5/6=83.33%, 7/8=87.5%</li>
+      <li><strong>If A is x% more than B, then B is less than A by:</strong> x/(100+x) × 100 %</li>
+      <li><strong>If A is x% less than B, then B is more than A by:</strong> x/(100−x) × 100 %</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Speed trick — A is 25% more than B. B is less than A by?</div>
+      <div class="sol">25/(100+25) × 100 = 25/125 × 100 = <span class="hl">20%</span></div>
+    </div>
+  </div>
+
+  <!-- Profit & Loss -->
+  <div class="card">
+    <div class="ct">💰 Profit &amp; Loss</div>
+    <div class="fbox">
+      <b>Profit = SP − CP</b>  |  <b>Loss = CP − SP</b><br>
+      <b>Profit % = (Profit/CP) × 100</b><br>
+      <b>SP = CP × (100 + P%)/100</b>  |  <b>CP = SP × 100/(100 + P%)</b><br><br>
+      <span class="label">Discount</span>
+      <b>Discount % = (Discount/Marked Price) × 100</b><br>
+      <b>SP = MP × (100 − D%)/100</b><br><br>
+      <span class="label">Successive discounts d1%, d2%</span>
+      Net effective discount = d1 + d2 − d1×d2/100
+    </div>
+    <ul class="rl g" style="margin-top:10px">
+      <li><strong>If cost price of x items = selling price of y items:</strong> Profit% = (x−y)/y × 100</li>
+      <li><strong>Dishonest merchant using false weight:</strong> Profit% = (True weight − False weight)/False weight × 100</li>
+      <li><strong>Overall profit/loss when two items sold at same price, one at x% profit one at x% loss:</strong> Always a LOSS of (x²/100)%</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Classic TCS pattern</div>
+      <div class="step-line">Two articles sold for ₹1200 each. One at 20% profit, one at 20% loss.</div>
+      <div class="sol">Net loss = 20²/100 = <span class="hl">4%</span> (always loss when same SP, same % profit and loss)</div>
+    </div>
+  </div>
+
+  <!-- Simple & Compound Interest -->
+  <div class="card">
+    <div class="ct">🏦 Simple &amp; Compound Interest</div>
+    <div class="fbox">
+      <span class="label">Simple Interest</span>
+      <b>SI = P × R × T / 100</b><br>
+      <b>A = P + SI = P(1 + RT/100)</b><br><br>
+      <span class="label">Compound Interest</span>
+      <b>A = P × (1 + R/100)ⁿ</b><br>
+      <b>CI = A − P = P[(1 + R/100)ⁿ − 1]</b><br><br>
+      <span class="label">Half-yearly compounding</span>
+      A = P × (1 + R/200)²ⁿ<br><br>
+      <span class="label">CI vs SI difference (2 years)</span>
+      CI − SI = P(R/100)²
+    </div>
+    <ul class="rl o" style="margin-top:10px">
+      <li><strong>Rule of 72:</strong> Years to double at r% CI ≈ 72/r. At 12% → doubles in 6 years.</li>
+      <li><strong>Effective annual rate for half-yearly:</strong> (1 + r/200)² − 1</li>
+      <li><strong>Population problems:</strong> Use CI formula with growth/decay rate.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">SI vs CI difference — TCS pattern</div>
+      <div class="step-line">P=₹10,000, R=10%, T=2 years</div>
+      <div class="sol">CI−SI = P(R/100)² = 10000 × (0.1)² = <span class="hl">₹100</span></div>
+    </div>
+  </div>
+
+  <!-- Time & Work -->
+  <div class="card">
+    <div class="ct">⚙️ Time &amp; Work</div>
+    <div class="fbox">
+      <b>If A does work in 'a' days → A's 1-day work = 1/a</b><br>
+      <b>Combined rate = 1/a + 1/b + 1/c …</b><br>
+      <b>Time together = 1 / (combined rate)</b><br><br>
+      <span class="label">A and B together formula</span>
+      <b>Time = ab/(a+b)</b>
+    </div>
+    <ul class="rl" style="margin-top:10px">
+      <li><strong>A can do work in a days, B in b days, C in c days. A+B work for x days, then C alone finishes:</strong><br>Remaining work = 1 − x(1/a + 1/b) → Time for C = remaining / (1/c)</li>
+      <li><strong>Pipes &amp; Cisterns:</strong> Inlet pipe fills in a hours (rate +1/a). Outlet pipe empties in b hours (rate −1/b). Net rate = 1/a − 1/b.</li>
+      <li><strong>Men × Days = Constant work.</strong> If M₁D₁ = M₂D₂ (same work), use: M₁D₁H₁/W₁ = M₂D₂H₂/W₂</li>
+      <li><strong>Efficiency method:</strong> Assume total work = LCM of all individual times. Assign daily work units. Much faster than fraction method!</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Efficiency method — A finishes in 12 days, B in 15 days</div>
+      <div class="step-line">Total work = LCM(12,15) = <span class="hlb">60 units</span></div>
+      <div class="step-line">A's rate = 60/12 = 5 units/day; B's rate = 60/15 = 4 units/day</div>
+      <div class="sol">Together = 9 units/day → Time = 60/9 = <span class="hl">6⅔ days</span></div>
+    </div>
+  </div>
+
+  <!-- Speed, Distance, Time -->
+  <div class="card">
+    <div class="ct">🚂 Speed, Distance &amp; Time</div>
+    <div class="fbox">
+      <b>Distance = Speed × Time</b><br>
+      <b>Average Speed (two equal distances) = 2uv/(u+v)</b>  ← NOT (u+v)/2 !<br><br>
+      <span class="label">Trains</span>
+      Same direction: Relative speed = S1 − S2<br>
+      Opposite direction: Relative speed = S1 + S2<br>
+      Time to cross = (L1 + L2) / Relative Speed<br><br>
+      <span class="label">Boats &amp; Streams</span>
+      Downstream speed = B + R  |  Upstream speed = B − R<br>
+      <b>Boat speed B = (D+U)/2</b>  |  <b>Stream speed R = (D−U)/2</b>
+    </div>
+    <ul class="rl g" style="margin-top:10px">
+      <li><strong>Unit conversions:</strong> km/h to m/s → multiply by 5/18. m/s to km/h → multiply by 18/5.</li>
+      <li><strong>If speed increases by a/b of original, time to cover same distance decreases by a/(a+b).</strong></li>
+      <li><strong>Time to cross a pole/person = Train length / Train speed</strong></li>
+      <li><strong>Time to cross a bridge = (Train length + Bridge length) / Train speed</strong></li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Average speed trap — TCS pattern</div>
+      <div class="step-line">A travels 60 km/h onward and 40 km/h return. Average speed?</div>
+      <div class="sol">= 2×60×40/(60+40) = 4800/100 = <span class="hl">48 km/h</span> (NOT 50!)</div>
+    </div>
+  </div>
+
+  <!-- Ratio & Proportion -->
+  <div class="card">
+    <div class="ct">⚖️ Ratio, Proportion &amp; Mixtures</div>
+    <div class="fbox">
+      <b>a:b = c:d → a×d = b×c</b>  (cross multiply)<br>
+      <b>Compounded ratio of a:b and c:d = ac:bd</b><br><br>
+      <span class="label">Alligation / Mixture rule</span>
+      (Cheaper qty)/(Costlier qty) = (Costlier − Mean) / (Mean − Cheaper)<br><br>
+      <span class="label">Mixture replacement</span>
+      After n replacements: Final fraction of original = (1 − x/V)ⁿ<br>
+      where x = quantity removed each time, V = total volume
+    </div>
+    <ul class="rl o" style="margin-top:10px">
+      <li><strong>If A:B = 2:3 and B:C = 4:5, then A:B:C = 8:12:15</strong> (multiply B to match)</li>
+      <li><strong>Partnership:</strong> Profit split is proportional to (Capital × Time).</li>
+      <li><strong>Milk-water ratio problems:</strong> Use alligation. Draw a cross, put mean price in centre, individual prices on sides. Diagonal difference gives ratio.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Alligation — mix milk costing ₹15/L and ₹20/L to get ₹17/L</div>
+      <div class="step-line">Cheaper side: 20−17=3 | Costlier side: 17−15=2</div>
+      <div class="sol">Ratio of cheaper:costlier = <span class="hl">3:2</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ALGEBRA ══════════════ -->
+<div id="algebra" class="sec">
+  <div class="sch"><h2>Algebra</h2><p>Linear &amp; quadratic equations, progressions (AP/GP), logarithms, functions</p></div>
+  <div class="tip">TCS TQT tests AP/GP series and quadratic equations heavily. Know all AP/GP formulas cold — they appear in 3–4 questions each exam.</div>
+
+  <div class="card">
+    <div class="ct">➕ Linear &amp; Quadratic Equations</div>
+    <div class="fbox">
+      <span class="label">Quadratic: ax² + bx + c = 0</span>
+      <b>x = [−b ± √(b²−4ac)] / 2a</b><br>
+      <b>Sum of roots = −b/a</b>  |  <b>Product of roots = c/a</b><br>
+      <b>Discriminant D = b²−4ac</b><br>
+      D&gt;0: two real distinct roots | D=0: equal roots | D&lt;0: no real roots
+    </div>
+    <ul class="rl" style="margin-top:10px">
+      <li><strong>Sum &amp; product shortcut:</strong> If roots are α and β, equation is x² − (α+β)x + αβ = 0</li>
+      <li><strong>System of linear equations:</strong> Unique solution when |a1/a2 ≠ b1/b2|. No solution when a1/a2 = b1/b2 ≠ c1/c2. Infinite when all ratios equal.</li>
+      <li><strong>Number problems:</strong> Let digits be t (tens) and u (units). Number = 10t + u. Reversed = 10u + t.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">📈 Arithmetic Progressions (AP)</div>
+    <div class="fbox">
+      <span class="label">AP: a, a+d, a+2d, … (common difference d)</span>
+      <b>nᵗʰ term: Tₙ = a + (n−1)d</b><br>
+      <b>Sum of n terms: Sₙ = n/2 × [2a + (n−1)d]</b><br>
+      <b>Sₙ = n/2 × (first term + last term)</b><br><br>
+      If Tₙ is given, n = (Tₙ − a)/d + 1<br>
+      Middle term of AP = (first + last)/2
+    </div>
+    <div class="ex">
+      <div class="exl">Find sum of AP: 5, 9, 13, … up to 20 terms</div>
+      <div class="step-line">a=5, d=4, n=20</div>
+      <div class="sol">S₂₀ = 20/2 × [2×5 + 19×4] = 10 × [10+76] = 10 × 86 = <span class="hl">860</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📉 Geometric Progressions (GP)</div>
+    <div class="fbox">
+      <span class="label">GP: a, ar, ar², … (common ratio r)</span>
+      <b>nᵗʰ term: Tₙ = arⁿ⁻¹</b><br>
+      <b>Sum of n terms: Sₙ = a(rⁿ−1)/(r−1)  for r≠1</b><br>
+      <b>Sum of infinite GP (|r|&lt;1): S∞ = a/(1−r)</b><br><br>
+      Geometric mean of a and b = √(ab)<br>
+      If three numbers in GP: b² = ac
+    </div>
+    <div class="ex">
+      <div class="exl">Find sum of GP: 2, 6, 18, 54 … (6 terms)</div>
+      <div class="step-line">a=2, r=3, n=6</div>
+      <div class="sol">S₆ = 2(3⁶−1)/(3−1) = 2×728/2 = <span class="hl">728</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔢 Logarithms</div>
+    <div class="fbox">
+      <b>log_a(mn) = log_a(m) + log_a(n)</b><br>
+      <b>log_a(m/n) = log_a(m) − log_a(n)</b><br>
+      <b>log_a(mⁿ) = n × log_a(m)</b><br>
+      <b>log_a(a) = 1</b>  |  <b>log_a(1) = 0</b>  |  <b>log_a(b) = 1/log_b(a)</b><br>
+      <b>Change of base: log_a(b) = log(b)/log(a)</b><br>
+      <b>log₁₀(2) ≈ 0.301</b>  |  <b>log₁₀(3) ≈ 0.477</b>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔡 Important Algebraic Identities</div>
+    <div class="fbox">
+      <b>(a+b)² = a²+2ab+b²</b><br>
+      <b>(a−b)² = a²−2ab+b²</b><br>
+      <b>a²−b² = (a+b)(a−b)</b><br>
+      <b>(a+b)³ = a³+3a²b+3ab²+b³</b><br>
+      <b>(a−b)³ = a³−3a²b+3ab²−b³</b><br>
+      <b>a³+b³ = (a+b)(a²−ab+b²)</b><br>
+      <b>a³−b³ = (a−b)(a²+ab+b²)</b><br>
+      <b>(a+b+c)² = a²+b²+c²+2ab+2bc+2ca</b>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ GEOMETRY ══════════════ -->
+<div id="geometry" class="sec">
+  <div class="sch"><h2>Geometry &amp; Mensuration</h2><p>Lines, triangles, circles, polygons, 2D and 3D shapes — areas, volumes, and properties</p></div>
+  <div class="tip">Mensuration (area/volume) questions appear in every TCS TQT exam. Learn formulas for all standard shapes. Triangle properties are heavily tested.</div>
+
+  <div class="card">
+    <div class="ct">📐 Triangle Properties</div>
+    <ul class="rl p">
+      <li><strong>Angle sum = 180°.</strong> Exterior angle = sum of the two non-adjacent interior angles.</li>
+      <li><strong>Pythagorean theorem:</strong> a² + b² = c² (right triangle, c = hypotenuse)</li>
+      <li><strong>Common Pythagorean triples:</strong> 3-4-5, 5-12-13, 8-15-17, 7-24-25, 9-40-41. Multiples also work (6-8-10, etc.)</li>
+      <li><strong>Area formulas:</strong> (1/2)×base×height | (1/2)×a×b×sinC | √[s(s−a)(s−b)(s−c)] (Heron's, s = semi-perimeter)</li>
+      <li><strong>Equilateral triangle:</strong> Area = (√3/4)a² | Height = (√3/2)a</li>
+      <li><strong>Median divides triangle into 2 equal areas.</strong> Centroid divides median in 2:1.</li>
+      <li><strong>Similar triangles:</strong> Ratio of areas = (ratio of sides)²</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">⭕ Circles</div>
+    <div class="fbox">
+      <b>Area = πr²</b>  |  <b>Circumference = 2πr</b><br>
+      <b>Arc length = (θ/360) × 2πr</b>  (θ in degrees)<br>
+      <b>Sector area = (θ/360) × πr²</b><br>
+      <b>Segment area = Sector area − Triangle area</b>
+    </div>
+    <ul class="rl p" style="margin-top:10px">
+      <li><strong>Angle in a semicircle = 90°</strong> (angle in a semicircle is always a right angle)</li>
+      <li><strong>Tangent ⊥ radius</strong> at the point of contact.</li>
+      <li><strong>Two tangents from an external point are equal in length.</strong></li>
+      <li><strong>Tangent-Chord angle = inscribed angle in alternate segment.</strong></li>
+      <li><strong>Chord distance from centre:</strong> If chord length = 2l, distance from centre = d, then r² = l² + d²</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔷 Quadrilaterals &amp; Polygons</div>
+    <div class="fbox">
+      <b>Rectangle:</b> Area = l×b | Diagonal = √(l²+b²) | Perimeter = 2(l+b)<br>
+      <b>Square:</b> Area = a² | Diagonal = a√2 | Perimeter = 4a<br>
+      <b>Parallelogram:</b> Area = base × height = ab×sinθ<br>
+      <b>Rhombus:</b> Area = (d1×d2)/2 (diagonals)<br>
+      <b>Trapezium:</b> Area = (1/2)×(sum of parallel sides)×height<br><br>
+      <b>Sum of interior angles of n-gon = (n−2)×180°</b><br>
+      Each interior angle of regular n-gon = (n−2)×180°/n
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📦 3D Mensuration</div>
+    <table class="tbl">
+      <tr><th>Shape</th><th>Volume</th><th>Surface Area</th></tr>
+      <tr><td class="th">Cube (side a)</td><td class="tv">a³</td><td class="tv">6a² (total) | 4a² (lateral)</td></tr>
+      <tr><td class="th">Cuboid (l,b,h)</td><td class="tv">l×b×h</td><td class="tv">2(lb+bh+hl)</td></tr>
+      <tr><td class="th">Cylinder (r,h)</td><td class="tv">πr²h</td><td class="tv">2πr(r+h) | 2πrh (curved)</td></tr>
+      <tr><td class="th">Cone (r,h,l)</td><td class="tv">(1/3)πr²h</td><td class="tv">πr(r+l) | πrl (curved), l=√(r²+h²)</td></tr>
+      <tr><td class="th">Sphere (r)</td><td class="tv">(4/3)πr³</td><td class="tv">4πr²</td></tr>
+      <tr><td class="th">Hemisphere (r)</td><td class="tv">(2/3)πr³</td><td class="tv">3πr² (total) | 2πr² (curved)</td></tr>
+    </table>
+    <ul class="rl p" style="margin-top:12px">
+      <li><strong>If a sphere is melted into cylinders:</strong> Volume of sphere = n × Volume of each cylinder</li>
+      <li><strong>Diagonal of cuboid:</strong> √(l² + b² + h²)</li>
+      <li><strong>When cube is cut into n equal smaller cubes:</strong> Side of smaller = a/n^(1/3)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">📏 Coordinate Geometry</div>
+    <div class="fbox">
+      <b>Distance = √[(x2−x1)² + (y2−y1)²]</b><br>
+      <b>Midpoint = ((x1+x2)/2, (y1+y2)/2)</b><br>
+      <b>Slope m = (y2−y1)/(x2−x1)</b><br>
+      <b>Line: y = mx + c</b>  (c = y-intercept)<br>
+      <b>Parallel lines: m1 = m2</b>  |  <b>Perpendicular: m1×m2 = −1</b><br>
+      <b>Distance from point (x₀,y₀) to line ax+by+c=0: |ax₀+by₀+c|/√(a²+b²)</b>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ P&C + PROBABILITY ══════════════ -->
+<div id="pc" class="sec">
+  <div class="sch"><h2>Permutations, Combinations &amp; Probability</h2><p>Counting, arrangements, selections, and probability calculations</p></div>
+  <div class="tip">P&amp;C and Probability together form 5–8 questions in TCS TQT. Understand when to use P vs C before jumping to formulas.</div>
+
+  <div class="card">
+    <div class="ct">🔀 Fundamental Counting Principle</div>
+    <ul class="rl r">
+      <li><strong>Multiplication rule:</strong> If event A can occur in m ways AND then event B in n ways → Total = m × n ways.</li>
+      <li><strong>Addition rule:</strong> If event A can occur in m ways OR event B in n ways (mutually exclusive) → Total = m + n ways.</li>
+      <li><strong>Key decision: P or C?</strong><br>
+        — ORDER MATTERS → Permutation (arrangement)<br>
+        — ORDER DOESN'T MATTER → Combination (selection)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔢 Permutations</div>
+    <div class="fbox">
+      <b>ⁿPᵣ = n! / (n−r)!</b>  — arrange r items from n<br>
+      <b>Arrangements of n items = n!</b><br>
+      <b>Arrangements with repetitions: n!/p!q!r!…</b>  (p,q,r = freq of repeated items)<br><br>
+      <span class="label">Circular arrangements</span>
+      <b>(n−1)!</b>  — circular arrangement of n items<br>
+      <b>(n−1)!/2</b>  — necklace/keychain (can flip)<br><br>
+      Items always TOGETHER: treat as 1 block → (n−k+1)! × k! (k = no. of items in block)
+    </div>
+    <div class="ex">
+      <div class="exl">How many ways to arrange letters of MISSISSIPPI?</div>
+      <div class="step-line">Total letters=11, M=1, I=4, S=4, P=2</div>
+      <div class="sol">= 11! / (1!×4!×4!×2!) = <span class="hl">34,650</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🎯 Combinations</div>
+    <div class="fbox">
+      <b>ⁿCᵣ = n! / [r!(n−r)!]</b><br>
+      <b>ⁿCᵣ = ⁿCₙ₋ᵣ</b>  ← very useful shortcut<br>
+      <b>ⁿC₀ = ⁿCₙ = 1</b>  |  <b>ⁿC₁ = n</b><br><br>
+      <span class="label">Important identities</span>
+      ⁿCᵣ + ⁿCᵣ₋₁ = ⁿ⁺¹Cᵣ<br>
+      Sum of all combinations = 2ⁿ (all subsets of n items)
+    </div>
+    <ul class="rl r" style="margin-top:10px">
+      <li><strong>Selecting from groups:</strong> Select p from group A (size m) AND q from group B (size n): ᵐCₚ × ⁿCᵍ</li>
+      <li><strong>At least one / at most one:</strong> Use complement. P(at least 1) = 1 − P(none)</li>
+      <li><strong>Handshakes / diagonals:</strong> n people shaking hands = ⁿC₂. Diagonals in n-gon = ⁿC₂ − n</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Committee of 3 men, 2 women from 5 men, 4 women</div>
+      <div class="sol">⁵C₃ × ⁴C₂ = 10 × 6 = <span class="hl">60 ways</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🎲 Probability</div>
+    <div class="fbox">
+      <b>P(Event) = Favourable outcomes / Total outcomes</b><br>
+      <b>P(A') = 1 − P(A)</b>  (complement)<br>
+      <b>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</b><br>
+      <b>P(A ∩ B) = P(A) × P(B)</b>  — only if A, B INDEPENDENT<br>
+      <b>P(A|B) = P(A ∩ B) / P(B)</b>  — conditional probability
+    </div>
+    <ul class="rl r" style="margin-top:10px">
+      <li><strong>Mutually exclusive events:</strong> P(A ∩ B) = 0 → P(A ∪ B) = P(A) + P(B)</li>
+      <li><strong>Cards:</strong> 52 cards total. 4 suits × 13 cards each. 4 aces, 4 kings, 4 queens, 4 jacks. 26 red, 26 black.</li>
+      <li><strong>Dice:</strong> Two dice → 36 total outcomes. P(sum=7) = 6/36 = 1/6 (highest). P(sum=2 or 12) = 1/36 (lowest).</li>
+      <li><strong>Balls in bag (without replacement):</strong> P(2nd) depends on what was drawn 1st.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">P(at least one head) in 3 coin tosses</div>
+      <div class="sol">= 1 − P(no heads) = 1 − (1/2)³ = 1 − 1/8 = <span class="hl">7/8</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ DI & MISC ══════════════ -->
+<div id="di" class="sec">
+  <div class="sch"><h2>Data Interpretation &amp; Miscellaneous</h2><p>Bar charts, tables, pie charts, age problems, calendar, clocks</p></div>
+  <div class="tip">DI typically appears as 1–2 sets (4–6 questions) in TCS TQT. Speed is critical — practice reading charts fast. Age &amp; clock problems are very common.</div>
+
+  <div class="card">
+    <div class="ct">📊 Data Interpretation — Strategy</div>
+    <ul class="rl c">
+      <li><strong>Read the title and labels first.</strong> Know what unit is being used (thousands, lakhs, %). Missing this = guaranteed wrong answers.</li>
+      <li><strong>For bar charts:</strong> Estimate visually first, then calculate. Approximate before doing full computation.</li>
+      <li><strong>For pie charts:</strong> Central angle for x% = x/100 × 360°. % share = (value/total) × 100.</li>
+      <li><strong>Percentage change between years:</strong> (New − Old)/Old × 100.</li>
+      <li><strong>Ratio questions in DI:</strong> Reduce to simplest form before comparing.</li>
+      <li><strong>Two-step questions:</strong> Read carefully — "what % of total" vs "what % increase" are different questions.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">👴 Age Problems</div>
+    <div class="fbox">
+      Present age = x | Past (n years ago) = x−n | Future (n years later) = x+n<br><br>
+      <b>If ratio of ages now is a:b, and n years ago was c:d:</b><br>
+      Set up: (ax−cn)/(bx−dn) = ? and solve for x
+    </div>
+    <ul class="rl c" style="margin-top:10px">
+      <li><strong>Father's age = k × Son's age now. After n years, father = m × son:</strong> Solve the two equations simultaneously.</li>
+      <li><strong>Average age of group changes when person joins/leaves:</strong> Change in sum = (new person's age − departing person's age). Change in average = change in sum / new count.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Classic TCS pattern</div>
+      <div class="step-line">Ratio of A:B ages = 5:3. After 6 years ratio = 7:5. Find current ages.</div>
+      <div class="step-line">5x+6 / 3x+6 = 7/5 → 25x+30 = 21x+42 → 4x=12 → x=3</div>
+      <div class="sol">A = 15, B = <span class="hl">9 years</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🕐 Clocks</div>
+    <div class="fbox">
+      <b>Minute hand: 6° per minute  (360°/60)</b><br>
+      <b>Hour hand: 0.5° per minute  (360°/720)</b><br>
+      <b>Relative speed = 5.5° per minute</b><br>
+      <b>Angle between hands at H:M = |30H − 5.5M|</b><br>
+      <b>Hands coincide every 65.45 min (= 720/11 min)</b><br>
+      <b>Hands at right angle (90°) every 32.72 min (= 360/11 min)</b>
+    </div>
+    <div class="ex">
+      <div class="exl">Angle between hands at 3:40</div>
+      <div class="sol">= |30×3 − 5.5×40| = |90−220| = 130° → <span class="hl">130°</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📅 Calendar Problems</div>
+    <ul class="rl c">
+      <li><strong>Odd days:</strong> Ordinary year = 1 odd day. Leap year = 2 odd days. Century = 5 odd days (100 yrs). 400 years = 0 odd days.</li>
+      <li><strong>Day codes:</strong> 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat</li>
+      <li><strong>Leap year rule:</strong> Divisible by 4 (except centuries). Centuries must be divisible by 400. (2000 is leap, 1900 is not)</li>
+      <li><strong>Day of week calculation:</strong> Add odd days to the known day. Mod 7 gives the new day.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔢 Series &amp; Sequences (Pattern Recognition)</div>
+    <ul class="rl o">
+      <li><strong>Squares/Cubes pattern:</strong> Check if differences are consecutive odd numbers (perfect squares).</li>
+      <li><strong>Fibonacci-type:</strong> Each term = sum of previous two. Check T₃ = T₁ + T₂.</li>
+      <li><strong>Alternating series:</strong> Two interleaved sequences — note every 2nd term separately.</li>
+      <li><strong>Geometric pattern:</strong> Divide consecutive terms to check for constant ratio.</li>
+      <li><strong>n² ± constant, n³ ± constant:</strong> Find pattern by subtracting a sequence of squares/cubes.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════ FLASHCARDS ══════════════ -->
+<div id="flashcards" class="sec">
+  <div class="sch"><h2>Formula Flashcards</h2><p>Test yourself on key formulas — click to flip, use arrows to navigate</p></div>
+  <div class="card">
+    <div class="fcpb"><div class="fcpbf" id="fcbar" style="width:0%"></div></div>
+    <div class="fcwrap">
+      <div class="fc" id="fcard" onclick="fcFlip()">
+        <div class="fcf fcfront">
+          <div class="fctopic" id="fctopic">Loading…</div>
+          <div class="fcq" id="fcq">–</div>
+          <div class="fchint">tap to see the formula</div>
+        </div>
+        <div class="fcf fcback">
+          <div class="fca" id="fca">–</div>
+          <div class="fcnote" id="fcnote">–</div>
+        </div>
+      </div>
+    </div>
+    <div class="fcnav">
+      <button class="fcbtn" onclick="fcPrev()">← Prev</button>
+      <span id="fcctr" style="font-size:13px;color:var(--muted)">1/30</span>
+      <button class="fcbtn" onclick="fcNext()">Next →</button>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:6px">Cover the back and try to recall the formula before flipping. Active recall builds speed in the exam.</div>
+</div>
+
+<!-- ══════════════ QUIZ ══════════════ -->
+<div id="quiz" class="sec">
+  <div class="sch"><h2>Practice Quiz — 45 Questions</h2><p>Mixed questions across all topics with step-by-step explanations</p></div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px">
+    <span style="font-size:14px;color:var(--muted)">Score:</span>
+    <span id="scoreD" class="sbadge">0 / 0 answered</span>
+    <span id="scorePct" style="font-size:13px;color:var(--muted)"></span>
+    <button onclick="resetQ()" style="font-size:12px;padding:5px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--muted);cursor:pointer;font-family:var(--fb)">Reset</button>
+  </div>
+  <div class="frow" id="filterRow"></div>
+  <div id="qc"></div>
+</div>
+
+<!-- ══════════════ CHEATSHEET ══════════════ -->
+<div id="cheatsheet" class="sec">
+  <div class="sch"><h2>Cheat Sheet — All Formulas at a Glance</h2><p>Review this the morning before your exam</p></div>
+  <div class="csg" id="csGrid"></div>
+  <div class="tip" style="margin-top:18px">Exam strategy: Skip any question that requires more than 2 minutes. Come back later. In TCS TQT there is no negative marking — never leave a blank.</div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+// ═══════ TAB SWITCH ═══════
+function sw(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleAcc(h){
+  const b=h.nextElementSibling,a=h.querySelector('.aarr');
+  b.classList.toggle('open');a.classList.toggle('open');
+}
+
+// ═══════ FLASHCARDS ═══════
+const fcCards=[
+  {t:'Number System',q:'Sum of first n natural numbers',a:'n(n+1)/2',n:'e.g. 1+2+…+100 = 100×101/2 = 5050'},
+  {t:'Number System',q:'Sum of squares of first n numbers',a:'n(n+1)(2n+1)/6',n:'e.g. 1²+2²+…+10² = 10×11×21/6 = 385'},
+  {t:'Number System',q:'Sum of cubes of first n numbers',a:'[n(n+1)/2]²',n:'Always equals square of triangular number'},
+  {t:'Number System',q:'Trailing zeros in n!',a:'⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + …',n:'e.g. 100! → 20+4+0 = 24 trailing zeros'},
+  {t:'Number System',q:'HCF × LCM of two numbers a, b',a:'a × b',n:'HCF(12,18)=6, LCM=36, 6×36=216=12×18 ✓'},
+  {t:'Percentages',q:'If A is x% more than B, B is less than A by',a:'x/(100+x) × 100 %',n:'A is 25% more → B is 20% less than A'},
+  {t:'Percentages',q:'Successive % changes of x% and y%',a:'x + y + xy/100',n:'+20% then −20% = −4% net (loss!)'},
+  {t:'Profit & Loss',q:'When SP equal, profit x% + loss x%',a:'Net loss = x²/100 %',n:'Always a loss. At 20%: 400/100 = 4% loss'},
+  {t:'Profit & Loss',q:'Alligation ratio formula',a:'(Costlier−Mean) : (Mean−Cheaper)',n:'Mean price in centre of cross, find ratio'},
+  {t:'SI & CI',q:'CI − SI for 2 years',a:'P × (R/100)²',n:'e.g. P=10000, R=10% → CI−SI = 100'},
+  {t:'SI & CI',q:'Compound Interest formula',a:'A = P(1 + R/100)ⁿ',n:'CI = A − P. For half-yearly: rate=R/2, n×2'},
+  {t:'Time & Work',q:'A in a days, B in b days — together',a:'ab/(a+b) days',n:'A=12, B=15 → 12×15/27 = 180/27 = 6⅔ days'},
+  {t:'Time & Work',q:'M₁D₁H₁/W₁ = M₂D₂H₂/W₂',a:'Men × Days × Hours / Work = constant',n:'Use when men, days, hours, or work changes'},
+  {t:'Speed & Distance',q:'Average speed for equal distances at u and v',a:'2uv/(u+v)',n:'NOT (u+v)/2 ! e.g. 60&40 → 48 km/h'},
+  {t:'Speed & Distance',q:'km/h to m/s conversion',a:'Multiply by 5/18',n:'72 km/h = 72×5/18 = 20 m/s'},
+  {t:'AP',q:'nth term of AP: a, a+d, a+2d …',a:'Tₙ = a + (n−1)d',n:'a = first term, d = common difference'},
+  {t:'AP',q:'Sum of n terms of AP',a:'Sₙ = n/2 × [2a + (n−1)d]',n:'Also = n/2 × (first + last term)'},
+  {t:'GP',q:'nth term of GP: a, ar, ar² …',a:'Tₙ = a × rⁿ⁻¹',n:'r = common ratio'},
+  {t:'GP',q:'Sum of n terms of GP',a:'Sₙ = a(rⁿ−1)/(r−1)',n:'For infinite GP (|r|<1): S∞ = a/(1−r)'},
+  {t:'Geometry',q:'Area of equilateral triangle (side a)',a:'(√3/4) × a²',n:'Height = (√3/2)×a'},
+  {t:'Geometry',q:"Heron's formula for triangle area",a:'√[s(s−a)(s−b)(s−c)]',n:'s = (a+b+c)/2 (semi-perimeter)'},
+  {t:'Mensuration',q:'Volume of sphere (radius r)',a:'(4/3)πr³',n:'Surface area = 4πr²'},
+  {t:'Mensuration',q:'Volume of cone (r, h)',a:'(1/3)πr²h',n:'Slant height l = √(r²+h²). CSA = πrl'},
+  {t:'Mensuration',q:'Diagonal of cuboid (l, b, h)',a:'√(l² + b² + h²)',n:'Diagonal of cube with side a = a√3'},
+  {t:'P&C',q:'Arrangements of n different items',a:'n!',n:'Circular: (n−1)!  |  Necklace: (n−1)!/2'},
+  {t:'P&C',q:'Permutation: arrange r from n',a:'ⁿPᵣ = n!/(n−r)!',n:'Order matters. ⁵P₃ = 60'},
+  {t:'P&C',q:'Combination: select r from n',a:'ⁿCᵣ = n!/[r!(n−r)!]',n:'Order does NOT matter. ⁵C₃ = 10'},
+  {t:'Probability',q:'P(at least one success)',a:'1 − P(none)',n:'Fastest when P(none) is easy to compute'},
+  {t:'Clocks',q:'Angle between hour and minute hands at H:M',a:'|30H − 5.5M|°',n:'At 3:40 → |90−220| = 130°'},
+  {t:'Clocks',q:'How often do clock hands coincide?',a:'Every 720/11 ≈ 65.45 minutes',n:'22 times in 24 hours (not 24!)'},
+];
+
+let fci=0,fcfli=false;
+function fcRender(){
+  const c=fcCards[fci];
+  document.getElementById('fctopic').textContent=c.t;
+  document.getElementById('fcq').textContent=c.q;
+  document.getElementById('fca').textContent=c.a;
+  document.getElementById('fcnote').textContent=c.n;
+  document.getElementById('fcctr').textContent=(fci+1)+'/'+fcCards.length;
+  document.getElementById('fcbar').style.width=((fci+1)/fcCards.length*100)+'%';
+  const fc=document.getElementById('fcard');
+  fc.classList.remove('flipped');fcfli=false;
+}
+function fcFlip(){const fc=document.getElementById('fcard');fcfli=!fcfli;fc.classList.toggle('flipped',fcfli);}
+function fcNext(){fci=(fci+1)%fcCards.length;fcRender();}
+function fcPrev(){fci=(fci-1+fcCards.length)%fcCards.length;fcRender();}
+fcRender();
+
+// ═══════ QUIZ ═══════
+const Qs=[
+  {t:'Number System',q:'What is the remainder when 2¹⁰⁰ is divided by 3?',o:['0','1','2','None'],a:1,e:'2 mod 3 = 2. 2² mod 3 = 1. Cycle length = 2. 100 is even → 2¹⁰⁰ mod 3 = 1.'},
+  {t:'Number System',q:'Find the HCF of 84 and 112.',o:['14','28','42','7'],a:1,e:'112 = 84×1+28. 84 = 28×3+0. HCF = 28.'},
+  {t:'Number System',q:'LCM of 4, 6, 8, and 12 is:',o:['24','48','12','36'],a:0,e:'4=2², 6=2×3, 8=2³, 12=2²×3. LCM = 2³×3 = 24.'},
+  {t:'Number System',q:'How many trailing zeros does 50! have?',o:['10','12','8','6'],a:1,e:'⌊50/5⌋ + ⌊50/25⌋ = 10 + 2 = 12.'},
+  {t:'Number System',q:'Which number is divisible by 11? 121, 132, 143, all of them',o:['121 only','132 only','143 only','All of them'],a:3,e:'121: (1+1)−2=0 ✓. 132: (1+2)−3=0 ✓. 143: (1+3)−4=0 ✓. All divisible by 11.'},
+  {t:'Percentages',q:'A salary increased by 20% then decreased by 20%. Net change?',o:['No change','-4%','+4%','-2%'],a:1,e:'Net = 20−20−(20×20/100) = −4%. Always a loss when same % increase and decrease.'},
+  {t:'Percentages',q:'If A is 25% more than B, then B is less than A by:',o:['20%','25%','16.67%','33.33%'],a:0,e:'25/(100+25)×100 = 25/125×100 = 20%.'},
+  {t:'Profit & Loss',q:'An item bought for ₹500 is sold at 20% profit. SP = ?',o:['₹580','₹600','₹520','₹550'],a:1,e:'SP = 500 × 120/100 = ₹600.'},
+  {t:'Profit & Loss',q:'Two items sold at ₹990 each — one at 10% profit, one at 10% loss. Net result?',o:['No profit/loss','Loss of ₹20','Loss of 1%','Profit of ₹20'],a:2,e:'Net loss = (10²/100)% = 1%. This is a standard identity: same SP, same % profit/loss → always loss of x²/100%.'},
+  {t:'Profit & Loss',q:'Marked price ₹1000. Two successive discounts of 20% and 10%. Final SP?',o:['₹700','₹720','₹680','₹750'],a:1,e:'After 20%: 1000×0.8=₹800. After 10%: 800×0.9=₹720.'},
+  {t:'SI & CI',q:'P=₹8000, R=10% p.a., T=2 years. CI − SI = ?',o:['₹80','₹160','₹100','₹120'],a:0,e:'CI−SI = P(R/100)² = 8000×(0.1)² = 8000×0.01 = ₹80.'},
+  {t:'SI & CI',q:'A sum doubles itself in 5 years at SI. Rate of interest = ?',o:['15%','20%','25%','10%'],a:1,e:'If P doubles → SI = P. P = P×R×5/100 → R = 100/5 = 20%.'},
+  {t:'SI & CI',q:'₹5000 at 10% CI for 2 years. Amount = ?',o:['₹6000','₹6050','₹6100','₹5500'],a:1,e:'A = 5000×(1.1)² = 5000×1.21 = ₹6050.'},
+  {t:'Time & Work',q:'A does work in 12 days, B in 15 days. Together they finish in:',o:['6.67 days','6 days','7 days','5.5 days'],a:0,e:'Together = ab/(a+b) = 12×15/27 = 180/27 = 6.67 days. Efficiency method: LCM=60, A=5units/day, B=4units/day, Together=9units/day → 60/9 = 6.67 days.'},
+  {t:'Time & Work',q:'A pipe fills a tank in 6 hours, another empties it in 8 hours. Both open — tank fills in?',o:['24 hours','18 hours','20 hours','12 hours'],a:0,e:'Net rate = 1/6−1/8 = 4/24−3/24 = 1/24. Time = 24 hours.'},
+  {t:'Time & Work',q:'10 men complete a job in 12 days. How many days for 15 men (same job)?',o:['8 days','9 days','10 days','6 days'],a:0,e:'M₁D₁=M₂D₂ → 10×12=15×D₂ → D₂ = 120/15 = 8 days.'},
+  {t:'Speed & Distance',q:'A travels 300 km at 60 km/h, returns at 40 km/h. Average speed = ?',o:['50 km/h','48 km/h','46 km/h','52 km/h'],a:1,e:'Average speed = 2uv/(u+v) = 2×60×40/100 = 48 km/h. Never average the speeds directly!'},
+  {t:'Speed & Distance',q:'A train 150m long passes a pole in 15 seconds. Speed of train in km/h?',o:['36 km/h','40 km/h','54 km/h','60 km/h'],a:0,e:'Speed = 150/15 = 10 m/s = 10×18/5 = 36 km/h.'},
+  {t:'Speed & Distance',q:'Boat speed 8 km/h, stream 2 km/h. Upstream speed = ?',o:['10 km/h','6 km/h','8 km/h','4 km/h'],a:1,e:'Upstream = Boat − Stream = 8−2 = 6 km/h.'},
+  {t:'Ratio & Proportion',q:'A:B = 3:4 and B:C = 5:6. A:B:C = ?',o:['15:20:24','3:4:6','15:24:20','12:15:20'],a:0,e:'Make B equal: B = LCM(4,5)=20. A:B=15:20, B:C=20:24. So A:B:C = 15:20:24.'},
+  {t:'Ratio & Proportion',q:'Milk-water mixture 3:1. How much water added to 20L mixture to make ratio 1:1?',o:['10L','5L','15L','20L'],a:0,e:'20L mixture: 15L milk, 5L water. For 1:1 need milk=water=15L. Add 15−5=10L water.'},
+  {t:'Algebra',q:'If x+y=10 and xy=21, find x²+y².',o:['58','79','100','46'],a:0,e:'x²+y² = (x+y)²−2xy = 100−42 = 58.'},
+  {t:'Algebra',q:'Roots of x²−5x+6=0 are:',o:['2,3','1,6','-2,-3','5,1'],a:0,e:'Sum of roots=5, product=6. Factors: (x−2)(x−3)=0. Roots: 2 and 3.'},
+  {t:'Algebra',q:'Sum of AP: 3+7+11+…+99 = ?',o:['1275','1320','1200','1350'],a:0,e:'a=3, d=4, last=99. n=(99−3)/4+1=25. Sum=25/2×(3+99)=25×51=1275.'},
+  {t:'Algebra',q:'3rd term of GP: 2, 6, 18… is the 5th term = ?',o:['162','54','486','108'],a:0,e:'a=2, r=3. T₅ = 2×3⁴ = 2×81 = 162.'},
+  {t:'Geometry',q:'Area of equilateral triangle with side 6cm = ?',o:['9√3 cm²','18 cm²','6√3 cm²','12√3 cm²'],a:0,e:'Area = (√3/4)×6² = (√3/4)×36 = 9√3 cm².'},
+  {t:'Geometry',q:'A right triangle has legs 5 and 12. Hypotenuse = ?',o:['13','14','15','17'],a:0,e:'5-12-13 is a standard Pythagorean triple. √(25+144) = √169 = 13.'},
+  {t:'Geometry',q:'Circumference of a circle with diameter 14 cm (use π=22/7) = ?',o:['44 cm','88 cm','22 cm','66 cm'],a:0,e:'C = πd = 22/7 × 14 = 44 cm.'},
+  {t:'Mensuration',q:'Volume of a cylinder with r=7cm, h=10cm (π=22/7) = ?',o:['1540 cm³','1450 cm³','770 cm³','1250 cm³'],a:0,e:'V = πr²h = 22/7×49×10 = 1540 cm³.'},
+  {t:'Mensuration',q:'Surface area of a cube with side 5cm = ?',o:['150 cm²','125 cm²','100 cm²','175 cm²'],a:0,e:'SA = 6a² = 6×25 = 150 cm².'},
+  {t:'Mensuration',q:'Volume of sphere with r=3cm = ?',o:['36π cm³','108π cm³','12π cm³','72π cm³'],a:0,e:'V = (4/3)πr³ = (4/3)π×27 = 36π cm³.'},
+  {t:'P&C',q:'In how many ways can 5 books be arranged on a shelf?',o:['60','100','120','150'],a:2,e:'5! = 5×4×3×2×1 = 120.'},
+  {t:'P&C',q:'A committee of 4 is chosen from 7 people. Number of ways = ?',o:['35','28','42','21'],a:0,e:'⁷C₄ = ⁷C₃ = 7!/(3!×4!) = 35.'},
+  {t:'P&C',q:'Number of ways to seat 6 people around a circular table = ?',o:['120','360','720','60'],a:0,e:'Circular = (n−1)! = (6−1)! = 5! = 120.'},
+  {t:'P&C',q:'How many 3-digit numbers can be formed from 1,2,3,4,5 without repetition?',o:['60','125','100','120'],a:0,e:'⁵P₃ = 5×4×3 = 60.'},
+  {t:'Probability',q:'P(getting sum 8) when two dice are rolled = ?',o:['5/36','6/36','4/36','7/36'],a:0,e:'Favourable: (2,6),(3,5),(4,4),(5,3),(6,2) = 5 outcomes. P = 5/36.'},
+  {t:'Probability',q:'A bag has 4 red, 5 blue balls. P(drawing 2 red balls) = ?',o:['2/9','1/6','3/7','2/7'],a:1,e:'P = ⁴C₂/⁹C₂ = 6/36 = 1/6.'},
+  {t:'Probability',q:'P(at least one head) in 4 coin tosses = ?',o:['1/2','7/8','15/16','3/4'],a:2,e:'P(at least 1) = 1−P(none) = 1−(1/2)⁴ = 1−1/16 = 15/16.'},
+  {t:'DI & Misc',q:'Ratio of A:B ages now is 4:5. 8 years ago it was 2:3. Find current age of A.',o:['24','20','32','28'],a:2,e:'(4x−8)/(5x−8)=2/3 → 12x−24=10x−16 → 2x=8 → x=4. A = 4×4... wait: 4x=16... re-solve: 12x−24=10x−16 → 2x=8 → x=4. Hmm, A = 4×4=16... Let me use 4k and 5k: (4k−8)/(5k−8)=2/3 → 12k−24=10k−16 → 2k=8 → k=4. A=16? No: 4k=4×4=16... at 8 years ago A=8, B=12, ratio=8:12=2:3 ✓. Current A=16... but answer should be 32 based on common TCS patterns — check: 4k−8/5k−8=2/3, 12k−24=10k−16, 2k=8, k=4. A current = 16. Wait, the option 32 requires different setup. Checking option 32: if A=32, B=40. 8 yrs ago: 24:32=3:4≠2:3. If A=16,B=20. A currently 16. This means answer is actually 16 but closest is 20? Re-check: (4k−8)/(5k−8)=2/3 → 3(4k−8)=2(5k−8) → 12k−24=10k−16 → 2k=8 → k=4. Current: A=16, B=20. 8yr ago: 8:12=2:3 ✓. Correct answer A=16... Correcting options.'},
+  {t:'DI & Misc',q:'The minute hand of a clock is at 4, hour hand at 8. Angle between them = ?',o:['120°','150°','130°','140°'],a:0,e:'At H=8, M=20 (4 on clock = 20 min). Angle = |30×8 − 5.5×20| = |240−110| = 130°. Wait, if "minute at 4" means minute hand pointing at 4 → 20 min. "Hour at 8" means H=8. Angle = |30×8−5.5×20| = |240−110|= 130°.'},
+  {t:'DI & Misc',q:'Which is a leap year?',o:['1900','1700','2000','1800'],a:2,e:'Century years must be divisible by 400. Only 2000 qualifies. 1900, 1700, 1800 are divisible by 100 but not 400, so NOT leap years.'},
+  {t:'Number System',q:'Find the unit digit of 7⁸⁵.',o:['1','3','7','9'],a:2,e:'Unit digits of powers of 7 cycle as: 7,9,3,1,7,9,3,1 (cycle 4). 85 mod 4 = 1 → unit digit = 7.'},
+  {t:'Algebra',q:'If log(2)=0.301, how many digits in 2²⁰?',o:['6','7','8','5'],a:0,e:'log(2²⁰) = 20×0.301 = 6.02. Number of digits = ⌊6.02⌋+1 = 7. Answer = 7 digits.'},
+  {t:'P&C',q:'Number of diagonals in a hexagon = ?',o:['9','12','15','6'],a:0,e:'Diagonals = ⁿC₂−n = 15−6 = 9 for n=6.'},
+];
+
+// Fix the age question
+Qs[38]={t:'DI & Misc',q:'Ratio of A:B ages now is 5:3. 6 years ago it was 3:1. Find current age of A.',o:['15','20','25','30'],a:2,e:'(5k−6)/(3k−6)=3/1 → 5k−6=9k−18 → 4k=12 → k=3. Current A=5×3=15... Hmm: (5k−6)/(3k−6)=3 → 5k−6=9k−18 → 12=4k → k=3. A=15, B=9. 6yr ago: 9:3=3:1 ✓. A=15 → actually answer is 15. Let me fix. A: 15, B: 9.'};
+Qs[38]={t:'DI & Misc',q:'Present ratio of father to son age is 7:3. 5 years later, ratio will be 2:1. Find present age of son.',o:['15','20','25','30'],a:0,e:'7k+5 / 3k+5 = 2/1 → 7k+5 = 6k+10 → k=5. Son = 3×5 = 15 years.'};
+
+// Fix minute hand question
+Qs[39]={t:'DI & Misc',q:'Angle between clock hands at 3:40?',o:['120°','130°','140°','150°'],a:1,e:'|30H − 5.5M| = |30×3 − 5.5×40| = |90−220| = 130°.'};
+
+const topics=['All',...new Set(Qs.map(q=>q.t))];
+let curFilter='All',answered=0,correct=0;
+const answeredSet=new Set();
+
+function buildFilters(){
+  const row=document.getElementById('filterRow');
+  topics.forEach(t=>{
+    const btn=document.createElement('button');
+    btn.className='fbtn'+(t==='All'?' active':'');
+    const cnt=t==='All'?Qs.length:Qs.filter(q=>q.t===t).length;
+    btn.textContent=`${t} (${cnt})`;
+    btn.onclick=()=>{
+      document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');curFilter=t;renderQ();
+    };
+    row.appendChild(btn);
+  });
+}
+
+const topicCol={
+  'Number System':'rgba(91,141,238,.15)','Number System_t':'#8ab0f5',
+  'Percentages':'rgba(62,207,160,.12)','Percentages_t':'#3ecfa0',
+  'Profit & Loss':'rgba(240,160,48,.12)','Profit & Loss_t':'#f0a030',
+  'SI & CI':'rgba(176,110,245,.12)','SI & CI_t':'#b06ef5',
+  'Time & Work':'rgba(224,86,114,.1)','Time & Work_t':'#e05672',
+  'Speed & Distance':'rgba(56,200,212,.1)','Speed & Distance_t':'#38c8d4',
+  'Ratio & Proportion':'rgba(91,141,238,.12)','Ratio & Proportion_t':'#8ab0f5',
+  'Algebra':'rgba(240,160,48,.15)','Algebra_t':'#f0a030',
+  'Geometry':'rgba(62,207,160,.15)','Geometry_t':'#3ecfa0',
+  'Mensuration':'rgba(176,110,245,.15)','Mensuration_t':'#b06ef5',
+  'P&C':'rgba(224,86,114,.12)','P&C_t':'#e05672',
+  'Probability':'rgba(56,200,212,.12)','Probability_t':'#38c8d4',
+  'DI & Misc':'rgba(240,160,48,.1)','DI & Misc_t':'#f0a030',
+};
+
+function renderQ(){
+  const c=document.getElementById('qc');c.innerHTML='';
+  const list=curFilter==='All'?Qs:Qs.filter(q=>q.t===curFilter);
+  list.forEach((q,i)=>{
+    const gi=Qs.indexOf(q);
+    const div=document.createElement('div');
+    div.className='qb';div.id='qb-'+gi;
+    const bg=topicCol[q.t]||'rgba(91,141,238,.14)';
+    const tc=topicCol[q.t+'_t']||'#8ab0f5';
+    const done=answeredSet.has(String(gi));
+    div.innerHTML=`<div class="qt"><span style="font-size:11px;background:${bg};color:${tc};padding:3px 9px;border-radius:20px;font-weight:600">${q.t}</span><br><br>Q${i+1}. ${q.q}</div>
+    <div class="opts">${q.o.map((o,oi)=>`<button class="opt${done&&oi===q.a?' correct':''}" id="opt-${gi}-${oi}" onclick="checkAns(${gi},${oi},${q.a},this)">${String.fromCharCode(65+oi)}. ${o}</button>`).join('')}</div>
+    <div class="expln${done?' show':''}" id="exp-${gi}">${q.e}</div>`;
+    if(done){div.querySelectorAll('.opt').forEach(b=>b.style.pointerEvents='none');}
+    c.appendChild(div);
+  });
+}
+
+function checkAns(gi,chosen,ans,btn){
+  if(answeredSet.has(String(gi)))return;
+  answeredSet.add(String(gi));answered++;
+  const block=document.getElementById('qb-'+gi);
+  block.querySelectorAll('.opt').forEach((o,i)=>{
+    o.style.pointerEvents='none';
+    if(i===ans)o.classList.add('correct');
+  });
+  if(chosen!==ans)btn.classList.add('wrong');else correct++;
+  document.getElementById('exp-'+gi).classList.add('show');
+  const pct=Math.round(correct/answered*100);
+  document.getElementById('scoreD').textContent=correct+' / '+answered+' answered';
+  document.getElementById('scorePct').textContent=answered>0?`(${pct}% accuracy)`:'';
+}
+
+function resetQ(){
+  answered=0;correct=0;answeredSet.clear();
+  document.getElementById('scoreD').textContent='0 / 0 answered';
+  document.getElementById('scorePct').textContent='';
+  renderQ();
+}
+
+buildFilters();renderQ();
+
+// ═══════ CHEAT SHEET ═══════
+const csData=[
+  {col:'#8ab0f5',title:'🔢 Number System',items:[
+    '<b>HCF × LCM = a × b</b>',
+    'Div by 9: digit sum div by 9',
+    'Div by 11: alternating sum div by 11',
+    'Trailing zeros in n! = ⌊n/5⌋+⌊n/25⌋+…',
+    'Sum 1 to n = <b>n(n+1)/2</b>',
+    'Sum of squares = <b>n(n+1)(2n+1)/6</b>',
+    'Sum of cubes = <b>[n(n+1)/2]²</b>',
+    'Unit digit of 7ⁿ cycles: 7,9,3,1 (period 4)',
+    'aⁿ mod (a−1) = 1 (if a−1 is coprime)',
+  ]},
+  {col:'#3ecfa0',title:'📊 Percentages &amp; Profit/Loss',items:[
+    'A is x% more → B less by <b>x/(100+x)×100%</b>',
+    'Successive x%,y%: net = <b>x+y+xy/100</b>',
+    'Same SP, profit x%, loss x% → net loss <b>x²/100%</b>',
+    'Alligation: (costlier−mean):(mean−cheaper)',
+    'Discount on MP: SP=MP×(100−d%)/100',
+    '2 discounts d1,d2: net = d1+d2−d1d2/100',
+    'CP if SP and profit% given: <b>SP×100/(100+P%)</b>',
+  ]},
+  {col:'#b06ef5',title:'🏦 SI, CI &amp; Mixtures',items:[
+    '<b>SI = PRT/100</b>',
+    '<b>CI: A = P(1+R/100)ⁿ</b>',
+    '<b>CI−SI (2yr) = P(R/100)²</b>',
+    'Rule of 72: years to double ≈ 72/R',
+    'Mixture replacement: fraction = (1−x/V)ⁿ',
+    'Population growth: A = P(1±R/100)ⁿ',
+  ]},
+  {col:'#f0a030',title:'⚙️ Time &amp; Work',items:[
+    'A+B together = <b>ab/(a+b) days</b>',
+    'Total work = LCM of individual times (efficiency)',
+    '<b>M₁D₁H₁/W₁ = M₂D₂H₂/W₂</b>',
+    'Inlet a hrs, outlet b hrs: fills in <b>ab/(b−a)</b>',
+    'Remaining work × (1/daily rate) = days',
+  ]},
+  {col:'#e05672',title:'🚂 Speed &amp; Distance',items:[
+    'Avg speed (equal dist) = <b>2uv/(u+v)</b>',
+    '<b>km/h × 5/18 = m/s</b>',
+    'Train cross pole: length/speed',
+    'Trains opp: RS = S1+S2; same: S1−S2',
+    'Boat downstream = B+R; upstream = B−R',
+    'B = (D+U)/2; R = (D−U)/2',
+  ]},
+  {col:'#38c8d4',title:'📈 AP &amp; GP',items:[
+    'AP nth term: <b>a+(n−1)d</b>',
+    'AP sum: <b>n/2 × (2a+(n−1)d)</b>',
+    'GP nth term: <b>arⁿ⁻¹</b>',
+    'GP sum: <b>a(rⁿ−1)/(r−1)</b>',
+    'Infinite GP: <b>a/(1−r)</b> for |r|&lt;1',
+    'GM of a,b = √(ab)',
+  ]},
+  {col:'#b06ef5',title:'📐 Geometry &amp; Mensuration',items:[
+    'Equilateral △ area = <b>(√3/4)a²</b>',
+    "Heron's: <b>√[s(s−a)(s−b)(s−c)]</b>",
+    'Pythagorean triples: 3-4-5, 5-12-13, 8-15-17',
+    'Cylinder V = <b>πr²h</b>, CSA = <b>2πrh</b>',
+    'Cone V = <b>(1/3)πr²h</b>, CSA = <b>πrl</b>',
+    'Sphere V = <b>(4/3)πr³</b>, SA = <b>4πr²</b>',
+    'Cuboid diagonal = <b>√(l²+b²+h²)</b>',
+  ]},
+  {col:'#e05672',title:'🎯 P&amp;C &amp; Probability',items:[
+    '<b>ⁿPᵣ = n!/(n−r)!</b> — order matters',
+    '<b>ⁿCᵣ = n!/[r!(n−r)!]</b> — order does not',
+    'Circular: <b>(n−1)!</b>; necklace: (n−1)!/2',
+    'With repetition: <b>n!/p!q!r!…</b>',
+    '<b>P(A∪B) = P(A)+P(B)−P(A∩B)</b>',
+    'P(at least 1) = <b>1−P(none)</b>',
+    'Two dice sum 7: P = 6/36 = 1/6 (highest)',
+  ]},
+  {col:'#38c8d4',title:'🕐 Clocks &amp; Calendar',items:[
+    'Angle = <b>|30H − 5.5M|°</b>',
+    'Hands coincide every <b>720/11 ≈ 65.45 min</b>',
+    'Leap year: div by 4 (centuries → div by 400)',
+    '1900 is NOT leap; 2000 IS leap',
+    'Odd days: ord year=1, leap=2, century=5',
+  ]},
+];
+
+const csg=document.getElementById('csGrid');
+csData.forEach(cs=>{
+  const div=document.createElement('div');
+  div.className='csb';
+  div.innerHTML=`<h3 style="color:${cs.col}">${cs.title}</h3><ul>${cs.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+  csg.appendChild(div);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TCS TQT — Complete Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   ROOT + RESET
+═══════════════════════════════════════════ */
+:root{
+  --bg:#07080c;
+  --bg2:#0d0f15;
+  --bg3:#12141c;
+  --bg4:#181b26;
+  --bg5:#1e2130;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.1);
+  --text:#e8eaf2;
+  --muted:#5a5f78;
+  --muted2:#8890aa;
+
+  --v:#7c6ef5;   /* verbal — purple */
+  --q:#f59e0b;   /* quant — amber */
+  --c:#3ecfa0;   /* coding — green */
+  --l:#e05672;   /* logical — pink */
+  --accent:#4f9cf9; /* global accent blue */
+
+  --fh:'Syne',sans-serif;
+  --fb:'Outfit',sans-serif;
+  --fm:'DM Mono',monospace;
+
+  --sidebar:260px;
+  --topbar:58px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px;line-height:1.6}
+
+/* ═══════════════════════════════════════════
+   LAYOUT SHELL
+═══════════════════════════════════════════ */
+.shell{display:flex;height:100vh;width:100vw;overflow:hidden}
+
+/* ═══════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════ */
+.sidebar{
+  width:var(--sidebar);min-width:var(--sidebar);
+  background:var(--bg2);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  z-index:50;
+  transition:width .3s ease;
+}
+.sidebar.collapsed{width:60px;min-width:60px}
+
+.logo-area{
+  padding:18px 16px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:11px;
+  cursor:pointer;
+}
+.logo-icon{
+  width:32px;height:32px;min-width:32px;
+  background:linear-gradient(135deg,#4f9cf9,#a855f7);
+  border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fh);font-size:14px;font-weight:800;color:#fff;
+  box-shadow:0 4px 14px rgba(79,156,249,.35);
+}
+.logo-text{overflow:hidden;white-space:nowrap}
+.logo-name{font-family:var(--fh);font-size:14px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.logo-sub{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
+
+/* Collapse toggle */
+.collapse-btn{
+  position:absolute;right:-11px;top:23px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--bg3);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:10px;color:var(--muted2);
+  transition:all .2s;z-index:60;
+}
+.collapse-btn:hover{background:var(--bg4);color:var(--text)}
+.sidebar{position:relative}
+
+/* Sidebar sections */
+.sb-section{padding:10px 0;border-bottom:1px solid var(--border)}
+.sb-label{
+  font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:6px 16px 4px;
+  overflow:hidden;white-space:nowrap;
+}
+.sb-item{
+  display:flex;align-items:center;gap:11px;
+  padding:9px 16px;cursor:pointer;
+  transition:all .18s;position:relative;
+  overflow:hidden;white-space:nowrap;
+  border-radius:0;
+}
+.sb-item:hover{background:rgba(255,255,255,.04)}
+.sb-item.active{background:rgba(79,156,249,.1)}
+.sb-item.active .sb-item-icon{opacity:1}
+.sb-item.active::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--accent);border-radius:0 2px 2px 0;
+}
+.sb-item-icon{
+  width:32px;height:32px;min-width:32px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;opacity:.7;transition:opacity .18s;
+  flex-shrink:0;
+}
+.sb-item:hover .sb-item-icon{opacity:1}
+.sb-item-text{overflow:hidden}
+.sb-item-name{font-size:13px;font-weight:500;color:var(--text)}
+.sb-item-meta{font-size:11px;color:var(--muted);margin-top:1px}
+
+/* Progress bar in sidebar */
+.sb-progress{
+  height:3px;background:rgba(255,255,255,.06);border-radius:2px;
+  margin-top:5px;overflow:hidden;
+}
+.sb-progress-fill{height:100%;border-radius:2px;transition:width .6s ease}
+
+/* Sidebar footer */
+.sb-footer{
+  margin-top:auto;padding:14px 16px;border-top:1px solid var(--border);
+}
+.countdown-widget{
+  background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+  padding:12px 14px;overflow:hidden;
+}
+.cw-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px}
+.cw-days{font-family:var(--fh);font-size:28px;font-weight:800;color:var(--accent);line-height:1}
+.cw-sub{font-size:11px;color:var(--muted2);margin-top:3px}
+.cw-bar{height:4px;background:rgba(255,255,255,.06);border-radius:2px;margin-top:10px;overflow:hidden}
+.cw-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#a855f7);border-radius:2px;transition:width 1s}
+
+/* ═══════════════════════════════════════════
+   MAIN AREA
+═══════════════════════════════════════════ */
+.main-area{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+
+/* Topbar */
+.topbar{
+  height:var(--topbar);min-height:var(--topbar);
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;gap:16px;
+}
+.topbar-left{display:flex;align-items:center;gap:12px}
+.topbar-title{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--text)}
+.topbar-breadcrumb{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.bc-sep{color:var(--muted);opacity:.5}
+.topbar-right{display:flex;align-items:center;gap:10px}
+
+.top-btn{
+  font-family:var(--fb);font-size:12px;padding:6px 14px;
+  border-radius:7px;border:1px solid var(--border2);
+  background:var(--bg3);color:var(--muted2);cursor:pointer;
+  transition:all .18s;display:flex;align-items:center;gap:6px;
+}
+.top-btn:hover{background:var(--bg4);color:var(--text);border-color:rgba(255,255,255,.15)}
+.top-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.top-btn.primary:hover{background:#3a8ae8;border-color:#3a8ae8}
+
+/* Content panel */
+.content-panel{flex:1;overflow:hidden;position:relative}
+
+/* ═══════════════════════════════════════════
+   HOME PAGE
+═══════════════════════════════════════════ */
+#page-home{
+  height:100%;overflow-y:auto;
+  background:var(--bg);
+  scrollbar-width:thin;scrollbar-color:var(--bg4) transparent;
+}
+#page-home::-webkit-scrollbar{width:5px}
+#page-home::-webkit-scrollbar-track{background:transparent}
+#page-home::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+
+.home-hero{
+  position:relative;padding:52px 40px 44px;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%,rgba(79,156,249,.07) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%,rgba(168,85,247,.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+  opacity:.5;
+}
+.hero-content{position:relative;z-index:1;max-width:680px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(79,156,249,.1);border:1px solid rgba(79,156,249,.25);
+  border-radius:20px;padding:5px 12px;font-size:11px;font-weight:600;
+  color:#82b4fb;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;
+}
+.hero-tag-dot{width:6px;height:6px;background:#4f9cf9;border-radius:50%;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+h1.hero-title{
+  font-family:var(--fh);font-size:clamp(28px,3.5vw,42px);
+  font-weight:800;line-height:1.08;letter-spacing:-.03em;
+  color:var(--text);margin-bottom:14px;
+}
+h1.hero-title span{
+  background:linear-gradient(135deg,#4f9cf9,#a855f7);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{font-size:14.5px;color:var(--muted2);line-height:1.65;max-width:520px;margin-bottom:28px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-primary{
+  font-family:var(--fb);font-size:13px;font-weight:600;
+  padding:10px 22px;border-radius:9px;border:none;
+  background:linear-gradient(135deg,#4f9cf9,#6366f1);
+  color:#fff;cursor:pointer;transition:all .2s;
+  box-shadow:0 4px 16px rgba(79,156,249,.3);
+  display:flex;align-items:center;gap:7px;
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(79,156,249,.4)}
+.btn-secondary{
+  font-family:var(--fb);font-size:13px;font-weight:500;
+  padding:10px 22px;border-radius:9px;
+  border:1px solid var(--border2);background:var(--bg3);
+  color:var(--muted2);cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:7px;
+}
+.btn-secondary:hover{background:var(--bg4);color:var(--text);border-color:rgba(255,255,255,.15)}
+
+/* Stats strip */
+.stats-strip{
+  display:flex;border-bottom:1px solid var(--border);
+}
+.stat-item{
+  flex:1;padding:20px 24px;border-right:1px solid var(--border);
+  display:flex;align-items:center;gap:14px;
+}
+.stat-item:last-child{border-right:none}
+.stat-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  flex-shrink:0;
+}
+.stat-num{font-family:var(--fh);font-size:22px;font-weight:700}
+.stat-label{font-size:11.5px;color:var(--muted);margin-top:1px}
+
+/* Subject grid */
+.home-section{padding:32px 40px}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px}
+.section-title{font-family:var(--fh);font-size:16px;font-weight:700}
+.section-sub{font-size:12px;color:var(--muted)}
+
+.subject-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.subject-grid{grid-template-columns:1fr}}
+
+.subject-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:16px;
+  padding:22px;cursor:pointer;
+  transition:all .22s;position:relative;overflow:hidden;
+}
+.subject-card::before{
+  content:'';position:absolute;inset:0;opacity:0;
+  transition:opacity .22s;border-radius:16px;
+}
+.subject-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.12)}
+.subject-card:hover::before{opacity:1}
+
+.subject-card.verbal::before{background:radial-gradient(ellipse at top right,rgba(124,110,245,.1),transparent 70%)}
+.subject-card.quant::before{background:radial-gradient(ellipse at top right,rgba(245,158,11,.08),transparent 70%)}
+.subject-card.coding::before{background:radial-gradient(ellipse at top right,rgba(62,207,160,.08),transparent 70%)}
+.subject-card.logical::before{background:radial-gradient(ellipse at top right,rgba(224,86,114,.08),transparent 70%)}
+
+.subject-card:hover .sc-arrow{transform:translate(3px,-3px);opacity:1}
+
+.sc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.sc-icon{
+  width:46px;height:46px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  flex-shrink:0;position:relative;z-index:1;
+}
+.verbal .sc-icon{background:rgba(124,110,245,.15);box-shadow:0 0 0 1px rgba(124,110,245,.25)}
+.quant .sc-icon{background:rgba(245,158,11,.13);box-shadow:0 0 0 1px rgba(245,158,11,.2)}
+.coding .sc-icon{background:rgba(62,207,160,.12);box-shadow:0 0 0 1px rgba(62,207,160,.2)}
+.logical .sc-icon{background:rgba(224,86,114,.12);box-shadow:0 0 0 1px rgba(224,86,114,.2)}
+
+.sc-arrow{
+  font-size:16px;color:var(--muted);opacity:0;
+  transition:all .22s;flex-shrink:0;
+}
+.sc-name{font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:5px;position:relative;z-index:1}
+.sc-desc{font-size:12.5px;color:var(--muted);line-height:1.55;position:relative;z-index:1;margin-bottom:16px}
+.sc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;position:relative;z-index:1}
+.sc-tag{
+  font-size:11px;padding:3px 9px;border-radius:20px;
+  background:var(--bg4);border:1px solid var(--border);color:var(--muted2);
+}
+.sc-footer{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+.sc-stats{display:flex;gap:14px}
+.sc-stat{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:4px}
+.sc-stat b{color:var(--muted2);font-weight:600}
+
+.sc-progress-wrap{display:flex;align-items:center;gap:8px}
+.sc-prog-bar{width:80px;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.sc-prog-fill{height:100%;border-radius:2px;transition:width .6s ease}
+.verbal .sc-prog-fill{background:var(--v)}
+.quant .sc-prog-fill{background:var(--q)}
+.coding .sc-prog-fill{background:var(--c)}
+.logical .sc-prog-fill{background:var(--l)}
+.sc-prog-pct{font-size:11px;color:var(--muted);font-family:var(--fm)}
+
+/* Plan section */
+.plan-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.plan-day{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:12px 10px;text-align:center;cursor:default;transition:all .18s;
+}
+.plan-day.today{border-color:rgba(79,156,249,.4);background:rgba(79,156,249,.06)}
+.plan-day.done{border-color:rgba(62,207,160,.3);background:rgba(62,207,160,.04)}
+.plan-day.done .pd-num{color:#3ecfa0}
+.plan-day.today .pd-num{color:#4f9cf9}
+.pd-num{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--muted)}
+.pd-label{font-size:10px;color:var(--muted);margin-top:2px}
+.pd-subject{font-size:11px;margin-top:6px;font-weight:500}
+.pd-dot{width:6px;height:6px;border-radius:50%;margin:5px auto 0}
+
+/* Quick tips */
+.tips-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:0}
+.tip-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:16px;
+}
+.tip-card-icon{font-size:22px;margin-bottom:8px}
+.tip-card-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px}
+.tip-card-body{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ═══════════════════════════════════════════
+   STUDY PAGE (iframe wrapper)
+═══════════════════════════════════════════ */
+#page-study{
+  height:100%;display:none;flex-direction:column;
+  background:var(--bg);
+}
+#page-study.active{display:flex}
+
+.study-header{
+  padding:12px 20px;
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;flex-shrink:0;
+}
+.sh-back{
+  width:30px;height:30px;border-radius:7px;
+  background:var(--bg3);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--muted);font-size:14px;
+  transition:all .18s;flex-shrink:0;
+}
+.sh-back:hover{background:var(--bg4);color:var(--text)}
+.sh-badge{
+  width:34px;height:34px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  flex-shrink:0;
+}
+.sh-info{flex:1;min-width:0}
+.sh-title{font-family:var(--fh);font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-sub{font-size:11px;color:var(--muted)}
+.sh-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.sh-prog{display:flex;align-items:center;gap:8px}
+.sh-prog-bar{width:100px;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.sh-prog-fill{height:100%;border-radius:3px;transition:width .4s}
+.sh-prog-pct{font-size:11px;color:var(--muted);font-family:var(--fm);min-width:30px}
+
+.study-frame-wrap{flex:1;overflow:hidden;position:relative}
+.study-frame{
+  width:100%;height:100%;border:none;
+  background:var(--bg);
+  display:block;
+}
+
+/* Loading overlay */
+.frame-loading{
+  position:absolute;inset:0;
+  background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  z-index:10;transition:opacity .3s;
+}
+.frame-loading.hidden{opacity:0;pointer-events:none}
+.loading-spinner{
+  width:36px;height:36px;border-radius:50%;
+  border:3px solid var(--bg4);
+  border-top-color:var(--accent);
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:13px;color:var(--muted)}
+
+/* ═══════════════════════════════════════════
+   SIDEBAR COLLAPSED STATE
+═══════════════════════════════════════════ */
+.sidebar.collapsed .sb-label,
+.sidebar.collapsed .sb-item-text,
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .sb-footer{display:none}
+.sidebar.collapsed .sb-item{padding:9px;justify-content:center}
+.sidebar.collapsed .logo-area{padding:12px;justify-content:center}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR GLOBAL
+═══════════════════════════════════════════ */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+
+/* ═══════════════════════════════════════════
+   NOTIFICATION TOAST
+═══════════════════════════════════════════ */
+.toast{
+  position:fixed;bottom:24px;right:24px;z-index:1000;
+  background:var(--bg3);border:1px solid var(--border2);border-radius:12px;
+  padding:12px 18px;font-size:13px;color:var(--text);
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+  transform:translateY(80px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  pointer-events:none;max-width:320px;
+}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-icon{font-size:16px;flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:768px){
+  .sidebar{position:absolute;left:-260px;top:0;bottom:0;z-index:100;transition:left .3s}
+  .sidebar.mobile-open{left:0}
+  .stats-strip{flex-wrap:wrap}
+  .stat-item{min-width:50%}
+  .subject-grid{grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:repeat(5,1fr)}
+  .tips-row{grid-template-columns:1fr}
+  .home-hero{padding:32px 20px 28px}
+  .home-section{padding:24px 20px}
+  .stats-strip .stat-item{padding:14px 16px}
+}
+
+/* ═══════════════════════════════════════════
+   MICRO ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.anim-1{animation:fadeUp .5s .05s both}
+.anim-2{animation:fadeUp .5s .15s both}
+.anim-3{animation:fadeUp .5s .25s both}
+.anim-4{animation:fadeUp .5s .35s both}
+.anim-5{animation:fadeUp .5s .45s both}
+.anim-6{animation:fadeUp .5s .55s both}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ═══════ SIDEBAR ═══════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="collapse-btn" id="collapseBtn" title="Toggle sidebar">◀</div>
+
+    <div class="logo-area" onclick="goHome()">
+      <div class="logo-icon">T</div>
+      <div class="logo-text">
+        <div class="logo-name">TCS TQT Hub</div>
+        <div class="logo-sub">Study Command Center</div>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Navigation</div>
+      <div class="sb-item active" id="nav-home" onclick="goHome()">
+        <div class="sb-item-icon" style="background:rgba(79,156,249,.12)">🏠</div>
+        <div class="sb-item-text">
+          <div class="sb-item-name">Dashboard</div>
+          <div class="sb-item-meta">Overview &amp; progress</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sb-section" style="flex:1;overflow-y:auto;overflow-x:hidden">
+      <div class="sb-label">Study Material</div>
+
+      <div class="sb-item" id="nav-verbal" onclick="openSubject('verbal')">
+        <div class="sb-item-icon" style="background:rgba(124,110,245,.13)">📝</div>
+        <div class="sb-item-text">
+          <div class="sb-item-name">Verbal Ability</div>
+          <div class="sb-item-meta">Grammar · Vocab · RC</div>
+          <div class="sb-progress"><div class="sb-progress-fill" id="sb-prog-verbal" style="background:var(--v);width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="sb-item" id="nav-quant" onclick="openSubject('quant')">
+        <div class="sb-item-icon" style="background:rgba(245,158,11,.12)">🔢</div>
+        <div class="sb-item-text">
+          <div class="sb-item-name">Quantitative Aptitude</div>
+          <div class="sb-item-meta">Numbers · Algebra · Geo</div>
+          <div class="sb-progress"><div class="sb-progress-fill" id="sb-prog-quant" style="background:var(--q);width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="sb-item" id="nav-coding" onclick="openSubject('coding')">
+        <div class="sb-item-icon" style="background:rgba(62,207,160,.11)">💻</div>
+        <div class="sb-item-text">
+          <div class="sb-item-name">Coding</div>
+          <div class="sb-item-meta">DSA · Complexity · Output</div>
+          <div class="sb-progress"><div class="sb-progress-fill" id="sb-prog-coding" style="background:var(--c);width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="sb-item" id="nav-logical" onclick="openSubject('logical')">
+        <div class="sb-item-icon" style="background:rgba(224,86,114,.11)">🧠</div>
+        <div class="sb-item-text">
+          <div class="sb-item-name">Logical Reasoning</div>
+          <div class="sb-item-meta">Syllogisms · Seating · Series</div>
+          <div class="sb-progress"><div class="sb-progress-fill" id="sb-prog-logical" style="background:var(--l);width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sb-footer">
+      <div class="countdown-widget" id="countdownWidget">
+        <div class="cw-label">Exam countdown</div>
+        <div class="cw-days" id="cwDays">10</div>
+        <div class="cw-sub" id="cwSub">days remaining</div>
+        <div class="cw-bar"><div class="cw-bar-fill" id="cwBar" style="width:100%"></div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════ MAIN ═══════ -->
+  <div class="main-area">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="top-btn" id="hamburger" onclick="toggleMobileSidebar()" style="display:none">☰</div>
+        <div>
+          <div class="topbar-title" id="topbarTitle">Dashboard</div>
+          <div class="topbar-breadcrumb" id="topbarBreadcrumb">
+            <span>TCS TQT Hub</span>
+            <span class="bc-sep">/</span>
+            <span style="color:var(--muted2)">Home</span>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="top-btn" onclick="resetProgress()">↺ Reset Progress</button>
+        <button class="top-btn primary" id="topCTA" onclick="goHome()">📊 Dashboard</button>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content-panel">
+
+      <!-- HOME PAGE -->
+      <div id="page-home">
+
+        <!-- Hero -->
+        <div class="home-hero">
+          <div class="hero-bg"></div>
+          <div class="hero-grid"></div>
+          <div class="hero-content">
+            <div class="hero-tag anim-1">
+              <div class="hero-tag-dot"></div>
+              TCS TQT 2025 — Complete Prep Kit
+            </div>
+            <h1 class="hero-title anim-2">Your <span>study command</span><br>center is ready.</h1>
+            <p class="hero-sub anim-3">All four sections — Verbal, Quant, Coding, and Logical Reasoning — with formulas, rules, practice questions, flashcards, and cheat sheets. Everything you need to crack TCS TQT.</p>
+            <div class="hero-actions anim-4">
+              <button class="btn-primary" onclick="openSubject('verbal')">
+                <span>▶</span> Start Studying
+              </button>
+              <button class="btn-secondary" onclick="document.getElementById('subjectSection').scrollIntoView({behavior:'smooth'})">
+                <span>↓</span> Browse Sections
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="stats-strip anim-4">
+          <div class="stat-item">
+            <div class="stat-icon" style="background:rgba(79,156,249,.1);font-size:20px">📚</div>
+            <div>
+              <div class="stat-num" style="color:#4f9cf9">4</div>
+              <div class="stat-label">Complete sections</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon" style="background:rgba(62,207,160,.1);font-size:20px">❓</div>
+            <div>
+              <div class="stat-num" style="color:#3ecfa0">175+</div>
+              <div class="stat-label">Practice questions</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon" style="background:rgba(245,158,11,.1);font-size:20px">⚡</div>
+            <div>
+              <div class="stat-num" style="color:#f59e0b">120</div>
+              <div class="stat-label">Flashcards</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon" style="background:rgba(168,85,247,.1);font-size:20px">📋</div>
+            <div>
+              <div class="stat-num" style="color:#a855f7">500+</div>
+              <div class="stat-label">Rules &amp; examples</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subject cards -->
+        <div class="home-section anim-5" id="subjectSection">
+          <div class="section-header">
+            <div class="section-title">Study Sections</div>
+            <div class="section-sub">Click any card to open the full material</div>
+          </div>
+          <div class="subject-grid">
+
+            <div class="subject-card verbal" onclick="openSubject('verbal')">
+              <div class="sc-top">
+                <div class="sc-icon">📝</div>
+                <div class="sc-arrow">↗</div>
+              </div>
+              <div class="sc-name" style="color:#a89ff8">Verbal Ability</div>
+              <div class="sc-desc">Complete grammar rules, 60 vocabulary words with memory tricks, para jumble strategy, and RC techniques — all in one place.</div>
+              <div class="sc-tags">
+                <span class="sc-tag">Grammar</span>
+                <span class="sc-tag">Vocabulary</span>
+                <span class="sc-tag">Para Jumbles</span>
+                <span class="sc-tag">Reading Comprehension</span>
+                <span class="sc-tag">Cloze Test</span>
+              </div>
+              <div class="sc-footer">
+                <div class="sc-stats">
+                  <div class="sc-stat">📖 <b>6</b> tabs</div>
+                  <div class="sc-stat">❓ <b>40+</b> questions</div>
+                </div>
+                <div class="sc-progress-wrap">
+                  <div class="sc-prog-bar"><div class="sc-prog-fill" id="prog-verbal" style="width:0%"></div></div>
+                  <div class="sc-prog-pct" id="pct-verbal">0%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subject-card quant" onclick="openSubject('quant')">
+              <div class="sc-top">
+                <div class="sc-icon">🔢</div>
+                <div class="sc-arrow">↗</div>
+              </div>
+              <div class="sc-name" style="color:#fcd34d">Quantitative Aptitude</div>
+              <div class="sc-desc">Number system, arithmetic shortcuts, algebra, geometry, permutations &amp; probability — 150+ formulas with worked examples and tricks.</div>
+              <div class="sc-tags">
+                <span class="sc-tag">Number System</span>
+                <span class="sc-tag">Arithmetic</span>
+                <span class="sc-tag">Algebra &amp; AP/GP</span>
+                <span class="sc-tag">Geometry</span>
+                <span class="sc-tag">P&amp;C &amp; Probability</span>
+              </div>
+              <div class="sc-footer">
+                <div class="sc-stats">
+                  <div class="sc-stat">📖 <b>9</b> tabs</div>
+                  <div class="sc-stat">❓ <b>45</b> questions</div>
+                </div>
+                <div class="sc-progress-wrap">
+                  <div class="sc-prog-bar"><div class="sc-prog-fill" id="prog-quant" style="width:0%"></div></div>
+                  <div class="sc-prog-pct" id="pct-quant">0%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subject-card coding" onclick="openSubject('coding')">
+              <div class="sc-top">
+                <div class="sc-icon">💻</div>
+                <div class="sc-arrow">↗</div>
+              </div>
+              <div class="sc-name" style="color:#6ee7b7">Coding</div>
+              <div class="sc-desc">Big O complexity, arrays &amp; strings, linked lists, stacks &amp; queues, trees, sorting algorithms, DP — plus 20 output-tracing questions.</div>
+              <div class="sc-tags">
+                <span class="sc-tag">Complexity</span>
+                <span class="sc-tag">Arrays &amp; Strings</span>
+                <span class="sc-tag">Trees &amp; Graphs</span>
+                <span class="sc-tag">Sorting &amp; Search</span>
+                <span class="sc-tag">Output MCQs</span>
+              </div>
+              <div class="sc-footer">
+                <div class="sc-stats">
+                  <div class="sc-stat">📖 <b>11</b> tabs</div>
+                  <div class="sc-stat">❓ <b>45</b> questions</div>
+                </div>
+                <div class="sc-progress-wrap">
+                  <div class="sc-prog-bar"><div class="sc-prog-fill" id="prog-coding" style="width:0%"></div></div>
+                  <div class="sc-prog-pct" id="pct-coding">0%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subject-card logical" onclick="openSubject('logical')">
+              <div class="sc-top">
+                <div class="sc-icon">🧠</div>
+                <div class="sc-arrow">↗</div>
+              </div>
+              <div class="sc-name" style="color:#fda4af">Logical Reasoning</div>
+              <div class="sc-desc">Syllogisms, blood relations, seating arrangements, directions, series, coding-decoding, and puzzles — with step-by-step strategies for each.</div>
+              <div class="sc-tags">
+                <span class="sc-tag">Syllogisms</span>
+                <span class="sc-tag">Blood Relations</span>
+                <span class="sc-tag">Seating</span>
+                <span class="sc-tag">Series &amp; Analogy</span>
+                <span class="sc-tag">Coding-Decoding</span>
+              </div>
+              <div class="sc-footer">
+                <div class="sc-stats">
+                  <div class="sc-stat">📖 <b>10</b> tabs</div>
+                  <div class="sc-stat">❓ <b>45</b> questions</div>
+                </div>
+                <div class="sc-progress-wrap">
+                  <div class="sc-prog-bar"><div class="sc-prog-fill" id="prog-logical" style="width:0%"></div></div>
+                  <div class="sc-prog-pct" id="pct-logical">0%</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 10-Day Plan Strip -->
+        <div class="home-section anim-6" style="padding-top:0">
+          <div class="section-header">
+            <div class="section-title">10-Day Battle Plan</div>
+            <div class="section-sub" id="planDateSub">Track your daily focus areas</div>
+          </div>
+          <div class="plan-grid" id="planGrid"></div>
+        </div>
+
+        <!-- Tips -->
+        <div class="home-section" style="padding-top:0">
+          <div class="section-header">
+            <div class="section-title">Exam Strategy</div>
+          </div>
+          <div class="tips-row">
+            <div class="tip-card">
+              <div class="tip-card-icon">⏱️</div>
+              <div class="tip-card-title">Section order</div>
+              <div class="tip-card-body">In Verbal: Grammar → Vocab → Para Jumbles → RC. In LR: Coding-Decoding → Syllogisms → Blood Relations → Seating. Fastest topics first, bank marks early.</div>
+            </div>
+            <div class="tip-card">
+              <div class="tip-card-icon">📓</div>
+              <div class="tip-card-title">Maintain an error log</div>
+              <div class="tip-card-body">Every wrong answer — write the question, correct answer, and WHY you got it wrong. Review your error log every 2 days. This single habit boosts accuracy by 15–20%.</div>
+            </div>
+            <div class="tip-card">
+              <div class="tip-card-icon">🎯</div>
+              <div class="tip-card-title">No negative marking</div>
+              <div class="tip-card-body">TCS TQT typically has no negative marking in verbal and LR. NEVER leave a blank — use process of elimination and always mark something. Free marks on the table otherwise.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="padding:24px 40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+          <div style="font-size:12px;color:var(--muted)">TCS TQT Study Hub · All study material in one place</div>
+          <div style="font-size:12px;color:var(--muted)">Keep all 5 files in the same folder to use this hub</div>
+        </div>
+
+      </div><!-- /page-home -->
+
+      <!-- STUDY PAGE -->
+      <div id="page-study">
+        <div class="study-header">
+          <div class="sh-back" onclick="goHome()">←</div>
+          <div class="sh-badge" id="shBadge">📝</div>
+          <div class="sh-info">
+            <div class="sh-title" id="shTitle">Verbal Ability</div>
+            <div class="sh-sub" id="shSub">Grammar · Vocabulary · RC · Para Jumbles</div>
+          </div>
+          <div class="sh-actions">
+            <div class="sh-prog">
+              <div class="sh-prog-bar"><div class="sh-prog-fill" id="shProgFill" style="width:0%"></div></div>
+              <div class="sh-prog-pct" id="shProgPct">0%</div>
+            </div>
+            <div class="top-btn" onclick="markProgress(25)" title="Mark +25% progress">+25%</div>
+            <div class="top-btn" onclick="markProgress(50)" title="Mark 50% done">50%</div>
+            <div class="top-btn" onclick="markProgress(100)" style="color:#3ecfa0" title="Mark complete">✓ Done</div>
+          </div>
+        </div>
+        <div class="study-frame-wrap">
+          <div class="frame-loading" id="frameLoading">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading study material…</div>
+          </div>
+          <iframe id="studyFrame" class="study-frame" src="about:blank" onload="frameLoaded()"></iframe>
+        </div>
+      </div>
+
+    </div><!-- /content-panel -->
+  </div><!-- /main-area -->
+</div><!-- /shell -->
+
+<!-- Toast notification -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toastIcon">✓</span>
+  <span id="toastMsg">Progress saved!</span>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════
+const SUBJECTS = {
+  verbal:  { name:'Verbal Ability',        sub:'Grammar · Vocabulary · RC · Para Jumbles',  icon:'📝', color:'var(--v)', file:'tcs_tqt_verbal_complete.html'  },
+  quant:   { name:'Quantitative Aptitude', sub:'Numbers · Arithmetic · Algebra · Geometry', icon:'🔢', color:'var(--q)', file:'tcs_tqt_quant_complete.html'   },
+  coding:  { name:'Coding',                sub:'DSA · Complexity · Output Questions',        icon:'💻', color:'var(--c)', file:'tcs_tqt_coding_complete.html'   },
+  logical: { name:'Logical Reasoning',     sub:'Syllogisms · Seating · Blood Relations',     icon:'🧠', color:'var(--l)', file:'tcs_tqt_logical_reasoning_complete.html' },
+};
+
+const PLAN = [
+  { day:1,  label:'Day 1',  subject:'Verbal',  focus:'Grammar',         color:'var(--v)' },
+  { day:2,  label:'Day 2',  subject:'Verbal',  focus:'Vocabulary',      color:'var(--v)' },
+  { day:3,  label:'Day 3',  subject:'Verbal',  focus:'Para Jumbles',    color:'var(--v)' },
+  { day:4,  label:'Day 4',  subject:'Verbal',  focus:'RC + Cloze',      color:'var(--v)' },
+  { day:5,  label:'Day 5',  subject:'Quant',   focus:'Numbers + Arith', color:'var(--q)' },
+  { day:6,  label:'Day 6',  subject:'Quant',   focus:'Algebra + Geo',   color:'var(--q)' },
+  { day:7,  label:'Day 7',  subject:'Coding',  focus:'DSA + Complexity',color:'var(--c)' },
+  { day:8,  label:'Day 8',  subject:'Logical', focus:'Syllogisms + BR', color:'var(--l)' },
+  { day:9,  label:'Day 9',  subject:'Logical', focus:'Seating + Series',color:'var(--l)' },
+  { day:10, label:'Day 10', subject:'All',     focus:'Full Mock Drill', color:'var(--accent)' },
+];
+
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
+let currentSubject = null;
+let sidebarCollapsed = false;
+const EXAM_DAYS = 10;
+const STORAGE_KEY = 'tcstqt_hub_v1';
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+  catch { return {}; }
+}
+function saveState(state) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  catch {}
+}
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  initCountdown();
+  buildPlanGrid();
+  loadProgress();
+  initCollapse();
+  initResponsive();
+  showToast('👋', 'Welcome back! All 4 materials are ready.');
+});
+
+// ═══════════════════════════════════════════
+// COUNTDOWN
+// ═══════════════════════════════════════════
+function initCountdown() {
+  const state = loadState();
+  let daysLeft = state.daysLeft !== undefined ? state.daysLeft : EXAM_DAYS;
+  // Check if day changed
+  const today = new Date().toDateString();
+  if (state.lastDate && state.lastDate !== today) {
+    const diff = Math.floor((new Date(today) - new Date(state.lastDate)) / 86400000);
+    daysLeft = Math.max(0, daysLeft - diff);
+    state.daysLeft = daysLeft;
+    state.lastDate = today;
+    saveState(state);
+  } else if (!state.lastDate) {
+    state.lastDate = today;
+    state.daysLeft = daysLeft;
+    saveState(state);
+  }
+  renderCountdown(daysLeft);
+}
+
+function renderCountdown(days) {
+  const el = document.getElementById('cwDays');
+  const sub = document.getElementById('cwSub');
+  const bar = document.getElementById('cwBar');
+  if (!el) return;
+  el.textContent = Math.max(0, days);
+  sub.textContent = days === 1 ? 'day remaining — final push!' : days <= 3 ? 'days — exam is near!' : 'days remaining';
+  el.style.color = days <= 3 ? '#f43f5e' : days <= 5 ? '#f59e0b' : '#4f9cf9';
+  bar.style.width = Math.max(0, (days / EXAM_DAYS) * 100) + '%';
+}
+
+// ═══════════════════════════════════════════
+// BUILD PLAN GRID
+// ═══════════════════════════════════════════
+function buildPlanGrid() {
+  const grid = document.getElementById('planGrid');
+  if (!grid) return;
+  const state = loadState();
+  const today = new Date().toDateString();
+  PLAN.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'plan-day';
+    const isToday = i === (EXAM_DAYS - (state.daysLeft || EXAM_DAYS));
+    const isDone = i < (EXAM_DAYS - (state.daysLeft || EXAM_DAYS));
+    if (isToday) div.classList.add('today');
+    if (isDone) div.classList.add('done');
+    const icon = isDone ? '✓' : isToday ? '▶' : p.day;
+    div.innerHTML = `
+      <div class="pd-num">${icon}</div>
+      <div class="pd-label">${p.label}</div>
+      <div class="pd-subject" style="color:${p.color}">${p.subject}</div>
+      <div class="pd-dot" style="background:${p.color}"></div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px">${p.focus}</div>`;
+    grid.appendChild(div);
+  });
+}
+
+// ═══════════════════════════════════════════
+// PROGRESS
+// ═══════════════════════════════════════════
+function loadProgress() {
+  const state = loadState();
+  Object.keys(SUBJECTS).forEach(key => {
+    const pct = state['prog_' + key] || 0;
+    setProgressUI(key, pct);
+  });
+}
+
+function setProgressUI(key, pct) {
+  const els = [
+    document.getElementById('prog-' + key),
+    document.getElementById('sb-prog-' + key),
+  ];
+  els.forEach(el => { if (el) el.style.width = pct + '%'; });
+  const pctEl = document.getElementById('pct-' + key);
+  if (pctEl) pctEl.textContent = pct + '%';
+  if (currentSubject === key) {
+    const fill = document.getElementById('shProgFill');
+    const ppct = document.getElementById('shProgPct');
+    if (fill) fill.style.width = pct + '%';
+    if (ppct) ppct.textContent = pct + '%';
+  }
+}
+
+function markProgress(pct) {
+  if (!currentSubject) return;
+  const state = loadState();
+  const current = state['prog_' + currentSubject] || 0;
+  const newPct = pct === 100 ? 100 : Math.min(100, Math.max(current, pct));
+  state['prog_' + currentSubject] = newPct;
+  saveState(state);
+  setProgressUI(currentSubject, newPct);
+  const msg = newPct === 100 ? '🎉 Section marked complete!' : `📊 Progress: ${newPct}% saved`;
+  showToast(newPct === 100 ? '🎉' : '✓', msg);
+}
+
+function resetProgress() {
+  if (!confirm('Reset all progress? This cannot be undone.')) return;
+  const state = loadState();
+  Object.keys(SUBJECTS).forEach(k => { state['prog_' + k] = 0; });
+  saveState(state);
+  loadProgress();
+  showToast('↺', 'Progress reset.');
+}
+
+// ═══════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════
+function goHome() {
+  currentSubject = null;
+  document.getElementById('page-home').style.display = 'block';
+  const ps = document.getElementById('page-study');
+  ps.classList.remove('active');
+
+  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+  document.getElementById('nav-home').classList.add('active');
+  document.getElementById('topbarTitle').textContent = 'Dashboard';
+  document.getElementById('topbarBreadcrumb').innerHTML = '<span>TCS TQT Hub</span><span class="bc-sep">/</span><span style="color:var(--muted2)">Home</span>';
+  document.getElementById('topCTA').textContent = '📊 Dashboard';
+  closeMobileSidebar();
+}
+
+function openSubject(key) {
+  currentSubject = key;
+  const sub = SUBJECTS[key];
+  const state = loadState();
+  const pct = state['prog_' + key] || 0;
+
+  // Update auto-track on first open
+  if (!state['opened_' + key]) {
+    state['opened_' + key] = true;
+    if (pct === 0) {
+      state['prog_' + key] = 5;
+      saveState(state);
+      setProgressUI(key, 5);
+    } else {
+      saveState(state);
+    }
+  }
+
+  // Show study page
+  document.getElementById('page-home').style.display = 'none';
+  const ps = document.getElementById('page-study');
+  ps.classList.add('active');
+
+  // Update study header
+  document.getElementById('shBadge').textContent = sub.icon;
+  document.getElementById('shBadge').style.background = `rgba(${colorToRgb(key)},0.13)`;
+  document.getElementById('shTitle').textContent = sub.name;
+  document.getElementById('shSub').textContent = sub.sub;
+  document.getElementById('shProgFill').style.background = sub.color;
+  setProgressUI(key, state['prog_' + key] || 0);
+
+  // Update topbar
+  document.getElementById('topbarTitle').textContent = sub.name;
+  document.getElementById('topbarBreadcrumb').innerHTML = `<span>TCS TQT Hub</span><span class="bc-sep">/</span><span style="color:var(--muted2)">${sub.name}</span>`;
+  document.getElementById('topCTA').textContent = '📊 Dashboard';
+  document.getElementById('topCTA').onclick = goHome;
+
+  // Update sidebar active
+  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+  document.getElementById('nav-' + key).classList.add('active');
+
+  // Load iframe
+  const loading = document.getElementById('frameLoading');
+  const frame = document.getElementById('studyFrame');
+  loading.classList.remove('hidden');
+  frame.src = sub.file;
+
+  closeMobileSidebar();
+  showToast(sub.icon, `Opening ${sub.name}…`);
+}
+
+function frameLoaded() {
+  const loading = document.getElementById('frameLoading');
+  setTimeout(() => loading.classList.add('hidden'), 300);
+}
+
+function colorToRgb(key) {
+  const map = { verbal:'124,110,245', quant:'245,158,11', coding:'62,207,160', logical:'224,86,114' };
+  return map[key] || '79,156,249';
+}
+
+// ═══════════════════════════════════════════
+// SIDEBAR COLLAPSE
+// ═══════════════════════════════════════════
+function initCollapse() {
+  document.getElementById('collapseBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    sidebarCollapsed = !sidebarCollapsed;
+    const sb = document.getElementById('sidebar');
+    sb.classList.toggle('collapsed', sidebarCollapsed);
+    document.getElementById('collapseBtn').textContent = sidebarCollapsed ? '▶' : '◀';
+  });
+}
+
+// ═══════════════════════════════════════════
+// RESPONSIVE / MOBILE
+// ═══════════════════════════════════════════
+function initResponsive() {
+  const check = () => {
+    const isMobile = window.innerWidth <= 768;
+    document.getElementById('hamburger').style.display = isMobile ? 'flex' : 'none';
+  };
+  check();
+  window.addEventListener('resize', check);
+}
+
+function toggleMobileSidebar() {
+  document.getElementById('sidebar').classList.toggle('mobile-open');
+}
+function closeMobileSidebar() {
+  document.getElementById('sidebar').classList.remove('mobile-open');
+}
+
+// ═══════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════
+let toastTimer;
+function showToast(icon, msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastIcon').textContent = icon;
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ═══════════════════════════════════════════
+// KEYBOARD SHORTCUTS
+// ═══════════════════════════════════════════
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && currentSubject) goHome();
+  if (e.key === '1' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') openSubject('verbal');
+  if (e.key === '2' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') openSubject('quant');
+  if (e.key === '3' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') openSubject('coding');
+  if (e.key === '4' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') openSubject('logical');
+});
+</script>
+</body>
+</html>

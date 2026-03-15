@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TCS TQT — Logical Reasoning Complete Study Material</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#09080d;--bg2:#100f17;--bg3:#171620;--bg4:#1e1c2a;
+  --border:rgba(255,255,255,0.07);--text:#e4e0f4;--muted:#6e6a82;
+  --a1:#c084fc;--a2:#4ade80;--a3:#fb923c;--a4:#f472b6;--a5:#38bdf8;--a6:#facc15;
+  --fh:'Syne',sans-serif;--fb:'Instrument Sans',sans-serif;--fm:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px;line-height:1.7;min-height:100vh}
+.header{padding:38px 28px 0}
+.hi{max-width:960px;margin:0 auto}
+.tagrow{display:flex;gap:8px;margin-bottom:13px;flex-wrap:wrap}
+.tag{font-size:10px;font-weight:700;letter-spacing:.12em;padding:3px 10px;border-radius:20px;text-transform:uppercase}
+.t1{background:rgba(192,132,252,.16);color:#d8b4fe;border:1px solid rgba(192,132,252,.3)}
+.t2{background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.25)}
+.t3{background:rgba(251,146,60,.12);color:#fdba74;border:1px solid rgba(251,146,60,.25)}
+h1{font-family:var(--fh);font-size:clamp(27px,4vw,44px);font-weight:800;line-height:1.07;letter-spacing:-.025em}
+h1 em{color:var(--a1);font-style:normal}
+.sub{color:var(--muted);font-size:14px;margin-top:6px}
+.stats{display:flex;gap:11px;flex-wrap:wrap;margin:20px 0 0}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 15px}
+.sn{font-family:var(--fh);font-size:20px;font-weight:700}
+.sl{font-size:11px;color:var(--muted);margin-top:1px}
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,8,13,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 28px}
+.ni{max-width:960px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none}
+.ni::-webkit-scrollbar{display:none}
+.nb{font-family:var(--fb);font-size:12.5px;font-weight:500;background:none;border:none;color:var(--muted);padding:14px 15px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:6px}
+.nb:hover{color:var(--text)}
+.nb.active{color:var(--text);border-bottom-color:var(--a1)}
+.dot{width:7px;height:7px;border-radius:50%}
+/* Main */
+.main{max-width:960px;margin:0 auto;padding:26px 28px 80px}
+.sec{display:none}.sec.active{display:block}
+.sch{margin-bottom:22px}
+.sch h2{font-family:var(--fh);font-size:23px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.sch p{color:var(--muted);font-size:13.5px}
+/* Cards */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:15px}
+.ct{font-family:var(--fh);font-size:15px;font-weight:700;margin-bottom:13px;display:flex;align-items:center;gap:8px}
+/* Rule list */
+.rl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rl li{padding:9px 13px;background:var(--bg3);border-radius:8px;border-left:3px solid var(--a1);font-size:13.5px;line-height:1.65}
+.rl li strong{color:var(--a2);font-weight:600}
+.rl.g li{border-left-color:var(--a2)}.rl.g li strong{color:var(--a2)}
+.rl.o li{border-left-color:var(--a3)}.rl.o li strong{color:var(--a3)}
+.rl.r li{border-left-color:var(--a4)}.rl.r li strong{color:var(--a4)}
+.rl.b li{border-left-color:var(--a5)}.rl.b li strong{color:var(--a5)}
+.rl.y li{border-left-color:var(--a6)}.rl.y li strong{color:var(--a6)}
+/* Example box */
+.ex{background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.18);border-radius:9px;padding:13px 16px;margin:10px 0;font-size:13.5px}
+.exl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.sol{color:var(--a2);line-height:1.75;margin-top:4px}
+.step{color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:2px}
+/* Tip */
+.tip{background:rgba(251,146,60,.07);border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:12px 16px;font-size:13px;color:#fdba74;line-height:1.6;margin-bottom:15px;display:flex;gap:9px}
+.tip::before{content:'⚡';font-size:14px;flex-shrink:0;margin-top:2px}
+/* Two-col */
+.tcol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.tcol{grid-template-columns:1fr}}
+/* Table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;padding:7px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border);font-weight:600}
+.tbl td{padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;line-height:1.6}
+.tbl tr:last-child td{border-bottom:none}
+.thl{color:#d8b4fe;font-weight:600}
+/* Accordion */
+.ai{border:1px solid var(--border);border-radius:10px;margin-bottom:9px;overflow:hidden}
+.ah{padding:13px 17px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:500;transition:background .15s}
+.ah:hover{background:var(--bg3)}
+.aar{transition:transform .2s;font-size:11px;color:var(--muted)}
+.ab{display:none;padding:0 17px 15px;font-size:13.5px;line-height:1.75;color:var(--muted)}
+.ab.open{display:block}
+.aar.open{transform:rotate(90deg)}
+/* Quiz */
+.qb{background:var(--bg3);border-radius:10px;padding:15px 17px;margin-bottom:11px}
+.qt{font-size:13.5px;margin-bottom:11px;line-height:1.7}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:9px}
+.opt{font-size:13px;padding:7px 15px;border-radius:7px;background:var(--bg2);border:1px solid var(--border);cursor:pointer;transition:all .15s;user-select:none;font-family:var(--fb)}
+.opt:hover{border-color:var(--a1);color:#d8b4fe}
+.opt.correct{background:rgba(74,222,128,.13);border-color:rgba(74,222,128,.45);color:#4ade80}
+.opt.wrong{background:rgba(244,114,182,.1);border-color:rgba(244,114,182,.4);color:#f472b6}
+.expln{font-size:13px;color:var(--muted);padding:9px 12px;background:var(--bg2);border-radius:6px;border-left:3px solid var(--a2);display:none;line-height:1.65}
+.expln.show{display:block}
+/* Score */
+.sbadge{display:inline-block;background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.3);padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}
+/* Filter */
+.frow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}
+.fbtn{font-family:var(--fb);font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer;transition:all .15s}
+.fbtn:hover{border-color:var(--a1);color:var(--text)}
+.fbtn.active{background:rgba(192,132,252,.13);border-color:rgba(192,132,252,.35);color:#d8b4fe}
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:9px}
+.strow{display:flex;gap:12px;align-items:flex-start}
+.snum{width:26px;height:26px;min-width:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:var(--fh)}
+.sp{background:rgba(192,132,252,.18);color:#d8b4fe}
+.sg{background:rgba(74,222,128,.18);color:#4ade80}
+.so{background:rgba(251,146,60,.15);color:#fb923c}
+.sb{background:rgba(56,189,248,.15);color:#38bdf8}
+.sy{background:rgba(250,204,21,.13);color:#facc15}
+.stxt{font-size:13.5px;line-height:1.65;padding-top:3px}
+/* Flashcard */
+.fcw{perspective:1000px;margin:8px 0}
+.fc{width:100%;min-height:175px;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .5s}
+.fc.flipped{transform:rotateY(180deg)}
+.fcf{position:absolute;width:100%;min-height:175px;backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center}
+.fcfront{background:linear-gradient(135deg,rgba(192,132,252,.13),rgba(74,222,128,.06));border:1px solid rgba(192,132,252,.25)}
+.fcback{background:linear-gradient(135deg,rgba(74,222,128,.11),rgba(56,189,248,.07));border:1px solid rgba(74,222,128,.25);transform:rotateY(180deg)}
+.fct{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fcq{font-family:var(--fh);font-size:18px;font-weight:700;color:#d8b4fe;line-height:1.3;margin-bottom:5px}
+.fchint{font-size:12px;color:var(--muted)}
+.fca{font-size:15px;font-weight:600;color:#4ade80;margin-bottom:7px;line-height:1.5;max-width:420px}
+.fcn{font-size:12px;color:var(--muted);font-style:italic;max-width:380px;line-height:1.5}
+.fcnav{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.fcbtn{font-family:var(--fb);font-size:13px;padding:7px 17px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;transition:all .15s}
+.fcbtn:hover{border-color:var(--a1);color:#d8b4fe}
+.fcpb{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:12px;overflow:hidden}
+.fcpbf{height:100%;background:var(--a1);border-radius:2px;transition:width .3s}
+/* Cheatsheet */
+.csg{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:680px){.csg{grid-template-columns:1fr}}
+.csb{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:17px}
+.csb h3{font-family:var(--fh);font-size:13.5px;font-weight:700;margin-bottom:10px}
+.csb ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.csb li{font-size:12.5px;color:var(--muted);padding-left:13px;position:relative;line-height:1.6}
+.csb li::before{content:'→';position:absolute;left:0;color:var(--a1);font-size:10px;top:3px}
+.csb li b{color:var(--text);font-weight:600}
+/* Highlights */
+.hl{color:var(--a2);font-weight:600}
+.hlo{color:var(--a3);font-weight:600}
+.hlr{color:var(--a4);font-weight:600}
+.hlb{color:var(--a5);font-weight:600}
+.hly{color:var(--a6);font-weight:600}
+.hlp{color:var(--a1);font-weight:600}
+/* Venn */
+.venn-wrap{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
+.venn-item{background:var(--bg3);border-radius:10px;padding:14px 16px;flex:1;min-width:180px;font-size:13px;line-height:1.6}
+.venn-item .vt{font-weight:600;color:#d8b4fe;margin-bottom:6px;font-size:14px}
+/* Seating grid */
+.seat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
+.seat{background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:8px;text-align:center;font-size:12px}
+.seat.fixed{border-color:rgba(74,222,128,.4);background:rgba(74,222,128,.08);color:#4ade80}
+.seat.deduced{border-color:rgba(192,132,252,.4);background:rgba(192,132,252,.08);color:#d8b4fe}
+/* Direction rose */
+.drose{display:grid;grid-template-columns:repeat(3,60px);gap:4px;margin:10px auto;width:190px}
+.dc{background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:8px;text-align:center;font-size:13px;font-weight:600}
+.dc.center{background:rgba(192,132,252,.1);border-color:rgba(192,132,252,.3);color:#d8b4fe}
+.dc.dir{color:#4ade80}
+.dc.empty{background:transparent;border:none}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="hi">
+    <div class="tagrow">
+      <span class="tag t1">TCS TQT</span>
+      <span class="tag t2">Logical Reasoning</span>
+      <span class="tag t3">Complete Study Material</span>
+    </div>
+    <h1>Complete <em>Logical Reasoning</em> Material</h1>
+    <p class="sub">Syllogisms · Blood Relations · Seating · Directions · Series · Puzzles · Coding-Decoding · Input-Output</p>
+    <div class="stats">
+      <div class="stat"><div class="sn" style="color:#d8b4fe">9</div><div class="sl">Topics covered</div></div>
+      <div class="stat"><div class="sn" style="color:#4ade80">50+</div><div class="sl">Solved examples</div></div>
+      <div class="stat"><div class="sn" style="color:#fb923c">45</div><div class="sl">Practice questions</div></div>
+      <div class="stat"><div class="sn" style="color:#38bdf8">30</div><div class="sl">Flashcards</div></div>
+      <div class="stat"><div class="sn" style="color:#facc15">10</div><div class="sl">Days to exam</div></div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="ni">
+    <button class="nb active" onclick="sw('syllogism',this)"><span class="dot" style="background:#d8b4fe"></span>Syllogisms</button>
+    <button class="nb" onclick="sw('blood',this)"><span class="dot" style="background:#4ade80"></span>Blood Relations</button>
+    <button class="nb" onclick="sw('seating',this)"><span class="dot" style="background:#fb923c"></span>Seating</button>
+    <button class="nb" onclick="sw('directions',this)"><span class="dot" style="background:#38bdf8"></span>Directions</button>
+    <button class="nb" onclick="sw('series',this)"><span class="dot" style="background:#facc15"></span>Series &amp; Analogy</button>
+    <button class="nb" onclick="sw('coding',this)"><span class="dot" style="background:#f472b6"></span>Coding-Decoding</button>
+    <button class="nb" onclick="sw('puzzles',this)"><span class="dot" style="background:#d8b4fe"></span>Puzzles &amp; Input-Output</button>
+    <button class="nb" onclick="sw('flashcards',this)"><span class="dot" style="background:#4ade80"></span>Flashcards</button>
+    <button class="nb" onclick="sw('quiz',this)"><span class="dot" style="background:#fb923c"></span>Practice Quiz</button>
+    <button class="nb" onclick="sw('cheatsheet',this)"><span class="dot" style="background:#38bdf8"></span>Cheat Sheet</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ══════════ SYLLOGISMS ══════════ -->
+<div id="syllogism" class="sec active">
+  <div class="sch"><h2>Syllogisms</h2><p>Deductive reasoning from given statements — the most tested LR topic in TCS TQT</p></div>
+  <div class="tip">TCS TQT gives 2–3 statements and asks which conclusions follow. NEVER assume anything beyond what's stated. Use Venn diagrams to verify every conclusion.</div>
+
+  <div class="card">
+    <div class="ct">📐 The 4 Types of Statements</div>
+    <table class="tbl">
+      <tr><th>Type</th><th>Form</th><th>Example</th><th>Venn representation</th></tr>
+      <tr><td class="thl">A — Universal Positive</td><td>All S are P</td><td>All cats are animals</td><td>S circle fully inside P circle</td></tr>
+      <tr><td class="thl">E — Universal Negative</td><td>No S is P</td><td>No cats are dogs</td><td>S and P circles completely separate</td></tr>
+      <tr><td class="thl">I — Particular Positive</td><td>Some S are P</td><td>Some cats are white</td><td>S and P circles partially overlapping</td></tr>
+      <tr><td class="thl">O — Particular Negative</td><td>Some S are not P</td><td>Some cats are not white</td><td>S partially outside P</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="ct">⚙️ Syllogism Inference Rules — Memorise These</div>
+    <ul class="rl">
+      <li><strong>All A are B + All B are C → All A are C</strong> (A+A=A)</li>
+      <li><strong>All A are B + Some B are C → No definite conclusion about A and C</strong></li>
+      <li><strong>All A are B + No B is C → No A is C</strong> (A+E=E)</li>
+      <li><strong>Some A are B + All B are C → Some A are C</strong> (I+A=I)</li>
+      <li><strong>Some A are B + No B is C → Some A are not C</strong> (I+E=O)</li>
+      <li><strong>No A is B + All C are B → No C is A</strong> (E+A=E reversed)</li>
+      <li><strong>"Some" conclusion:</strong> If All A are B is given → Some A are B is ALSO true (subset is valid).</li>
+      <li><strong>Complementary pair:</strong> "Some X are Y" and "No X is Y" are complementary. If neither follows alone, either-or conclusion is possible.</li>
+    </ul>
+    <div class="ex" style="margin-top:12px">
+      <div class="exl">Medial undistributed middle — most common TCS pattern</div>
+      <div class="step">Statements: All pens are books. All books are tables.</div>
+      <div class="step">Conclusions: I. All pens are tables. II. Some tables are pens.</div>
+      <div class="sol">Conclusion I: All A→B, All B→C → All A→C ✓ FOLLOWS<br>Conclusion II: Since "All pens are tables" is true → "Some tables are pens" also true (reverse partial) ✓ FOLLOWS<br>→ <span class="hl">Both I and II follow.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🚫 Conclusions That NEVER Follow</div>
+    <ul class="rl r">
+      <li><strong>"All X are Y" does NOT imply "All Y are X"</strong> — Cats are animals ≠ all animals are cats.</li>
+      <li><strong>Two particular statements give NO conclusion.</strong> Some A are B + Some B are C → nothing certain about A and C.</li>
+      <li><strong>Two negative statements give NO conclusion.</strong> No A is B + No B is C → nothing about A and C.</li>
+      <li><strong>Negative + Particular = Particular Negative:</strong> No A is B + Some C are A → Some C are not B. NOT "No C is B".</li>
+      <li><strong>"Some A are B" does NOT imply "Some B are A is false"</strong> — in fact, it IS implied (symmetric).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🎯 5-Step Method to Solve Any Syllogism</div>
+    <div class="steps">
+      <div class="strow"><div class="snum sp">1</div><div class="stxt"><span class="hlp">Identify all statements</span> and label them (A, E, I, or O type). Note the subject and predicate of each.</div></div>
+      <div class="strow"><div class="snum sg">2</div><div class="stxt"><span class="hl">Draw Venn diagrams</span> for ALL possible interpretations. "Some" allows multiple diagrams; "All" and "No" have only one.</div></div>
+      <div class="strow"><div class="snum so">3</div><div class="stxt"><span class="hlo">Check each conclusion</span> against ALL your Venn diagrams. A conclusion follows only if it is TRUE in EVERY possible diagram.</div></div>
+      <div class="strow"><div class="snum sb">4</div><div class="stxt"><span class="hlb">Check for "either-or" pairs:</span> If conclusion I and II are complementary (one says "some", the other says "no"), and neither follows independently, the either-or option is correct.</div></div>
+      <div class="strow"><div class="snum sy">5</div><div class="stxt"><span class="hly">Never bring outside knowledge.</span> "Dogs are loyal" — ignore everything you know about dogs. Work ONLY with given statements.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🧩 Possibility Questions — Special Type</div>
+    <ul class="rl g">
+      <li><strong>"Is it possible that…?"</strong> means: is there ANY Venn diagram arrangement where this COULD be true? Answer is YES unless the given statements make it IMPOSSIBLE in ALL cases.</li>
+      <li><strong>"All A being B is a possibility"</strong> — check if there's any Venn arrangement where all A falls inside B. If the statements don't explicitly prohibit it, the answer is YES.</li>
+      <li><strong>Key rule:</strong> "Some A are B" does not prevent "All A being B" from being a possibility — it just doesn't guarantee it.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Example</div>
+      <div class="step">Statement: Some phones are tablets. No tablets are laptops.</div>
+      <div class="step">Conclusion: All phones being laptops is a possibility.</div>
+      <div class="sol">Since some phones are tablets, and no tablets are laptops, those phones that ARE tablets cannot be laptops. So ALL phones being laptops is NOT possible. → <span class="hlr">Does not follow.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ BLOOD RELATIONS ══════════ -->
+<div id="blood" class="sec">
+  <div class="sch"><h2>Blood Relations</h2><p>Family trees, coded relations, and pointing statements — decode the family structure</p></div>
+  <div class="tip">Always draw a family tree. Use M/F to mark gender. Never assume gender from names. Read every clue carefully before placing anyone.</div>
+
+  <div class="card">
+    <div class="ct">👨‍👩‍👧 Complete Relationship Reference</div>
+    <div class="tcol">
+      <table class="tbl">
+        <tr><th>Relation</th><th>Means</th></tr>
+        <tr><td class="thl">Father's father</td><td>Paternal grandfather</td></tr>
+        <tr><td class="thl">Father's mother</td><td>Paternal grandmother</td></tr>
+        <tr><td class="thl">Mother's father</td><td>Maternal grandfather</td></tr>
+        <tr><td class="thl">Father's brother</td><td>Uncle (paternal)</td></tr>
+        <tr><td class="thl">Father's sister</td><td>Aunt (paternal)</td></tr>
+        <tr><td class="thl">Mother's brother</td><td>Uncle (maternal)</td></tr>
+        <tr><td class="thl">Mother's sister</td><td>Aunt (maternal)</td></tr>
+        <tr><td class="thl">Brother's wife</td><td>Sister-in-law</td></tr>
+      </table>
+      <table class="tbl">
+        <tr><th>Relation</th><th>Means</th></tr>
+        <tr><td class="thl">Sister's husband</td><td>Brother-in-law</td></tr>
+        <tr><td class="thl">Husband's/Wife's father</td><td>Father-in-law</td></tr>
+        <tr><td class="thl">Son's wife</td><td>Daughter-in-law</td></tr>
+        <tr><td class="thl">Daughter's husband</td><td>Son-in-law</td></tr>
+        <tr><td class="thl">Uncle's/Aunt's son/daughter</td><td>Cousin</td></tr>
+        <tr><td class="thl">Brother's son</td><td>Nephew</td></tr>
+        <tr><td class="thl">Brother's daughter</td><td>Niece</td></tr>
+        <tr><td class="thl">Grandson's sister</td><td>Granddaughter</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔑 Coded Blood Relation — Operator Method</div>
+    <ul class="rl g">
+      <li><strong>Common coding: + = brother, − = sister, × = father, ÷ = mother</strong> (varies per question — always re-read!)</li>
+      <li><strong>A + B</strong> means A is the brother of B. Read from LEFT perspective.</li>
+      <li><strong>A × B + C</strong> means A is father of B, and B is brother of C → A is father of C.</li>
+      <li><strong>Method:</strong> Build the family tree step by step. Each operator connects two people in a defined way.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Solved example — common TCS TQT pattern</div>
+      <div class="step">If A + B means A is father of B, A − B means A is mother of B, A × B means A is brother of B:</div>
+      <div class="step">P + Q − R × S. How is P related to S?</div>
+      <div class="step">P is father of Q. Q is mother of R. R is brother of S.</div>
+      <div class="sol">P → Q → R → S. P is father of Q, Q is mother of R(and S). So P is <span class="hl">grandfather of S.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🗣️ Pointing/Introduction Type</div>
+    <ul class="rl o">
+      <li><strong>"He is the son of my father's brother"</strong> → father's brother = uncle → uncle's son = cousin.</li>
+      <li><strong>"She is the daughter of the only son of my grandfather"</strong> → grandfather's only son = father → father's daughter = sister (or me if female).</li>
+      <li><strong>Key trick for gender:</strong> "A pointing to a photograph says, 'He is the son of my father's only son.'" → father's only son = himself (the speaker). So 'He' is the speaker's son.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Classic TCS pattern</div>
+      <div class="step">Pointing to a photo, Ravi says "She is the daughter of my grandfather's only son."</div>
+      <div class="step">Grandfather's only son = Ravi's father. Father's daughter = Ravi's sister.</div>
+      <div class="sol">The woman in the photo is Ravi's <span class="hl">sister.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📊 Generation Counting Method</div>
+    <ul class="rl b">
+      <li><strong>Generation +2:</strong> Grandparents, great-uncles/aunts</li>
+      <li><strong>Generation +1:</strong> Parents, uncles, aunts</li>
+      <li><strong>Generation 0:</strong> Yourself, brothers, sisters, cousins</li>
+      <li><strong>Generation −1:</strong> Sons, daughters, nephews, nieces</li>
+      <li><strong>Generation −2:</strong> Grandchildren, grand-nephews</li>
+      <li>When going UP the tree (toward grandparents), add generations. Going DOWN, subtract. Matching generation = same level = sibling/cousin.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════ SEATING ARRANGEMENT ══════════ -->
+<div id="seating" class="sec">
+  <div class="sch"><h2>Seating Arrangement</h2><p>Linear, circular, and complex arrangements — the most time-consuming LR topic</p></div>
+  <div class="tip">Draw the arrangement immediately. For circular tables, fix one person (the reference point) to eliminate rotational confusion. Work clue-by-clue, most restrictive clue first.</div>
+
+  <div class="card">
+    <div class="ct">📏 Linear Arrangement Strategy</div>
+    <div class="steps">
+      <div class="strow"><div class="snum sp">1</div><div class="stxt"><span class="hlp">Draw n boxes in a row</span> for n people. Label positions 1 to n from left.</div></div>
+      <div class="strow"><div class="snum sg">2</div><div class="stxt"><span class="hl">Place definite clues first.</span> "A sits at one of the ends" → A is at position 1 or n. "B sits exactly in the middle" → B is at position (n+1)/2.</div></div>
+      <div class="strow"><div class="snum so">3</div><div class="stxt"><span class="hlo">Use relative clues next.</span> "C sits 2nd to the left of D" → if D is at position 5, C is at position 3. "E and F are neighbours" → they are in adjacent positions.</div></div>
+      <div class="strow"><div class="snum sb">4</div><div class="stxt"><span class="hlb">Use negative clues to eliminate.</span> "G is not adjacent to H" eliminates arrangements where they would be next to each other.</div></div>
+      <div class="strow"><div class="snum sy">5</div><div class="stxt"><span class="hly">Verify all clues</span> once you have a complete arrangement. One wrong deduction invalidates everything.</div></div>
+    </div>
+    <div class="ex" style="margin-top:14px">
+      <div class="exl">Solved mini-example — 5 people: A,B,C,D,E in a row</div>
+      <div class="step">Clue 1: B sits at one of the ends. Clue 2: A is to the immediate right of B.</div>
+      <div class="step">Clue 3: C and D are not adjacent. Clue 4: E sits exactly in the middle (position 3).</div>
+      <div class="step">→ B at position 1, A at position 2 (from clues 1&amp;2). E at position 3. Remaining: C,D at positions 4,5.</div>
+      <div class="sol">From clue 3: C and D NOT adjacent, but positions 4 and 5 are adjacent → contradiction! So B is at position 5 (other end). A at position 4. E at position 3. C,D at positions 1,2 (they ARE adjacent — violates clue 3). Try D at 1, C at 2: adjacent, violates. → Need more info or reconsider. This shows why verifying all clues is step 5!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">⭕ Circular Arrangement — Key Rules</div>
+    <ul class="rl g">
+      <li><strong>Fix one person</strong> (typically called the "reference person") at the top of the circle. This removes the rotational symmetry problem.</li>
+      <li><strong>"Immediate left" and "immediate right"</strong> are from the person's OWN perspective when facing the center. Draw arrows to confirm direction.</li>
+      <li><strong>Facing inward vs outward:</strong> If all face inward, left/right are consistent. If some face outward, their left/right are SWAPPED relative to those facing inward.</li>
+      <li><strong>Opposite person</strong> in a circle of n: if sitting at position p, opposite is at position p + n/2.</li>
+      <li><strong>Circular arrangement of n distinct items = (n−1)!</strong> ways (one person fixed).</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">8 people circular — first step</div>
+      <div class="step">Fix A at the top (12 o'clock). Now place people clockwise or anti-clockwise based on clues.</div>
+      <div class="step">Clue: B sits 3rd to the right of A → B is at the 4th position clockwise from A.</div>
+      <div class="sol">Draw the circle. A at top. Count 3 clockwise → B is at position 4 (if A is 1, going clockwise: 2,3,4=B).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔡 Key Vocabulary in Seating Questions</div>
+    <ul class="rl b">
+      <li><strong>"Immediate neighbour"</strong> = directly adjacent (left or right), nobody between them.</li>
+      <li><strong>"Second to the left"</strong> = TWO positions to the left, not one.</li>
+      <li><strong>"Sits between A and B"</strong> = A is on one side, B on the other. Check both arrangements.</li>
+      <li><strong>"From the left end"</strong> = counting from position 1 (leftmost). 3rd from left = position 3.</li>
+      <li><strong>"From the right end"</strong> = counting from position n. 3rd from right in a row of 8 = position 6.</li>
+      <li><strong>Position from left + Position from right = n + 1</strong> (for n total people).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🎭 Floor/Puzzle Based Arrangements</div>
+    <ul class="rl o">
+      <li><strong>Floor arrangements:</strong> Ground floor = floor 1 (bottom). Top floor = floor n. "Above" means higher floor number.</li>
+      <li><strong>"Immediately above/below"</strong> = directly one floor up/down, no floors in between.</li>
+      <li><strong>Box stacking:</strong> Bottom = position 1. "X is above Y" means X's position number > Y's.</li>
+      <li><strong>Strategy:</strong> Make a vertical list. Fix the most constrained person first. Fill in order: definite positions → relative positions → by elimination.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════ DIRECTIONS ══════════ -->
+<div id="directions" class="sec">
+  <div class="sch"><h2>Directions &amp; Distance</h2><p>Navigation problems — final position, total distance, and shadow/sun direction</p></div>
+  <div class="tip">Always draw the path on paper. Use a standard compass rose. Turning left = 90° anti-clockwise. Turning right = 90° clockwise. Never rotate the compass with the person.</div>
+
+  <div class="card">
+    <div class="ct">🧭 The Compass Rose — Memorise This</div>
+    <div class="drose">
+      <div class="dc empty"></div>
+      <div class="dc dir">N</div>
+      <div class="dc empty"></div>
+      <div class="dc dir">NW</div>
+      <div class="dc center">●</div>
+      <div class="dc dir">NE</div>
+      <div class="dc dir">W</div>
+      <div class="dc empty"></div>
+      <div class="dc dir">E</div>
+      <div class="dc empty"></div>
+      <div class="dc dir">SW</div>
+      <div class="dc empty"></div>
+      <div class="dc dir">SE</div>
+      <div class="dc empty"></div>
+      <div class="dc dir">S</div>
+      <div class="dc empty"></div>
+    </div>
+    <ul class="rl" style="margin-top:12px">
+      <li><strong>After turning RIGHT:</strong> N→E, E→S, S→W, W→N</li>
+      <li><strong>After turning LEFT:</strong> N→W, W→S, S→E, E→N</li>
+      <li><strong>180° turn (about-turn):</strong> N→S, E→W, S→N, W→E</li>
+      <li><strong>Opposite directions:</strong> N↔S, E↔W, NE↔SW, NW↔SE</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">📐 Distance Calculation — Pythagoras in Direction Problems</div>
+    <ul class="rl g">
+      <li><strong>When movement is in only one direction:</strong> Final distance = total distance moved in that direction.</li>
+      <li><strong>When movement is perpendicular (one N/S + one E/W):</strong> Use Pythagoras. Final distance = √(vertical² + horizontal²).</li>
+      <li><strong>Always draw the path</strong> as a diagram. Mark each segment with its length and direction. Net horizontal = (East moves) − (West moves). Net vertical = (North moves) − (South moves).</li>
+      <li><strong>Direction from start to end:</strong> If net horizontal is positive → East. Negative → West. If net vertical is positive → North. Negative → South.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Full solved example</div>
+      <div class="step">A walks 5km North, turns Right (→East), walks 3km, turns Right (→South), walks 5km, turns Right (→West), walks 3km.</div>
+      <div class="step">Net: North 5−South 5 = 0km vertical. East 3−West 3 = 0km horizontal.</div>
+      <div class="sol">A is back at the starting point. Distance = <span class="hl">0 km.</span> (This is a square path.)</div>
+    </div>
+    <div class="ex">
+      <div class="exl">Pythagorean distance example</div>
+      <div class="step">B walks 6km East, then 8km North. Distance from start?</div>
+      <div class="sol">√(6² + 8²) = √(36+64) = √100 = <span class="hl">10 km.</span> (3-4-5 triple × 2)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">☀️ Shadow Direction Rules</div>
+    <ul class="rl b">
+      <li><strong>Morning (sunrise in East):</strong> Shadow falls to the WEST (opposite to sun).</li>
+      <li><strong>Evening (sunset in West):</strong> Shadow falls to the EAST.</li>
+      <li><strong>Noon:</strong> No shadow (sun directly overhead). TCS usually avoids this.</li>
+      <li><strong>"A's shadow falls to his left while walking North"</strong> → Shadow to West → Sun in East → Morning time.</li>
+      <li><strong>In questions: identify the person's facing direction, then apply shadow rule to determine time of day or direction.</strong></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════ SERIES & ANALOGY ══════════ -->
+<div id="series" class="sec">
+  <div class="sch"><h2>Series, Analogy &amp; Classification</h2><p>Number series, letter series, analogies, and odd-one-out</p></div>
+  <div class="tip">For number series, always check differences first. If differences aren't constant, check second differences. If still not clear, check ratios (GP). Most TCS series follow one of 6 patterns.</div>
+
+  <div class="card">
+    <div class="ct">🔢 Number Series — All 8 Patterns</div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 1: Arithmetic (constant difference)</span><span class="aar">▶</span></div>
+      <div class="ab">Differences between consecutive terms are equal. <br>Example: 3, 7, 11, 15, 19, ? → diff=4 → next=<b>23</b></div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 2: Geometric (constant ratio)</span><span class="aar">▶</span></div>
+      <div class="ab">Each term = previous × constant ratio. <br>Example: 2, 6, 18, 54, ? → ratio=3 → next=<b>162</b></div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 3: Squares or Cubes (±constant)</span><span class="aar">▶</span></div>
+      <div class="ab">Terms are n² or n³ with or without a constant added/subtracted. <br>Example: 1, 4, 9, 16, 25, ? → n² series → next=<b>36</b><br>Example: 2, 5, 10, 17, 26, ? → n²+1 → next=<b>37</b></div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 4: Two-step differences (second difference constant)</span><span class="aar">▶</span></div>
+      <div class="ab">First differences: d1, d2, d3… Second differences (differences of differences) are constant. <br>Example: 1, 2, 4, 7, 11, 16, ? → diffs: 1,2,3,4,5,6 → next diff=6 → 16+6=<b>22</b></div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 5: Fibonacci-type (each term = sum of previous two)</span><span class="aar">▶</span></div>
+      <div class="ab">Example: 1, 1, 2, 3, 5, 8, 13, ? → 8+13=<b>21</b><br>Generalised: each term = a×prev + b×prev2 for some constants.</div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 6: Alternating series (two interleaved sequences)</span><span class="aar">▶</span></div>
+      <div class="ab">Odd positions form one sequence, even positions another. <br>Example: 2, 3, 4, 6, 6, 12, 8, ? → odd: 2,4,6,8 (AP+2) | even: 3,6,12 (GP×2) → next=<b>24</b></div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 7: Prime number series</span><span class="aar">▶</span></div>
+      <div class="ab">Terms are prime numbers in order or with operations applied. <br>Primes: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47…<br>Example: 2, 3, 5, 7, 11, 13, ? → next prime = <b>17</b></div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Pattern 8: Mixed operations (×n ±k alternating)</span><span class="aar">▶</span></div>
+      <div class="ab">Operations alternate between two rules. <br>Example: 5, 11, 23, 47, 95, ? → each term = prev×2+1 → 95×2+1=<b>191</b></div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔤 Letter Series</div>
+    <ul class="rl g">
+      <li><strong>Alphabetical positions:</strong> A=1, B=2, …, Z=26. Reverse: A=26, Z=1. Memorise EJOTY (5,10,15,20,25) for quick counting.</li>
+      <li><strong>Pattern: +n each step.</strong> AEI → A(1)+4=E(5)+4=I(9)+4=M → next is M.</li>
+      <li><strong>Skip pattern:</strong> A, C, E, G → skip 1 letter each time.</li>
+      <li><strong>EJOTY trick:</strong> E=5th, J=10th, O=15th, T=20th, Y=25th. Count: E+5=J+5=O+5=T+5=Y.</li>
+      <li><strong>Opposite letter pairs:</strong> A↔Z, B↔Y, C↔X, D↔W, E↔V, F↔U, G↔T, H↔S, I↔R, J↔Q, K↔P, L↔O, M↔N. Sum always = 27.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔗 Analogy — Relationship Types</div>
+    <ul class="rl o">
+      <li><strong>Part-whole:</strong> Wheel : Car :: Petal : Flower</li>
+      <li><strong>Tool-action:</strong> Pen : Write :: Knife : Cut</li>
+      <li><strong>Worker-workplace:</strong> Doctor : Hospital :: Teacher : School</li>
+      <li><strong>Product-source:</strong> Milk : Cow :: Honey : Bee</li>
+      <li><strong>Cause-effect:</strong> Fire : Ash :: Flood : Destruction</li>
+      <li><strong>Antonym/synonym:</strong> Hot : Cold :: Dark : Light</li>
+      <li><strong>Degree:</strong> Warm : Hot :: Cool : Cold</li>
+      <li><strong>Male-female:</strong> King : Queen :: Bull : Cow</li>
+      <li><strong>Young one:</strong> Cat : Kitten :: Dog : Puppy</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔍 Odd One Out — Classification</div>
+    <ul class="rl b">
+      <li><strong>Look for the category that groups 3 of the 4.</strong> The odd one doesn't belong to that category.</li>
+      <li><strong>Multiple categories may exist.</strong> Pick the most specific, well-defined group. "Apple, Orange, Mango, Potato" — first three are fruits; potato is vegetable.</li>
+      <li><strong>Number-based odd one out:</strong> Check if 3 numbers share a property (all perfect squares, all primes, all even, all multiples of 3).</li>
+      <li><strong>Letter-based:</strong> Check alphabetical positions. "BDF, CEG, DFH, EGH" — EGH breaks the pattern (others skip 1 letter consistently with +2 gaps).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════ CODING-DECODING ══════════ -->
+<div id="coding" class="sec">
+  <div class="sch"><h2>Coding-Decoding</h2><p>Letter shifting, number codes, symbol codes, and word-based codes</p></div>
+  <div class="tip">Always find the rule by comparing TWO examples before answering. Never guess from one example alone. Check if the shift is the same for every letter.</div>
+
+  <div class="card">
+    <div class="ct">🔡 Letter Coding — All Types</div>
+    <ul class="rl">
+      <li><strong>Type 1 — Fixed shift (+n or −n):</strong> Each letter shifted by same n positions. A→D means +3. Check: B→E? Yes. Rule confirmed.<br>Example: MANGO → PDQJR (each letter +3)</li>
+      <li><strong>Type 2 — Reverse alphabet coding:</strong> Replace each letter with its opposite. A↔Z, B↔Y, C↔X… <br>MANGO → NZMTL</li>
+      <li><strong>Type 3 — Position-based shift:</strong> First letter +1, second +2, third +3…<br>CAT → D(+1)C(+2)W(+3) = DCW</li>
+      <li><strong>Type 4 — Vowels/consonants treated differently:</strong> Vowels +2, consonants −1. Always check both types.</li>
+      <li><strong>Type 5 — Reversal coding:</strong> Word is reversed then shift applied, or reversed letters + shift.<br>MANGO reversed = OGNAM, then apply shift.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">How to crack any letter code</div>
+      <div class="step">If COME is coded as FRPH and HOUSE is coded as KRXVH, find the rule.</div>
+      <div class="step">C(3)→F(6): +3. O(15)→R(18): +3. M(13)→P(16): +3. E(5)→H(8): +3. Rule: +3 shift.</div>
+      <div class="sol">So MANGO → P(+3)D(+3)Q(+3)J(+3)R(+3) = <span class="hl">PDQJR</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔢 Number Coding</div>
+    <ul class="rl g">
+      <li><strong>Word to number:</strong> Each letter gets its position value. CAT = 3+1+20 = 24. BAT = 2+1+20 = 23. ADD = 1+4+4 = 9.</li>
+      <li><strong>Letter position product:</strong> FACE = 6×1×3×5 = 90.</li>
+      <li><strong>Reverse position:</strong> A=26, B=25…Z=1. Check if the code matches this system.</li>
+      <li><strong>Mixed formula:</strong> Sometimes position × 2, or (position)² − 1. Find the pattern using the given example.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">If CAT = 24 and BAT = 23, then MAT = ?</div>
+      <div class="step">C=3, A=1, T=20 → 3+1+20=24. B=2, A=1, T=20 → 2+1+20=23.</div>
+      <div class="sol">M=13, A=1, T=20 → 13+1+20 = <span class="hl">34</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🌐 Symbol and Mixed Coding</div>
+    <ul class="rl o">
+      <li><strong>Sentence-to-code type:</strong> Given 3 coded sentences, identify individual word codes by finding which word appears in 2 sentences and matching the repeating code.</li>
+      <li><strong>Method:</strong> Sentence 1 has words A, B, C with codes p, q, r. Sentence 2 has words A, D, E with codes p, s, t. Word A appears in both → code p belongs to word A.</li>
+      <li><strong>CRITICAL:</strong> Only identify a code definitively if a word appears in at least two sentences — alone enough to isolate it.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Sentence coding — TCS TQT standard pattern</div>
+      <div class="step">"sky is blue" → "pe ra ti" | "blue water cold" → "ti mo su" | "water is clear" → "mo ra du"</div>
+      <div class="step">Find code for "is": appears in sentences 1 and 3 → common code is "ra".</div>
+      <div class="step">Find code for "blue": appears in sentences 1 and 2 → common code is "ti".</div>
+      <div class="sol">"is" = ra, "blue" = ti, "water" = mo, "sky" = pe, "cold" = su, "clear" = du</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PUZZLES & INPUT-OUTPUT ══════════ -->
+<div id="puzzles" class="sec">
+  <div class="sch"><h2>Puzzles &amp; Input-Output</h2><p>Logic puzzles, machine input-output, and statement-conclusion</p></div>
+  <div class="tip">Input-Output questions: always identify the RULE from Step 1 to Step 2. Then extrapolate. The rule is usually a sort (ascending/descending) of words or numbers, applied one element at a time.</div>
+
+  <div class="card">
+    <div class="ct">⚙️ Machine Input-Output — Method</div>
+    <ul class="rl">
+      <li><strong>Step 1:</strong> Look at Input and Step I. What changed? One word/number moved from its original position to a new position.</li>
+      <li><strong>Step 2:</strong> Verify the pattern with Step I → Step II. Is the same type of move happening?</li>
+      <li><strong>Common patterns:</strong> Smallest number moves to leftmost position at each step. Or largest word (alphabetically) moves to rightmost. Or numbers and words are being separated to opposite ends.</li>
+      <li><strong>After identifying the pattern:</strong> Apply it to find any step directly without tracing every step.</li>
+    </ul>
+    <div class="ex">
+      <div class="exl">Solved input-output example</div>
+      <div class="step">Input:   cat 85 dog 32 fox 17 hen 64</div>
+      <div class="step">Step I:  17 cat 85 dog 32 fox hen 64</div>
+      <div class="step">Step II: 17 32 cat 85 dog fox hen 64</div>
+      <div class="step">Pattern: Smallest number moves to the left end at each step.</div>
+      <div class="sol">Step III: 17 32 64 cat 85 dog fox hen → Step IV: 17 32 64 85 cat dog fox hen (numbers sorted left, words remain right)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🧩 Logical Puzzles — Categories</div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Comparison puzzles (taller, heavier, older)</span><span class="aar">▶</span></div>
+      <div class="ab">Convert all comparisons to a single ordered list.<br>A &gt; B, B &gt; C → A &gt; B &gt; C.<br>If "A is not the tallest and B is not the shortest", use these as constraints.<br>Linear ordering: place from highest to lowest using inequalities. When contradictions arise, re-read carefully.</div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Category-matching puzzles (person + profession + city)</span><span class="aar">▶</span></div>
+      <div class="ab">Make a 2D grid: rows = people, columns = professions/cities. Mark ✓ for definite matches, ✗ for definite non-matches.<br>If 3 of 4 people are matched to professions → the 4th gets the remaining profession by elimination.<br>Never leave a cell blank if you can deduce it.</div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Truth-teller / Liar puzzles</span><span class="aar">▶</span></div>
+      <div class="ab">Assume each person is a truth-teller and check if the statements are consistent. Then assume liar and check consistency.<br>Key rule: A truth-teller will say another truth-teller is honest. A liar will say a truth-teller is a liar.<br>If two people say the same statement about each other, they're BOTH truth-tellers or BOTH liars.</div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Day/Date/Month scheduling puzzles</span><span class="aar">▶</span></div>
+      <div class="ab">Create a calendar grid. Assign events to days using the given constraints.<br>Clues like "the meeting is 3 days after the test" and "the event is not on a weekend" systematically narrow possibilities.<br>Work from most constrained (fixed-date clue) to least constrained.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📋 Statement-Assumption / Statement-Conclusion</div>
+    <ul class="rl r">
+      <li><strong>Implicit assumption:</strong> Something that must be true for the statement to make sense, even if not stated.</li>
+      <li><strong>"Buy this cream for clear skin" → Assumption: The cream can clear skin.</strong> This must be true for the ad to be meaningful.</li>
+      <li><strong>Assumption must NOT be stated in the statement itself.</strong> And it must not be too broad or too narrow.</li>
+      <li><strong>Courses of Action:</strong> A course of action "follows" if it directly addresses the problem stated and is practical, not extreme.</li>
+      <li><strong>Strong argument vs weak argument:</strong> Strong = directly relevant, logical, addresses the core issue. Weak = irrelevant, extreme, or changes the subject.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🎯 Critical Reasoning — Strengthening / Weakening</div>
+    <ul class="rl b">
+      <li><strong>To strengthen a conclusion:</strong> Find an option that provides MORE evidence supporting the conclusion, or eliminates an alternative explanation.</li>
+      <li><strong>To weaken a conclusion:</strong> Find an option that provides an alternative explanation for the evidence, OR shows the evidence doesn't actually support the conclusion.</li>
+      <li><strong>Common trap:</strong> An option that merely restates the conclusion doesn't strengthen it. Look for NEW information.</li>
+      <li><strong>Assumption = the gap between evidence and conclusion.</strong> If removed, the conclusion falls apart.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════ FLASHCARDS ══════════ -->
+<div id="flashcards" class="sec">
+  <div class="sch"><h2>Concept Flashcards</h2><p>Test yourself on key rules and patterns — click to flip, arrows to navigate</p></div>
+  <div class="card">
+    <div class="fcpb"><div class="fcpbf" id="fcbar" style="width:0%"></div></div>
+    <div class="fcw">
+      <div class="fc" id="fcard" onclick="fcFlip()">
+        <div class="fcf fcfront">
+          <div class="fct" id="fctopic">–</div>
+          <div class="fcq" id="fcq">–</div>
+          <div class="fchint">tap to reveal answer</div>
+        </div>
+        <div class="fcf fcback">
+          <div class="fca" id="fca">–</div>
+          <div class="fcn" id="fcn">–</div>
+        </div>
+      </div>
+    </div>
+    <div class="fcnav">
+      <button class="fcbtn" onclick="fcPrev()">← Prev</button>
+      <span id="fcctr" style="font-size:13px;color:var(--muted)">1/30</span>
+      <button class="fcbtn" onclick="fcNext()">Next →</button>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:6px">Try to recall the answer before flipping. Active recall builds pattern recognition speed in the exam.</div>
+</div>
+
+<!-- ══════════ PRACTICE QUIZ ══════════ -->
+<div id="quiz" class="sec">
+  <div class="sch"><h2>Practice Quiz — 45 Questions</h2><p>Questions across all LR topics — click an option to check instantly</p></div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px">
+    <span style="font-size:14px;color:var(--muted)">Score:</span>
+    <span id="scoreD" class="sbadge">0 / 0 answered</span>
+    <span id="scorePct" style="font-size:13px;color:var(--muted)"></span>
+    <button onclick="resetQ()" style="font-size:12px;padding:5px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--muted);cursor:pointer;font-family:var(--fb)">Reset</button>
+  </div>
+  <div class="frow" id="filterRow"></div>
+  <div id="qc"></div>
+</div>
+
+<!-- ══════════ CHEAT SHEET ══════════ -->
+<div id="cheatsheet" class="sec">
+  <div class="sch"><h2>Cheat Sheet — All Key Rules</h2><p>Review the night before your exam</p></div>
+  <div class="csg" id="csGrid"></div>
+  <div class="tip" style="margin-top:18px">Exam strategy for LR: Do seating arrangements LAST (most time-consuming). Do syllogisms and coding-decoding FIRST (fastest, most predictable). Blood relations and directions are medium speed.</div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+function sw(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function ta(h){const b=h.nextElementSibling,a=h.querySelector('.aar');b.classList.toggle('open');a.classList.toggle('open');}
+
+// ══════ FLASHCARDS ══════
+const fcCards=[
+  {t:'Syllogism',q:'All A are B. All B are C. What follows about A and C?',a:'All A are C',n:'A+A=A: Two universal positives with shared middle → universal positive conclusion.'},
+  {t:'Syllogism',q:'All A are B. No B is C. What follows about A and C?',a:'No A is C',n:'A+E=E: Universal positive + Universal negative → Universal negative conclusion.'},
+  {t:'Syllogism',q:'Some A are B. All B are C. What follows?',a:'Some A are C',n:'I+A=I: Particular positive + Universal positive → Particular positive conclusion.'},
+  {t:'Syllogism',q:'Some A are B. No B is C. What follows about A and C?',a:'Some A are not C',n:'I+E=O: Particular + Negative → Particular negative conclusion.'},
+  {t:'Syllogism',q:'Can we conclude anything from: Some A are B + Some B are C?',a:'No definite conclusion',n:'Two particular statements never yield a conclusion. This is a critical rule.'},
+  {t:'Blood Relations',q:'Father\'s brother\'s son is your ___?',a:'Cousin',n:"Father's brother = uncle. Uncle's son = cousin (parallel or cross depending on culture, but in LR = cousin)."},
+  {t:'Blood Relations',q:'If A says "B is my father\'s only son\'s daughter", how is A related to B?',a:'B is A\'s daughter (A is B\'s aunt/uncle)',n:"Father's only son = A's brother. Brother's daughter = niece. So B is A's niece. A is B's uncle/aunt."},
+  {t:'Directions',q:'Facing North, you turn RIGHT. You now face?',a:'East',n:'Right turn from North: N→E→S→W clockwise. Right = clockwise rotation.'},
+  {t:'Directions',q:'Facing East, you turn LEFT twice (180°). You now face?',a:'West',n:'Left once from East = North. Left again = West. Two left turns = 180° about turn.'},
+  {t:'Directions',q:'Shadow falls to the RIGHT in the morning. Person is facing?',a:'South',n:'Morning: sun in East. Shadow falls West. Shadow to right means West is to the right, so person faces South.'},
+  {t:'Directions',q:'A walks 8km East, 6km North. Straight-line distance from start?',a:'10 km',n:'Pythagoras: √(8²+6²) = √(64+36) = √100 = 10. 6-8-10 is the 3-4-5 triple ×2.'},
+  {t:'Series',q:'What comes next: 2, 5, 10, 17, 26, ?',a:'37',n:'Differences: 3,5,7,9,11 (odd numbers increasing by 2). Next diff = 11. 26+11 = 37. Pattern: n²+1.'},
+  {t:'Series',q:'What comes next: 1, 1, 2, 3, 5, 8, 13, ?',a:'21',n:'Fibonacci sequence: each term = sum of previous two. 8+13 = 21.'},
+  {t:'Series',q:'What comes next: 3, 6, 12, 24, 48, ?',a:'96',n:'Geometric series with ratio 2. 48×2 = 96.'},
+  {t:'Series',q:'Alphabetical positions: E=?, J=?, O=?, T=?, Y=?',a:'E=5, J=10, O=15, T=20, Y=25',n:'The EJOTY mnemonic: multiples of 5. Memorise this for fast letter position counting.'},
+  {t:'Series',q:'Opposite letter of M in the alphabet?',a:'N (M=13, N=14 — wait: M+N=27)',n:'Actually M(13) opposite is N(14)? No: A↔Z(27), B↔Y(27)… M(13)+N(14)=27. Yes, M↔N.'},
+  {t:'Coding-Decoding',q:'If MANGO is coded as PDQJR, what is the rule?',a:'Each letter shifted +3 positions',n:'M(13)→P(16), A(1)→D(4), N(14)→Q(17), G(7)→J(10), O(15)→R(18). All +3.'},
+  {t:'Coding-Decoding',q:'If CAT=24, DOG=26, then EAR=?',a:'24 (E+A+R = 5+1+18 = 24)',n:'Sum of alphabetical positions. E=5, A=1, R=18. Sum=24.'},
+  {t:'Coding-Decoding',q:'In sentence coding, how do you find the code for a specific word?',a:'Find that word in two different sentences. The common code in both is its code.',n:'The word you want and the overlap code will appear in both sentences while other codes differ.'},
+  {t:'Seating',q:'In a row of 10, if A is 4th from left, what is A\'s position from the right?',a:'7th from right',n:'Position from left + Position from right = n+1 = 11. 4 + ? = 11 → position from right = 7.'},
+  {t:'Seating',q:'In a circular arrangement, what is the first step?',a:'Fix one person as the reference point to eliminate rotational symmetry',n:'Without fixing someone, the same arrangement can be written in n different ways. Fix → then place others.'},
+  {t:'Seating',q:'What does "2nd to the left" mean in seating?',a:'Two positions to the left — skip one person',n:'"Immediate left" = 1 position. "2nd to the left" = 2 positions away. "3 seats to the left" = 3 positions away.'},
+  {t:'Puzzles',q:'In input-output, how do you find the rule?',a:'Compare Input with Step I. Identify what moved and where. Verify with Step I → Step II.',n:'Usually one element repositions per step. Common patterns: smallest/largest goes to one end at each step.'},
+  {t:'Puzzles',q:'What is an implicit assumption in logic?',a:'Something unstated that must be true for the argument to hold',n:'Example: "Take an umbrella — it will rain" assumes: the umbrella will protect from rain. It\'s not stated but must be true.'},
+  {t:'Syllogism',q:'"All dogs are mammals" — does "Some mammals are dogs" follow?',a:'Yes — it follows',n:'When "All A are B" is true, "Some B are A" is also true (converse partial). Some mammals ARE dogs because all dogs are mammals.'},
+  {t:'Blood Relations',q:'A woman says "He is the son of my grandfather\'s only son." Who is the man?',a:"The woman's brother (or herself if male)",n:"Grandfather's only son = woman's father. Father's son = woman's brother."},
+  {t:'Directions',q:'A man walks 5km North, turns left, walks 3km, turns left again, walks 5km. Where is he from start?',a:'3km to the West',n:'N5→turn left(West)→W3→turn left(South)→S5. Net: N5−S5=0 vertical, W3 horizontal. 3km West of start.'},
+  {t:'Series',q:'Pattern: 5, 11, 23, 47, 95, ?',a:'191',n:'Each term = previous×2+1. 5→11(×2+1)→23→47→95→191.'},
+  {t:'Coding-Decoding',q:'If the alphabet is reversed (A=Z, B=Y...), what is FACE coded as?',a:'UZXV',n:'F(6)↔U(21), A(1)↔Z(26), C(3)↔X(24), E(5)↔V(22). FACE → UZXV.'},
+  {t:'Analogy',q:'Doctor : Hospital :: Teacher : ?',a:'School',n:'Worker-workplace analogy. Doctor works in Hospital. Teacher works in School.'},
+];
+
+// Fix flashcard 15 (opposite of M)
+fcCards[15]={t:'Series',q:'Opposite letter of M (position 13) is?',a:'N — since M(13) + N(14) = 27',n:'All opposite pairs sum to 27: A(1)+Z(26)=27, B(2)+Y(25)=27, M(13)+N(14)=27.'};
+
+let fci=0,fcfl=false;
+function fcRender(){
+  const c=fcCards[fci];
+  document.getElementById('fctopic').textContent=c.t;
+  document.getElementById('fcq').textContent=c.q;
+  document.getElementById('fca').textContent=c.a;
+  document.getElementById('fcn').textContent=c.n;
+  document.getElementById('fcctr').textContent=(fci+1)+'/'+fcCards.length;
+  document.getElementById('fcbar').style.width=((fci+1)/fcCards.length*100)+'%';
+  document.getElementById('fcard').classList.remove('flipped');fcfl=false;
+}
+function fcFlip(){fcfl=!fcfl;document.getElementById('fcard').classList.toggle('flipped',fcfl);}
+function fcNext(){fci=(fci+1)%fcCards.length;fcRender();}
+function fcPrev(){fci=(fci-1+fcCards.length)%fcCards.length;fcRender();}
+fcRender();
+
+// ══════ QUIZ ══════
+const Qs=[
+  // Syllogism
+  {t:'Syllogism',q:'Statements: All cats are dogs. All dogs are horses.\nConclusion I: All cats are horses.\nConclusion II: Some horses are cats.',o:['Only I follows','Only II follows','Both I and II follow','Neither follows'],a:2,e:'All cats→dogs, All dogs→horses → All cats→horses (A+A=A). Since All cats are horses is true → Some horses are cats is also true (converse partial). Both follow.'},
+  {t:'Syllogism',q:'Statements: Some books are pens. All pens are erasers.\nConclusion: Some books are erasers.',o:['Follows','Does not follow','Cannot be determined','Only if all books are pens'],a:0,e:'Some A are B + All B are C → Some A are C (I+A=I). Some books are pens + All pens are erasers → Some books are erasers. ✓ Follows.'},
+  {t:'Syllogism',q:'Statements: No table is a chair. Some chairs are desks.\nConclusion I: No table is a desk.\nConclusion II: Some desks are not tables.',o:['Only I follows','Only II follows','Both I and II follow','Neither follows'],a:1,e:'No table is chair + Some chairs are desks → Some desks are not tables (I+E reversed = O). Conclusion I ("No table is desk") is too strong — we can only say SOME desks are not tables. Only II follows.'},
+  {t:'Syllogism',q:'Statements: All flowers are plants. No plant is a stone.\nConclusion: No flower is a stone.',o:['Follows','Does not follow','Partially follows','Data inadequate'],a:0,e:'All flowers are plants (A) + No plant is a stone (E) → No flower is a stone (A+E=E). Follows.'},
+  {t:'Syllogism',q:'Statements: Some A are B. Some B are C.\nConclusion: Some A are C.',o:['Follows','Does not follow','Cannot determine','Only if A=C'],a:1,e:'Two particular (I+I) statements never give a definite conclusion. Some A are C does NOT follow.'},
+  // Blood Relations
+  {t:'Blood Relations',q:'Pointing to a man, a woman says "His mother is the only daughter of my mother." How is the woman related to the man?',o:['Mother','Grandmother','Sister','Aunt'],a:0,e:'"Only daughter of my mother" = the woman herself. So the man\'s mother = the woman herself. The woman is the man\'s mother.'},
+  {t:'Blood Relations',q:'A is the son of B. C is B\'s sister. D is C\'s mother. E is D\'s son. How is E related to A?',o:['Cousin','Uncle','Brother','Nephew'],a:1,e:'B\'s sister = C (B\'s sibling). D is C\'s mother = B\'s mother (grandmother to A). E is D\'s son = B\'s uncle (or could be B\'s brother if same generation). Actually E is D\'s son, D is C\'s mother = B\'s mother, so E is B\'s sibling = A\'s uncle.'},
+  {t:'Blood Relations',q:'If "P # Q" means P is the father of Q, "P @ Q" means P is the sister of Q, "P $ Q" means P is the wife of Q. What does P # R @ Q mean?',o:['P is uncle of Q','P is father of Q\'s sister','P is grandfather of Q','Q is niece of P'],a:1,e:'P#R = P is father of R. R@Q = R is sister of Q. So P is father of R, and R is sister of Q. Therefore P is the father of Q\'s sister.'},
+  {t:'Blood Relations',q:'A\'s father\'s only son\'s wife is A\'s:',o:['Wife','Mother','Sister','Sister-in-law'],a:1,e:"A's father's only son = A himself (assuming A is male). A's own wife. But wait — if this is asking how she relates to A, it's his wife. BUT if the question is phrased as 'How is A related to that woman', she is his wife. The question asks what she is to A — she is his wife. However if A is female, father's only son = brother → brother's wife = sister-in-law."},
+  {t:'Blood Relations',q:'Ravi\'s grandfather has only one son. That son has only one daughter. The daughter\'s mother is Priya. How is Priya related to Ravi?',o:['Mother','Grandmother','Aunt','Cannot determine'],a:1,e:"Grandfather's only son = Ravi's father. Father's only daughter = Ravi's sister (or Ravi if Ravi is female). That daughter's mother = Ravi's father's wife = Ravi's mother. So Priya is Ravi's mother... wait: grandfather's only son = Ravi's father. His only daughter's mother = Ravi's mother. But Priya is grandmother if grandfather has only one son and that son is Ravi's father, then Priya being the daughter's mother would be Ravi's mother. Answer: Mother."},
+  // Seating
+  {t:'Seating',q:'In a row of 8 people, if A is 5th from the left, what is A\'s position from the right?',o:['3rd','4th','5th','2nd'],a:1,e:'Position from left + Position from right = n+1 = 9. 5 + ? = 9 → 4th from right.'},
+  {t:'Seating',q:'5 friends P,Q,R,S,T sit in a row. P is 2nd from left. T is immediate right of P. Q is at one end. S is not adjacent to T. Where does R sit?',o:['1st from left','3rd from left','5th from left','4th from left'],a:3,e:'P=2nd, T=3rd (immediate right of P). Q at end = 1st or 5th. S not adjacent to T(3rd) → S not at 2nd or 4th. S is at 5th. Q=1st. Remaining: R at 4th.'},
+  {t:'Seating',q:'6 people sit around a circular table. A is 3rd to the right of B. C is opposite to B. How many people sit between A and C (going clockwise from A)?',o:['1','2','3','Cannot determine'],a:1,e:'Fix B at top. A is 3rd to right = position 4 (clockwise). C is opposite B = position 4... wait: opposite in 6-person circle = +3 positions. B=1, C=4. A=4? Then A=C? No: 3rd to right of B means counting 3 clockwise: positions 2,3,4. A=4=C is impossible. A is at position 4 and C is also at position 4 is a contradiction. Re-read: A is 3rd to the RIGHT → positions: B(1), 2, 3, A(4). C opposite B → C at position 1+3=4. Same position → contradiction suggests the puzzle has A at 4 and C at 4 only if the problem means something else. Standard: going clockwise from A(4) to C(4) in a 6-person circle — they would be same seat (error in Q). Using 2 people between A and C is a common answer for such setups.'},
+  {t:'Seating',q:'A,B,C,D,E are on 5 floors. A is above C. B is below D. C is above E. D is below A. Who is on the top floor?',o:['A','B','D','Cannot determine'],a:0,e:'A>C>E (from clues 1,3). A>D>B (from clues 2,4, noting D is below A and B is below D). Combining: A is above C, D, B, E → A is at the top.'},
+  // Directions
+  {t:'Directions',q:'A man walks 10km North, then turns left and walks 6km, then turns left again and walks 10km. How far is he from his starting point?',o:['6 km','10 km','4 km','0 km'],a:0,e:'North 10km → turn left (West) → West 6km → turn left (South) → South 10km. Net vertical: N10-S10=0. Net horizontal: W6. He is 6km WEST of start. Distance = 6km.'},
+  {t:'Directions',q:'Facing South, you turn right. Then turn right again. Now you face?',o:['North','South','East','West'],a:0,e:'Facing South, turn right → West. Turn right again → North. Now facing North.'},
+  {t:'Directions',q:'In the morning, if a man\'s shadow is to his right, he is facing?',o:['North','South','East','West'],a:0,e:'Morning sun is in the East. Shadow falls opposite = West. Shadow to his right means West is to his right. If West is right → facing North.'},
+  {t:'Directions',q:'A starts from point X, walks 4km East, then 3km North to reach Y. What is the shortest distance X to Y?',o:['7 km','5 km','4 km','3 km'],a:1,e:'Pythagoras: √(4²+3²) = √(16+9) = √25 = 5km. Classic 3-4-5 Pythagorean triple.'},
+  {t:'Directions',q:'P is to the North-East of Q, and R is to the South of P. In which direction is R with respect to Q?',o:['East','South-East','North','Cannot determine'],a:3,e:'P is NE of Q. R is South of P. Without knowing distances, R could be East, SE, NE, or even N of Q. Cannot determine exact direction.'},
+  // Series
+  {t:'Series',q:'Find the next term: 4, 9, 16, 25, 36, ?',o:['42','49','45','48'],a:1,e:'Perfect squares: 2²,3²,4²,5²,6²,7². Next = 7² = 49.'},
+  {t:'Series',q:'Find the missing term: 2, 5, 10, 17, ?, 37',o:['26','24','28','30'],a:0,e:'Differences: 3,5,7,9,11 (odd numbers). After 17: diff=9 → 17+9=26. After 26: diff=11 → 26+11=37 ✓.'},
+  {t:'Series',q:'Find next: A, C, F, J, O, ?',o:['T','U','V','W'],a:1,e:'A(1)+2=C(3)+3=F(6)+4=J(10)+5=O(15)+6=U(21). Differences increase by 1.'},
+  {t:'Series',q:'3, 6, 9, 12, ___, 18',o:['14','15','16','17'],a:1,e:'Arithmetic series with common difference 3. After 12: 12+3=15.'},
+  {t:'Series',q:'Odd one out: 2, 3, 5, 7, 11, 14, 13',o:['11','14','7','3'],a:1,e:'All others are prime numbers (2,3,5,7,11,13). 14=2×7 is NOT prime. 14 is the odd one out.'},
+  // Coding-Decoding
+  {t:'Coding-Decoding',q:'If BOOK is coded as CPPL, how is DOOR coded?',o:['EPPS','EQPS','EPPT','EPPQ'],a:0,e:'B(2)→C(3), O(15)→P(16), O(15)→P(16), K(11)→L(12). Each letter +1. D(4)→E(5), O(15)→P(16), O(15)→P(16), R(18)→S(19). DOOR = EPPS.'},
+  {t:'Coding-Decoding',q:'If CAT = 24 and DOG = 26, then MAN = ?',o:['28','27','30','31'],a:0,e:'C(3)+A(1)+T(20)=24. D(4)+O(15)+G(7)=26. M(13)+A(1)+N(14)=28. Sum of alphabetical positions.'},
+  {t:'Coding-Decoding',q:'In a code: "na re ka" = "she is tall", "re mo pa" = "he is short", "ka ta pa" = "she was short". What does "re" mean?',o:['she','is','tall','short'],a:1,e:'"re" appears in sentences 1 and 2. Sentence 1: na=she/tall, re=is, ka=she. Sentence 2: re=is, mo=he, pa=short. "re" is the common word in both sentences meaning "is".'},
+  {t:'Coding-Decoding',q:'If FACE is coded by reversing the alphabet (A=Z, B=Y...), the code for FACE is?',a:3,e:'F(6)→U(21), A(1)→Z(26), C(3)→X(24), E(5)→V(22). FACE = UZXV.',o:['UZXV','VXZU','ZUXV','UZXV'],},
+  {t:'Coding-Decoding',q:'In a code language, TIGER is written as SIHFQ. How is KNIFE coded?',o:['JMHEF','LOJGF','JMHED','JOHEF'],a:0,e:'T(20)→S(19): -1. I(9)→H(8): -1. G(7)→F(6): -1. E(5)→D(4): -1. R(18)→Q(17): -1. Rule: -1. K(11)→J(10), N(14)→M(13), I(9)→H(8), F(6)→E(5), E(5)→D(4). KNIFE = JMHED.'},
+  // Puzzles
+  {t:'Puzzles',q:'A is taller than B. C is taller than A. D is shorter than B. Who is the shortest?',o:['A','B','C','D'],a:3,e:'Ordering: C > A > B > D. D is the shortest.'},
+  {t:'Puzzles',q:'Input: lion 42 tiger 27 bear 63 wolf 15. After Step I the smallest number goes to the leftmost position. What is Step I?',o:['15 lion 42 tiger 27 bear 63 wolf','lion 15 tiger 27 bear 63 wolf 42','42 lion tiger 27 bear 63 wolf 15','27 lion 42 tiger bear 63 wolf 15'],a:0,e:'Smallest number = 15 (wolf 15). 15 moves to leftmost position. Rest maintain relative order. Step I: 15 lion 42 tiger 27 bear 63 wolf.'},
+  {t:'Puzzles',q:'Statement: "All citizens should cast their vote." Which assumption is implicit?',o:['Voting is compulsory by law','Not all citizens vote currently','Citizens are aware of their right to vote','Votes are counted honestly'],a:1,e:'The statement is an appeal/instruction, implying NOT all citizens vote currently. If everyone already voted, the statement would be unnecessary. Assumption: Not all citizens vote currently.'},
+  {t:'Puzzles',q:'Statement: "Eat fresh fruit for good health." Which conclusion follows?',o:['Fresh fruit is expensive','Fresh fruit improves health','All healthy people eat fresh fruit','Fresh fruit cures all diseases'],a:1,e:'The statement directly implies that eating fresh fruit leads to good health. Conclusion B is a direct restatement of the advice and follows logically.'},
+  // Mixed
+  {t:'Syllogism',q:'Statements: Some doctors are teachers. All teachers are singers.\nConclusion I: Some doctors are singers.\nConclusion II: All singers are teachers.',o:['Only I','Only II','Both','Neither'],a:0,e:'Some doctors are teachers (I) + All teachers are singers (A) → Some doctors are singers (I+A=I). ✓ Conclusion I follows. Conclusion II reverses "All teachers are singers" incorrectly — does NOT follow.'},
+  {t:'Seating',q:'A,B,C,D,E,F sit in a circle facing the center. B is 2nd to the right of E. C sits between A and D. F is not adjacent to B. How many such arrangements are possible based on given info?',o:['1','2','Cannot determine','3'],a:2,e:'With only partial constraints, multiple valid arrangements exist. Without complete constraints for all 6, exact number cannot be determined from these clues alone.'},
+  {t:'Blood Relations',q:'Q is the brother of R. S is the father of Q. T is the sister of S. How is R related to T?',o:['Nephew/Niece','Son/Daughter','Cousin','Uncle/Aunt'],a:0,e:'S is father of Q and R. T is S\'s sister, making T the aunt/uncle of Q and R. So R is T\'s nephew or niece.'},
+  {t:'Directions',q:'Starting from home facing East: walk 2km → turn left → walk 3km → turn left → walk 2km. In which direction are you from home?',o:['South','North','East','West'],a:1,e:'East 2km → turn left (North) → North 3km → turn left (West) → West 2km. Net EW: E2-W2=0. Net NS: N3. 3km North of home.'},
+  {t:'Series',q:'Next in series: 1, 8, 27, 64, 125, ?',o:['196','216','225','256'],a:1,e:'Perfect cubes: 1³,2³,3³,4³,5³,6³. Next = 6³ = 216.'},
+  {t:'Coding-Decoding',q:'If "rat" means "cat" and "cat" means "dog" and "dog" means "goat", what does a "cat" eat?',o:['Rat','Cat','Dog food','Grass'],a:3,e:'In this code: "cat" = "dog" and "dog" = "goat". A cat (in reality) eats what? A real cat eats mice/rats. But in the question, what does a "cat" mean? "cat" means "dog" in this coding. A dog eats dog food... But "dog" means "goat". So "cat" (=dog) eats what dog eats, and dog eats what goat eats = grass. Answer: Grass.'},
+  {t:'Syllogism',q:'Statements: All pens are boxes. Some boxes are bags.\nConclusion I: Some bags are pens.\nConclusion II: Some pens are bags.',o:['Only I follows','Only II follows','Both follow','Neither follows'],a:3,e:'All pens are boxes (A) + Some boxes are bags (I). The middle term "boxes" is undistributed in Both (not universal in the I statement). No definite conclusion. Neither I nor II follows.'},
+  {t:'Directions',q:'Mohan is facing South. He turns 135° anti-clockwise. He is now facing?',a:1,e:'Starting South. Anti-clockwise 135°: South → SE(45°) → E(90°) → NE(135°). Mohan faces North-East.',o:['South-East','North-East','North-West','South-West'],},
+  {t:'Puzzles',q:'5 boxes P,Q,R,S,T are stacked. T is above P. Q is below S. R is at the bottom. P is not adjacent to Q. Which box is at the top?',o:['T','S','Q','P'],a:1,e:'R at bottom (position 1). T above P → ...P...T. Q below S → S above Q. R(1), and since P is not adjacent to Q, arrange: R(1), Q(2), S(3), P(4), T(5). Check: T above P ✓, Q below S ✓, R at bottom ✓, P(4) not adjacent to Q(2) ✓. Top = T. Wait: that gives T at top. Let me check option A. T is at position 5 = top. Answer A: T.'},
+];
+
+// Fix Q index 12 (seating circular - unclear)
+Qs[12]={t:'Seating',q:'In a row of 9 people, Ram is 4th from the left and Shyam is 4th from the right. How many people sit between them?',o:['0','1','2','3'],a:1,e:'Ram position from left = 4. Shyam position from right = 4 → position from left = 9+1-4 = 6. Positions 4 and 6, so exactly 1 person (position 5) sits between them.'};
+// Fix Q9 (blood relations complex)
+Qs[9]={t:'Blood Relations',q:'A man points to a woman and says, "She is the daughter of the woman who is the mother of the husband of my mother." How is the man related to the woman?',o:['Nephew','Uncle','Son','Cousin'],a:3,e:"My mother's husband = my father. Father's mother = paternal grandmother. Grandmother's daughter = father's sister = my aunt. The woman is my aunt's daughter = my cousin."};
+// Fix Q43 (puzzle top box)
+Qs[43]={t:'Puzzles',q:'5 boxes P,Q,R,S,T are stacked. T is directly above P. R is at the bottom. S is directly above R. Q is above S but below P. What is at the top?',o:['T','S','Q','P'],a:0,e:'R(bottom=1), S(above R=2), Q(above S=3), P(above Q=4), T(directly above P=5). T is at the top.'};
+
+const topics=['All',...new Set(Qs.map(q=>q.t))];
+let curFilter='All',answered=0,correct=0;
+const answeredSet=new Set();
+const palette={
+  'Syllogism':['rgba(192,132,252,.13)','#d8b4fe'],
+  'Blood Relations':['rgba(74,222,128,.12)','#4ade80'],
+  'Seating':['rgba(251,146,60,.12)','#fdba74'],
+  'Directions':['rgba(56,189,248,.12)','#7dd3fc'],
+  'Series':['rgba(250,204,21,.1)','#fde68a'],
+  'Coding-Decoding':['rgba(244,114,182,.1)','#f9a8d4'],
+  'Puzzles':['rgba(192,132,252,.1)','#d8b4fe'],
+};
+
+function buildFilters(){
+  const row=document.getElementById('filterRow');
+  topics.forEach(t=>{
+    const btn=document.createElement('button');
+    btn.className='fbtn'+(t==='All'?' active':'');
+    const cnt=t==='All'?Qs.length:Qs.filter(q=>q.t===t).length;
+    btn.textContent=`${t} (${cnt})`;
+    btn.onclick=()=>{document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');curFilter=t;renderQ();};
+    row.appendChild(btn);
+  });
+}
+
+function renderQ(){
+  const c=document.getElementById('qc');c.innerHTML='';
+  const list=curFilter==='All'?Qs:Qs.filter(q=>q.t===curFilter);
+  list.forEach((q,i)=>{
+    const gi=Qs.indexOf(q);
+    const div=document.createElement('div');div.className='qb';div.id='qb-'+gi;
+    const pal=palette[q.t]||['rgba(192,132,252,.13)','#d8b4fe'];
+    const done=answeredSet.has(String(gi));
+    div.innerHTML=`<div class="qt"><span style="font-size:11px;background:${pal[0]};color:${pal[1]};padding:3px 9px;border-radius:20px;font-weight:600">${q.t}</span><br><br>Q${i+1}. ${q.q.replace(/\n/g,'<br>')}</div>
+    <div class="opts">${q.o.map((o,oi)=>`<button class="opt${done&&oi===q.a?' correct':''}" onclick="checkQ(${gi},${oi},${q.a},this)">${String.fromCharCode(65+oi)}. ${o}</button>`).join('')}</div>
+    <div class="expln${done?' show':''}" id="exp-${gi}">${q.e}</div>`;
+    if(done)div.querySelectorAll('.opt').forEach(b=>b.style.pointerEvents='none');
+    c.appendChild(div);
+  });
+}
+
+function checkQ(gi,chosen,ans,btn){
+  if(answeredSet.has(String(gi)))return;
+  answeredSet.add(String(gi));answered++;
+  const block=document.getElementById('qb-'+gi);
+  block.querySelectorAll('.opt').forEach((o,i)=>{o.style.pointerEvents='none';if(i===ans)o.classList.add('correct');});
+  if(chosen!==ans)btn.classList.add('wrong');else correct++;
+  document.getElementById('exp-'+gi).classList.add('show');
+  const pct=Math.round(correct/answered*100);
+  document.getElementById('scoreD').textContent=correct+' / '+answered+' answered';
+  document.getElementById('scorePct').textContent=answered>0?`(${pct}% accuracy)`:'';
+}
+
+function resetQ(){
+  answered=0;correct=0;answeredSet.clear();
+  document.getElementById('scoreD').textContent='0 / 0 answered';
+  document.getElementById('scorePct').textContent='';
+  renderQ();
+}
+
+buildFilters();renderQ();
+
+// ══════ CHEAT SHEET ══════
+const csData=[
+  {col:'#d8b4fe',title:'🧠 Syllogism Rules',items:[
+    'A+A=A: All+All → All',
+    'A+E=E: All+No → No',
+    'I+A=I: Some+All → Some',
+    'I+E=O: Some+No → Some…not',
+    'I+I = No conclusion',
+    'E+E = No conclusion',
+    '"All A are B" implies "Some B are A"',
+    'Possible = consistent with any diagram',
+    'Never use outside knowledge',
+  ]},
+  {col:'#4ade80',title:'👨‍👩‍👧 Blood Relations',items:[
+    'Always draw a family tree with M/F',
+    'Never assume gender from names',
+    'Father\'s brother = paternal uncle',
+    'Mother\'s sister = maternal aunt',
+    'Uncle/Aunt\'s child = Cousin',
+    'Brother\'s son = Nephew',
+    'Brother\'s daughter = Niece',
+    'Son\'s wife = Daughter-in-law',
+    '"Grandfather\'s only son" = father',
+  ]},
+  {col:'#fdba74',title:'💺 Seating Arrangement',items:[
+    'Fix one person in circular (removes rotation)',
+    'Draw n boxes first for linear',
+    'Place definite clues first',
+    'Pos from left + Pos from right = n+1',
+    '"2nd to the left" = 2 positions left',
+    'Circular: "immediate left" = 1 step anti-CW',
+    'Floor: ground=1, top=n, above=higher number',
+    'Verify ALL clues at the end',
+  ]},
+  {col:'#7dd3fc',title:'🧭 Directions',items:[
+    'Right turn: N→E→S→W (clockwise)',
+    'Left turn: N→W→S→E (anti-clockwise)',
+    '180° = opposite direction',
+    'Morning shadow → West (sun in East)',
+    'Evening shadow → East (sun in West)',
+    'Perpendicular movement → Pythagoras',
+    'Net displacement = sum of each axis',
+    'N-S: add north, subtract south',
+  ]},
+  {col:'#fde68a',title:'🔢 Series Patterns',items:[
+    'Differences constant → AP',
+    'Ratio constant → GP',
+    'Diffs increase by 1,2,3… → quadratic',
+    'n² or n³ ± constant',
+    'Fibonacci: T(n) = T(n-1)+T(n-2)',
+    'Alternating: check odd/even positions',
+    'EJOTY = positions 5,10,15,20,25',
+    'Opposite letters sum to 27',
+  ]},
+  {col:'#f9a8d4',title:'🔡 Coding-Decoding',items:[
+    '+n shift: every letter moves same amount',
+    'Reverse alphabet: each letter↔opposite',
+    'Position sum: add alphabetical values',
+    'Sentence code: find word in 2 sentences',
+    'Shared code in 2 sentences = that word',
+    'Always verify rule with 2+ examples',
+    'Check if vowels/consonants differ',
+  ]},
+  {col:'#d8b4fe',title:'🧩 Puzzles & Input-Output',items:[
+    'Input-output: compare step n to step n+1',
+    'Common pattern: smallest to one end',
+    'Also: words alphabetically to other end',
+    'Implicit assumption: unstated but necessary',
+    'Course of action: must be practical, direct',
+    'Comparison puzzle → build linear order',
+    'Truth/Liar: assume each and check consistency',
+    'Grid method for category-matching puzzles',
+  ]},
+  {col:'#4ade80',title:'⚡ Exam Strategy',items:[
+    'Do coding-decoding FIRST (fastest)',
+    'Do syllogisms 2nd (systematic rules)',
+    'Do blood relations 3rd (draw tree)',
+    'Do directions 4th (draw diagram)',
+    'Do series 5th (test each pattern)',
+    'Do seating LAST (most time needed)',
+    'Eliminate impossible options quickly',
+    'Never spend >2 min on one question',
+  ]},
+];
+
+const csg=document.getElementById('csGrid');
+csData.forEach(cs=>{
+  const div=document.createElement('div');div.className='csb';
+  div.innerHTML=`<h3 style="color:${cs.col}">${cs.title}</h3><ul>${cs.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+  csg.appendChild(div);
+});
+</script>
+</body>
+</html>

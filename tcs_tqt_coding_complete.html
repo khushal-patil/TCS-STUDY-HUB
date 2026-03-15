@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TCS TQT — Coding Section Complete Study Material</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#090b0f;--bg2:#0f1117;--bg3:#161a22;--bg4:#1c2030;
+  --border:rgba(255,255,255,0.07);--text:#dde2ee;--muted:#6b7280;
+  --a1:#4f9cf9;--a2:#3dd68c;--a3:#f59e0b;--a4:#f43f5e;--a5:#a78bfa;--a6:#22d3ee;
+  --fh:'Syne',sans-serif;--fb:'Instrument Sans',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px;line-height:1.7;min-height:100vh}
+.header{padding:36px 28px 0}
+.hi{max-width:980px;margin:0 auto}
+.tagrow{display:flex;gap:8px;margin-bottom:13px;flex-wrap:wrap}
+.tag{font-size:10px;font-weight:700;letter-spacing:.12em;padding:3px 10px;border-radius:20px;text-transform:uppercase}
+.t1{background:rgba(79,156,249,.16);color:#82b4fb;border:1px solid rgba(79,156,249,.28)}
+.t2{background:rgba(61,214,140,.13);color:#3dd68c;border:1px solid rgba(61,214,140,.26)}
+.t3{background:rgba(167,139,250,.13);color:#c4b5fd;border:1px solid rgba(167,139,250,.26)}
+h1{font-family:var(--fh);font-size:clamp(27px,4vw,44px);font-weight:800;line-height:1.07;letter-spacing:-.025em}
+h1 em{color:var(--a1);font-style:normal}
+.sub{color:var(--muted);font-size:14px;margin-top:6px}
+.stats{display:flex;gap:11px;flex-wrap:wrap;margin:20px 0 0}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 15px}
+.sn{font-family:var(--fh);font-size:20px;font-weight:700}
+.sl{font-size:11px;color:var(--muted);margin-top:1px}
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,11,15,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 28px}
+.ni{max-width:980px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none}
+.ni::-webkit-scrollbar{display:none}
+.nb{font-family:var(--fb);font-size:12.5px;font-weight:500;background:none;border:none;color:var(--muted);padding:14px 15px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:6px}
+.nb:hover{color:var(--text)}
+.nb.active{color:var(--text);border-bottom-color:var(--a1)}
+.dot{width:7px;height:7px;border-radius:50%}
+/* Main */
+.main{max-width:980px;margin:0 auto;padding:26px 28px 80px}
+.sec{display:none}
+.sec.active{display:block}
+.sch{margin-bottom:22px}
+.sch h2{font-family:var(--fh);font-size:23px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.sch p{color:var(--muted);font-size:13.5px}
+/* Cards */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:15px}
+.ct{font-family:var(--fh);font-size:15px;font-weight:700;margin-bottom:13px;display:flex;align-items:center;gap:8px}
+/* Code block */
+.code{background:#0d1117;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:16px 18px;font-family:var(--fm);font-size:12.5px;line-height:1.85;overflow-x:auto;margin:10px 0;position:relative}
+.code .kw{color:#ff79c6}
+.code .fn{color:#50fa7b}
+.code .str{color:#f1fa8c}
+.code .cmt{color:#6272a4;font-style:italic}
+.code .num{color:#bd93f9}
+.code .tp{color:#8be9fd}
+.code .op{color:#ff79c6}
+.code .var{color:#f8f8f2}
+.code-label{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+/* Rule list */
+.rl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rl li{padding:9px 13px;background:var(--bg3);border-radius:8px;border-left:3px solid var(--a1);font-size:13.5px;line-height:1.65}
+.rl li strong{color:var(--a2);font-weight:600}
+.rl.g li{border-left-color:var(--a2)}
+.rl.g li strong{color:var(--a2)}
+.rl.o li{border-left-color:var(--a3)}
+.rl.o li strong{color:var(--a3)}
+.rl.r li{border-left-color:var(--a4)}
+.rl.r li strong{color:var(--a4)}
+.rl.p li{border-left-color:var(--a5)}
+.rl.p li strong{color:var(--a5)}
+.rl.c li{border-left-color:var(--a6)}
+.rl.c li strong{color:var(--a6)}
+/* Complexity table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;padding:7px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border);font-weight:600}
+.tbl td{padding:8px 11px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;font-family:var(--fm);font-size:12.5px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .name{color:#82b4fb;font-weight:500;font-family:var(--fb)}
+.c-green{color:#3dd68c}
+.c-yellow{color:#f59e0b}
+.c-red{color:#f43f5e}
+.c-blue{color:#82b4fb}
+/* Tip */
+.tip{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:12px 16px;font-size:13px;color:#fbbf24;line-height:1.6;margin-bottom:15px;display:flex;gap:9px}
+.tip::before{content:'⚡';font-size:14px;flex-shrink:0;margin-top:2px}
+/* Two-col */
+.tcol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.tcol{grid-template-columns:1fr}}
+/* Output question */
+.out-q{background:var(--bg3);border-radius:10px;padding:15px 17px;margin-bottom:11px}
+.out-qt{font-size:13.5px;margin-bottom:11px;line-height:1.65}
+.out-opts{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:9px}
+.out-opt{font-size:13px;padding:6px 14px;border-radius:7px;background:var(--bg2);border:1px solid var(--border);cursor:pointer;transition:all .15s;user-select:none;font-family:var(--fm)}
+.out-opt:hover{border-color:var(--a1);color:#82b4fb}
+.out-opt.correct{background:rgba(61,214,140,.13);border-color:rgba(61,214,140,.45);color:#3dd68c}
+.out-opt.wrong{background:rgba(244,63,94,.1);border-color:rgba(244,63,94,.4);color:#f43f5e}
+.expln{font-size:13px;color:var(--muted);padding:9px 12px;background:var(--bg2);border-radius:6px;border-left:3px solid var(--a2);display:none;line-height:1.65}
+.expln.show{display:block}
+.expln .mono{font-family:var(--fm);color:#82b4fb;font-size:12px}
+/* Score */
+.sbadge{display:inline-block;background:rgba(61,214,140,.12);color:#3dd68c;border:1px solid rgba(61,214,140,.3);padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}
+/* Filter */
+.frow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}
+.fbtn{font-family:var(--fb);font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer;transition:all .15s}
+.fbtn:hover{border-color:var(--a1);color:var(--text)}
+.fbtn.active{background:rgba(79,156,249,.13);border-color:rgba(79,156,249,.35);color:#82b4fb}
+/* Accordion */
+.ai{border:1px solid var(--border);border-radius:10px;margin-bottom:9px;overflow:hidden}
+.ah{padding:13px 17px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:500;transition:background .15s}
+.ah:hover{background:var(--bg3)}
+.aar{transition:transform .2s;font-size:11px;color:var(--muted)}
+.ab{display:none;padding:0 17px 15px;font-size:13.5px;line-height:1.75;color:var(--muted)}
+.ab.open{display:block}
+.aar.open{transform:rotate(90deg)}
+/* Flashcard */
+.fcw{perspective:1000px;margin:8px 0}
+.fc{width:100%;min-height:175px;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .5s}
+.fc.flipped{transform:rotateY(180deg)}
+.fcf{position:absolute;width:100%;min-height:175px;backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center}
+.fcfront{background:linear-gradient(135deg,rgba(79,156,249,.13),rgba(61,214,140,.06));border:1px solid rgba(79,156,249,.25)}
+.fcback{background:linear-gradient(135deg,rgba(61,214,140,.11),rgba(167,139,250,.07));border:1px solid rgba(61,214,140,.25);transform:rotateY(180deg)}
+.fct{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fcq{font-family:var(--fh);font-size:19px;font-weight:700;color:#82b4fb;line-height:1.3;margin-bottom:5px}
+.fchint{font-size:12px;color:var(--muted)}
+.fca{font-family:var(--fm);font-size:14px;font-weight:500;color:#3dd68c;margin-bottom:7px;line-height:1.5;text-align:center;max-width:420px}
+.fcn{font-size:12px;color:var(--muted);font-style:italic;max-width:380px;line-height:1.5}
+.fcnav{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.fcbtn{font-family:var(--fb);font-size:13px;padding:7px 17px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;transition:all .15s}
+.fcbtn:hover{border-color:var(--a1);color:#82b4fb}
+.fcpb{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:12px;overflow:hidden}
+.fcpbf{height:100%;background:var(--a1);border-radius:2px;transition:width .3s}
+/* Cheatsheet */
+.csg{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:680px){.csg{grid-template-columns:1fr}}
+.csb{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:17px}
+.csb h3{font-family:var(--fh);font-size:13.5px;font-weight:700;margin-bottom:10px}
+.csb ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.csb li{font-size:12.5px;color:var(--muted);padding-left:13px;position:relative;line-height:1.6}
+.csb li::before{content:'→';position:absolute;left:0;color:var(--a1);font-size:10px;top:3px}
+.csb li b{color:var(--text);font-weight:600}
+.csb li .mono{font-family:var(--fm);font-size:11.5px;color:#82b4fb}
+/* Highlights */
+.hl{color:var(--a2);font-weight:600}
+.hlo{color:var(--a3);font-weight:600}
+.hlr{color:var(--a4);font-weight:600}
+.hlp{color:var(--a5);font-weight:600}
+.hlb{color:var(--a1);font-weight:600}
+.hlc{color:var(--a6);font-weight:600}
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:9px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.snum{width:26px;height:26px;min-width:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:var(--fh)}
+.sb{background:rgba(79,156,249,.18);color:#82b4fb}
+.sg{background:rgba(61,214,140,.18);color:#3dd68c}
+.so{background:rgba(245,158,11,.15);color:#f59e0b}
+.stxt{font-size:13.5px;line-height:1.65;padding-top:3px}
+/* Complexity pill */
+.cpill{display:inline-block;font-family:var(--fm);font-size:11px;padding:2px 8px;border-radius:4px;margin:0 2px}
+.cO1{background:rgba(61,214,140,.15);color:#3dd68c}
+.cOn{background:rgba(245,158,11,.13);color:#f59e0b}
+.cOnl{background:rgba(245,158,11,.13);color:#f59e0b}
+.cOn2{background:rgba(244,63,94,.12);color:#f43f5e}
+.cO2n{background:rgba(244,63,94,.2);color:#f43f5e}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="hi">
+    <div class="tagrow">
+      <span class="tag t1">TCS TQT</span>
+      <span class="tag t2">Coding Section</span>
+      <span class="tag t3">DSA + Output + Complexity</span>
+    </div>
+    <h1>Complete <em>Coding</em> Study Material</h1>
+    <p class="sub">Arrays · Strings · Linked Lists · Trees · Sorting · DP · Complexity · Output MCQs — everything to crack the coding section</p>
+    <div class="stats">
+      <div class="stat"><div class="sn" style="color:#82b4fb">8</div><div class="sl">DSA Topics</div></div>
+      <div class="stat"><div class="sn" style="color:#3dd68c">50+</div><div class="sl">Code examples</div></div>
+      <div class="stat"><div class="sn" style="color:#f59e0b">45</div><div class="sl">MCQ questions</div></div>
+      <div class="stat"><div class="sn" style="color:#a78bfa">30</div><div class="sl">Flashcards</div></div>
+      <div class="stat"><div class="sn" style="color:#f43f5e">20</div><div class="sl">Output questions</div></div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="ni">
+    <button class="nb active" onclick="sw('complexity',this)"><span class="dot" style="background:#82b4fb"></span>Complexity</button>
+    <button class="nb" onclick="sw('arrays',this)"><span class="dot" style="background:#3dd68c"></span>Arrays &amp; Strings</button>
+    <button class="nb" onclick="sw('linkedlist',this)"><span class="dot" style="background:#f59e0b"></span>Linked Lists</button>
+    <button class="nb" onclick="sw('stackqueue',this)"><span class="dot" style="background:#a78bfa"></span>Stack &amp; Queue</button>
+    <button class="nb" onclick="sw('trees',this)"><span class="dot" style="background:#f43f5e"></span>Trees &amp; Graphs</button>
+    <button class="nb" onclick="sw('sorting',this)"><span class="dot" style="background:#22d3ee"></span>Sorting &amp; Search</button>
+    <button class="nb" onclick="sw('dp',this)"><span class="dot" style="background:#82b4fb"></span>Recursion &amp; DP</button>
+    <button class="nb" onclick="sw('output',this)"><span class="dot" style="background:#3dd68c"></span>Output MCQs</button>
+    <button class="nb" onclick="sw('flashcards',this)"><span class="dot" style="background:#f59e0b"></span>Flashcards</button>
+    <button class="nb" onclick="sw('quiz',this)"><span class="dot" style="background:#a78bfa"></span>Practice Quiz</button>
+    <button class="nb" onclick="sw('cheatsheet',this)"><span class="dot" style="background:#f43f5e"></span>Cheat Sheet</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ══════════════ COMPLEXITY ══════════════ -->
+<div id="complexity" class="sec active">
+  <div class="sch"><h2>Time &amp; Space Complexity</h2><p>Big O notation — the most tested concept in TCS TQT coding</p></div>
+  <div class="tip">Every TCS TQT coding MCQ asks about Big O. Always identify: what determines the number of operations? That variable goes in O(?).</div>
+
+  <div class="card">
+    <div class="ct">📊 Big O — Complexity Hierarchy</div>
+    <table class="tbl">
+      <tr><th>Notation</th><th>Name</th><th>Example</th><th>n=1000 approx</th></tr>
+      <tr><td class="c-green">O(1)</td><td class="name">Constant</td><td>Array access, hash lookup</td><td class="c-green">1 op</td></tr>
+      <tr><td class="c-green">O(log n)</td><td class="name">Logarithmic</td><td>Binary search, BST ops</td><td class="c-green">10 ops</td></tr>
+      <tr><td class="c-yellow">O(n)</td><td class="name">Linear</td><td>Linear search, single loop</td><td class="c-yellow">1,000 ops</td></tr>
+      <tr><td class="c-yellow">O(n log n)</td><td class="name">Linearithmic</td><td>Merge sort, Heap sort</td><td class="c-yellow">10,000 ops</td></tr>
+      <tr><td class="c-red">O(n²)</td><td class="name">Quadratic</td><td>Bubble sort, nested loops</td><td class="c-red">1,000,000 ops</td></tr>
+      <tr><td class="c-red">O(2ⁿ)</td><td class="name">Exponential</td><td>Naive recursion, subsets</td><td class="c-red">2^1000 — impossible</td></tr>
+      <tr><td class="c-red">O(n!)</td><td class="name">Factorial</td><td>Permutations, brute force</td><td class="c-red">Way too large</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--muted);margin-top:10px">Order (best to worst): O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(2ⁿ) &lt; O(n!)</p>
+  </div>
+
+  <div class="card">
+    <div class="ct">📋 Big O Rules — How to Calculate</div>
+    <ul class="rl">
+      <li><strong>Drop constants:</strong> O(2n) = O(n). O(500) = O(1). Constants are irrelevant for large n.</li>
+      <li><strong>Drop smaller terms:</strong> O(n² + n) = O(n²). The dominant term wins.</li>
+      <li><strong>Sequential steps ADD:</strong> Loop of n then loop of n → O(n) + O(n) = O(n). Still O(n).</li>
+      <li><strong>Nested steps MULTIPLY:</strong> Loop inside a loop → O(n) × O(n) = O(n²).</li>
+      <li><strong>Different variables stay separate:</strong> Loop over array A (size n) then array B (size m) → O(n + m), NOT O(2n).</li>
+      <li><strong>Halving at each step → log n:</strong> If you divide n by 2 at each step, it takes log₂n steps to reach 1.</li>
+    </ul>
+    <div class="code" style="margin-top:12px">
+<span class="cmt">// How to read complexity from code</span>
+<span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i &lt; n; i++) {          <span class="cmt">// O(n)</span>
+    <span class="kw">for</span> (<span class="tp">int</span> j = <span class="num">0</span>; j &lt; n; j++) {      <span class="cmt">// O(n) nested → O(n²) total</span>
+        arr[i][j] = i + j;
+    }
+}
+
+<span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">1</span>; i &lt; n; i *= <span class="num">2</span>) {    <span class="cmt">// i doubles → O(log n)</span>
+    System.out.println(i);
+}
+
+<span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i &lt; n; i++) {          <span class="cmt">// O(n)</span>
+    <span class="kw">for</span> (<span class="tp">int</span> j = i; j &lt; n; j++) {      <span class="cmt">// O(n) in worst → O(n²) total</span>
+        System.out.println(i + j);
+    }
+}</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🗂️ Data Structure Operations — All Complexities</div>
+    <table class="tbl">
+      <tr><th>Structure</th><th>Access</th><th>Search</th><th>Insert</th><th>Delete</th><th>Space</th></tr>
+      <tr><td class="name">Array</td><td class="c-green">O(1)</td><td class="c-yellow">O(n)</td><td class="c-red">O(n)</td><td class="c-red">O(n)</td><td class="c-yellow">O(n)</td></tr>
+      <tr><td class="name">Linked List</td><td class="c-yellow">O(n)</td><td class="c-yellow">O(n)</td><td class="c-green">O(1)*</td><td class="c-green">O(1)*</td><td class="c-yellow">O(n)</td></tr>
+      <tr><td class="name">Stack</td><td class="c-yellow">O(n)</td><td class="c-yellow">O(n)</td><td class="c-green">O(1)</td><td class="c-green">O(1)</td><td class="c-yellow">O(n)</td></tr>
+      <tr><td class="name">Queue</td><td class="c-yellow">O(n)</td><td class="c-yellow">O(n)</td><td class="c-green">O(1)</td><td class="c-green">O(1)</td><td class="c-yellow">O(n)</td></tr>
+      <tr><td class="name">Hash Table</td><td>—</td><td class="c-green">O(1) avg</td><td class="c-green">O(1) avg</td><td class="c-green">O(1) avg</td><td class="c-yellow">O(n)</td></tr>
+      <tr><td class="name">BST (balanced)</td><td class="c-green">O(log n)</td><td class="c-green">O(log n)</td><td class="c-green">O(log n)</td><td class="c-green">O(log n)</td><td class="c-yellow">O(n)</td></tr>
+      <tr><td class="name">Heap</td><td class="c-green">O(1)**</td><td class="c-yellow">O(n)</td><td class="c-green">O(log n)</td><td class="c-green">O(log n)</td><td class="c-yellow">O(n)</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px">* If pointer to node is given. ** Only for min/max element.</p>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔢 Sorting Algorithm Complexities</div>
+    <table class="tbl">
+      <tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Space</th><th>Stable?</th></tr>
+      <tr><td class="name">Bubble Sort</td><td class="c-yellow">O(n)</td><td class="c-red">O(n²)</td><td class="c-red">O(n²)</td><td class="c-green">O(1)</td><td>Yes</td></tr>
+      <tr><td class="name">Selection Sort</td><td class="c-red">O(n²)</td><td class="c-red">O(n²)</td><td class="c-red">O(n²)</td><td class="c-green">O(1)</td><td>No</td></tr>
+      <tr><td class="name">Insertion Sort</td><td class="c-yellow">O(n)</td><td class="c-red">O(n²)</td><td class="c-red">O(n²)</td><td class="c-green">O(1)</td><td>Yes</td></tr>
+      <tr><td class="name">Merge Sort</td><td class="c-yellow">O(n log n)</td><td class="c-yellow">O(n log n)</td><td class="c-yellow">O(n log n)</td><td class="c-red">O(n)</td><td>Yes</td></tr>
+      <tr><td class="name">Quick Sort</td><td class="c-yellow">O(n log n)</td><td class="c-yellow">O(n log n)</td><td class="c-red">O(n²)</td><td class="c-green">O(log n)</td><td>No</td></tr>
+      <tr><td class="name">Heap Sort</td><td class="c-yellow">O(n log n)</td><td class="c-yellow">O(n log n)</td><td class="c-yellow">O(n log n)</td><td class="c-green">O(1)</td><td>No</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════ ARRAYS & STRINGS ══════════════ -->
+<div id="arrays" class="sec">
+  <div class="sch"><h2>Arrays &amp; Strings</h2><p>The most tested data structure in TCS TQT — know common patterns cold</p></div>
+  <div class="tip">Array and string questions form 30–40% of TCS TQT coding. Master two-pointer, sliding window, and frequency counting patterns.</div>
+
+  <div class="card">
+    <div class="ct">📦 Array — Key Concepts</div>
+    <ul class="rl">
+      <li><strong>Declaration:</strong> int[] arr = new int[5]; // Java | int arr[5]; // C++</li>
+      <li><strong>0-indexed:</strong> First element at index 0, last at index n−1.</li>
+      <li><strong>Traversal:</strong> O(n). Access by index: O(1). Insert/delete at arbitrary position: O(n) (shifting required).</li>
+      <li><strong>2D array:</strong> int[][] mat = new int[rows][cols]; — row-major storage in memory.</li>
+      <li><strong>Common patterns:</strong> Two pointers, sliding window, prefix sum, frequency array.</li>
+    </ul>
+    <div class="code">
+<span class="cmt">// Prefix Sum — O(n) precomputation, O(1) range query</span>
+<span class="tp">int</span>[] prefix = <span class="kw">new</span> <span class="tp">int</span>[n+<span class="num">1</span>];
+<span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i &lt; n; i++)
+    prefix[i+<span class="num">1</span>] = prefix[i] + arr[i];
+
+<span class="cmt">// Sum of arr[l..r] = prefix[r+1] - prefix[l]  → O(1)</span>
+<span class="tp">int</span> rangeSum = prefix[r+<span class="num">1</span>] - prefix[l];</div>
+
+    <div class="code" style="margin-top:8px">
+<span class="cmt">// Two Pointer — find pair with target sum in sorted array</span>
+<span class="tp">int</span> left = <span class="num">0</span>, right = n-<span class="num">1</span>;
+<span class="kw">while</span> (left &lt; right) {
+    <span class="tp">int</span> sum = arr[left] + arr[right];
+    <span class="kw">if</span> (sum == target) { <span class="cmt">/* found */</span> <span class="kw">break</span>; }
+    <span class="kw">else if</span> (sum &lt; target) left++;
+    <span class="kw">else</span> right--;
+} <span class="cmt">// Time: O(n), Space: O(1)</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔤 Strings — Key Concepts</div>
+    <ul class="rl g">
+      <li><strong>Strings are immutable in Java/Python.</strong> Concatenation in a loop is O(n²) — use StringBuilder.</li>
+      <li><strong>String comparison:</strong> == compares references in Java. Use .equals() for value comparison.</li>
+      <li><strong>charAt(i)</strong> vs <strong>substring(i,j)</strong> — charAt is O(1), substring is O(j−i).</li>
+      <li><strong>Anagram check:</strong> Sort both strings O(n log n) OR use frequency array O(n).</li>
+      <li><strong>Palindrome check:</strong> Two pointers from both ends. O(n).</li>
+      <li><strong>ASCII values:</strong> 'A'=65, 'Z'=90, 'a'=97, 'z'=122, '0'=48. char − 'a' gives 0-based index.</li>
+    </ul>
+    <div class="code">
+<span class="cmt">// Check if string is palindrome</span>
+<span class="kw">boolean</span> <span class="fn">isPalindrome</span>(String s) {
+    <span class="tp">int</span> l = <span class="num">0</span>, r = s.length()-<span class="num">1</span>;
+    <span class="kw">while</span> (l &lt; r) {
+        <span class="kw">if</span> (s.charAt(l) != s.charAt(r)) <span class="kw">return false</span>;
+        l++; r--;
+    }
+    <span class="kw">return true</span>;
+} <span class="cmt">// O(n) time, O(1) space</span></div>
+
+    <div class="code" style="margin-top:8px">
+<span class="cmt">// Frequency count — most common pattern in TCS</span>
+<span class="tp">int</span>[] freq = <span class="kw">new</span> <span class="tp">int</span>[<span class="num">26</span>];
+<span class="kw">for</span> (<span class="tp">char</span> c : s.toCharArray())
+    freq[c - <span class="str">'a'</span>]++;
+
+<span class="cmt">// Reverse a string</span>
+String rev = <span class="kw">new</span> StringBuilder(s).reverse().toString();</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🪟 Sliding Window Pattern</div>
+    <div class="code">
+<span class="cmt">// Maximum sum of k consecutive elements — O(n)</span>
+<span class="tp">int</span> <span class="fn">maxSumWindow</span>(<span class="tp">int</span>[] arr, <span class="tp">int</span> k) {
+    <span class="tp">int</span> windowSum = <span class="num">0</span>, maxSum = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i &lt; k; i++)
+        windowSum += arr[i];  <span class="cmt">// initial window</span>
+    maxSum = windowSum;
+    <span class="kw">for</span> (<span class="tp">int</span> i = k; i &lt; arr.length; i++) {
+        windowSum += arr[i] - arr[i-k];  <span class="cmt">// slide</span>
+        maxSum = Math.max(maxSum, windowSum);
+    }
+    <span class="kw">return</span> maxSum;
+}</div>
+    <ul class="rl" style="margin-top:10px">
+      <li><strong>When to use sliding window:</strong> Questions about subarrays/substrings of fixed or variable size — max sum, min length, longest substring without repeat.</li>
+      <li><strong>Fixed window:</strong> Add new element, remove old element at each step.</li>
+      <li><strong>Variable window:</strong> Expand right when condition satisfied, shrink left when violated.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════ LINKED LISTS ══════════════ -->
+<div id="linkedlist" class="sec">
+  <div class="sch"><h2>Linked Lists</h2><p>Singly, doubly linked lists — traversal, reversal, cycle detection</p></div>
+  <div class="tip">TCS TQT tests linked list output questions and reversal logic heavily. Know Floyd's cycle detection by heart.</div>
+
+  <div class="card">
+    <div class="ct">🔗 Node Structure &amp; Basic Operations</div>
+    <div class="code">
+<span class="cmt">// Node definition</span>
+<span class="kw">class</span> <span class="tp">Node</span> {
+    <span class="tp">int</span> data;
+    <span class="tp">Node</span> next;
+    <span class="tp">Node</span>(<span class="tp">int</span> d) { data = d; next = <span class="kw">null</span>; }
+}
+
+<span class="cmt">// Insert at beginning — O(1)</span>
+<span class="tp">Node</span> <span class="fn">insertFront</span>(<span class="tp">Node</span> head, <span class="tp">int</span> val) {
+    <span class="tp">Node</span> newNode = <span class="kw">new</span> <span class="tp">Node</span>(val);
+    newNode.next = head;
+    <span class="kw">return</span> newNode;  <span class="cmt">// new head</span>
+}
+
+<span class="cmt">// Traverse — O(n)</span>
+<span class="tp">void</span> <span class="fn">print</span>(<span class="tp">Node</span> head) {
+    <span class="tp">Node</span> curr = head;
+    <span class="kw">while</span> (curr != <span class="kw">null</span>) {
+        System.out.print(curr.data + <span class="str">" → "</span>);
+        curr = curr.next;
+    }
+}</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔄 Reverse a Linked List — Most Tested!</div>
+    <div class="code">
+<span class="cmt">// Iterative reversal — O(n) time, O(1) space</span>
+<span class="tp">Node</span> <span class="fn">reverse</span>(<span class="tp">Node</span> head) {
+    <span class="tp">Node</span> prev = <span class="kw">null</span>;
+    <span class="tp">Node</span> curr = head;
+    <span class="kw">while</span> (curr != <span class="kw">null</span>) {
+        <span class="tp">Node</span> nextNode = curr.next;  <span class="cmt">// save next</span>
+        curr.next = prev;           <span class="cmt">// reverse pointer</span>
+        prev = curr;                <span class="cmt">// move prev forward</span>
+        curr = nextNode;            <span class="cmt">// move curr forward</span>
+    }
+    <span class="kw">return</span> prev;  <span class="cmt">// prev is the new head</span>
+}
+<span class="cmt">// Trace: 1→2→3→null becomes null←1←2←3 (prev=3)</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔁 Floyd's Cycle Detection — O(n) time, O(1) space</div>
+    <div class="code">
+<span class="cmt">// Detect cycle using slow and fast pointers</span>
+<span class="kw">boolean</span> <span class="fn">hasCycle</span>(<span class="tp">Node</span> head) {
+    <span class="tp">Node</span> slow = head, fast = head;
+    <span class="kw">while</span> (fast != <span class="kw">null</span> && fast.next != <span class="kw">null</span>) {
+        slow = slow.next;          <span class="cmt">// move 1 step</span>
+        fast = fast.next.next;     <span class="cmt">// move 2 steps</span>
+        <span class="kw">if</span> (slow == fast) <span class="kw">return true</span>;  <span class="cmt">// cycle!</span>
+    }
+    <span class="kw">return false</span>;
+}</div>
+    <ul class="rl o" style="margin-top:10px">
+      <li><strong>Slow moves 1 step, fast moves 2.</strong> If there's a cycle, they will always meet.</li>
+      <li><strong>Find middle of linked list:</strong> Same technique — when fast reaches end, slow is at middle.</li>
+      <li><strong>nth node from end:</strong> Move first pointer n steps ahead, then move both together. When first reaches end, second is at nth from end.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">📊 Singly vs Doubly Linked List</div>
+    <div class="tcol">
+      <div>
+        <p style="font-size:13px;margin-bottom:8px;color:var(--a2);font-weight:600">Singly Linked List</p>
+        <ul class="rl" style="font-size:13px">
+          <li>Each node: data + next pointer</li>
+          <li>Traversal: forward only</li>
+          <li>Insert at head: O(1)</li>
+          <li>Delete requires previous node reference</li>
+          <li>Less memory per node</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;margin-bottom:8px;color:var(--a3);font-weight:600">Doubly Linked List</p>
+        <ul class="rl o" style="font-size:13px">
+          <li>Each node: data + next + prev pointer</li>
+          <li>Traversal: both directions</li>
+          <li>Delete any node: O(1) with pointer</li>
+          <li>More memory per node</li>
+          <li>Used in LRU cache implementation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ STACK & QUEUE ══════════════ -->
+<div id="stackqueue" class="sec">
+  <div class="sch"><h2>Stack &amp; Queue</h2><p>LIFO, FIFO — implementations and classic applications</p></div>
+  <div class="tip">Stack questions (balanced parentheses, next greater element) and queue questions (BFS, circular queue) are common TCS MCQ topics.</div>
+
+  <div class="card">
+    <div class="ct">📚 Stack — LIFO (Last In First Out)</div>
+    <ul class="rl p">
+      <li><strong>Push:</strong> Add to top — O(1). <strong>Pop:</strong> Remove from top — O(1). <strong>Peek/Top:</strong> View top — O(1).</li>
+      <li><strong>Applications:</strong> Function call stack, undo operations, balanced parentheses, infix-to-postfix conversion, backtracking.</li>
+      <li><strong>Infix to Postfix rule:</strong> Operands go directly to output. Operators: pop and output while top has higher/equal precedence, then push. On '(', push; on ')', pop till '('.</li>
+    </ul>
+    <div class="code">
+<span class="cmt">// Balanced parentheses — classic stack problem</span>
+<span class="kw">boolean</span> <span class="fn">isBalanced</span>(String s) {
+    Stack&lt;Character&gt; stack = <span class="kw">new</span> Stack&lt;&gt;();
+    <span class="kw">for</span> (<span class="tp">char</span> c : s.toCharArray()) {
+        <span class="kw">if</span> (c==<span class="str">'('</span> || c==<span class="str">'{'</span> || c==<span class="str">'['</span>) stack.push(c);
+        <span class="kw">else</span> {
+            <span class="kw">if</span> (stack.isEmpty()) <span class="kw">return false</span>;
+            <span class="tp">char</span> top = stack.pop();
+            <span class="kw">if</span> (c==<span class="str">')'</span> && top!=<span class="str">'('</span>) <span class="kw">return false</span>;
+            <span class="kw">if</span> (c==<span class="str">'}'</span> && top!=<span class="str">'{'</span>) <span class="kw">return false</span>;
+            <span class="kw">if</span> (c==<span class="str">']'</span> && top!=<span class="str">'['</span>) <span class="kw">return false</span>;
+        }
+    }
+    <span class="kw">return</span> stack.isEmpty();
+}</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🚶 Queue — FIFO (First In First Out)</div>
+    <ul class="rl c">
+      <li><strong>Enqueue:</strong> Add to rear — O(1). <strong>Dequeue:</strong> Remove from front — O(1).</li>
+      <li><strong>Circular Queue:</strong> Uses front and rear pointers with modulo. Avoids false "full" when space exists.</li>
+      <li><strong>Deque (Double-ended queue):</strong> Insert/delete from both ends. Used for sliding window maximum.</li>
+      <li><strong>Priority Queue (Min/Max Heap):</strong> Always dequeues the element with highest/lowest priority. O(log n) for insert and delete.</li>
+      <li><strong>Applications:</strong> BFS traversal, CPU scheduling, print queue, level-order tree traversal.</li>
+    </ul>
+    <div class="code">
+<span class="cmt">// Queue using two stacks — tricky TCS MCQ topic</span>
+<span class="cmt">// stack1 for enqueue, stack2 for dequeue</span>
+<span class="kw">void</span> <span class="fn">enqueue</span>(<span class="tp">int</span> x) { stack1.push(x); }  <span class="cmt">// O(1)</span>
+
+<span class="tp">int</span> <span class="fn">dequeue</span>() {
+    <span class="kw">if</span> (stack2.isEmpty())
+        <span class="kw">while</span> (!stack1.isEmpty())
+            stack2.push(stack1.pop());  <span class="cmt">// transfer all</span>
+    <span class="kw">return</span> stack2.pop();
+} <span class="cmt">// Amortized O(1)</span></div>
+  </div>
+</div>
+
+<!-- ══════════════ TREES & GRAPHS ══════════════ -->
+<div id="trees" class="sec">
+  <div class="sch"><h2>Trees &amp; Graphs</h2><p>Binary trees, BST, BFS, DFS — traversals and properties</p></div>
+  <div class="tip">Tree traversal output questions are extremely common in TCS TQT. Know the order of all 4 traversals and be able to trace them on a given tree.</div>
+
+  <div class="card">
+    <div class="ct">🌳 Binary Tree Traversals — Most Tested!</div>
+    <div class="code">
+<span class="cmt">// Given tree:    1
+//               / \
+//              2   3
+//             / \
+//            4   5</span>
+
+<span class="cmt">// Inorder  (Left → Root → Right): 4 2 5 1 3</span>
+<span class="kw">void</span> <span class="fn">inorder</span>(<span class="tp">Node</span> root) {
+    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span>;
+    inorder(root.left);
+    System.out.print(root.data + <span class="str">" "</span>);
+    inorder(root.right);
+}
+
+<span class="cmt">// Preorder (Root → Left → Right): 1 2 4 5 3</span>
+<span class="kw">void</span> <span class="fn">preorder</span>(<span class="tp">Node</span> root) {
+    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span>;
+    System.out.print(root.data + <span class="str">" "</span>);
+    preorder(root.left);
+    preorder(root.right);
+}
+
+<span class="cmt">// Postorder (Left → Right → Root): 4 5 2 3 1</span>
+<span class="kw">void</span> <span class="fn">postorder</span>(<span class="tp">Node</span> root) {
+    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span>;
+    postorder(root.left);
+    postorder(root.right);
+    System.out.print(root.data + <span class="str">" "</span>);
+}
+
+<span class="cmt">// Level order (BFS): 1 2 3 4 5 — uses a Queue</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔍 BST Properties &amp; Operations</div>
+    <ul class="rl r">
+      <li><strong>BST property:</strong> Left subtree &lt; root &lt; right subtree (at every node).</li>
+      <li><strong>Inorder traversal of BST</strong> always gives elements in <strong>sorted ascending order</strong>.</li>
+      <li><strong>Search in BST:</strong> Compare with root → go left if smaller, right if larger. O(log n) avg, O(n) worst (skewed).</li>
+      <li><strong>Height of tree:</strong> max(height(left), height(right)) + 1. Leaf node height = 0.</li>
+      <li><strong>Full binary tree:</strong> Every node has 0 or 2 children.</li>
+      <li><strong>Complete binary tree:</strong> All levels filled except possibly last, which is filled left to right.</li>
+      <li><strong>Perfect binary tree:</strong> All internal nodes have 2 children and all leaves at same level. n = 2^(h+1) − 1.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ct">🗺️ Graph Traversals — BFS &amp; DFS</div>
+    <div class="code">
+<span class="cmt">// BFS — uses Queue, visits level by level</span>
+<span class="kw">void</span> <span class="fn">BFS</span>(<span class="tp">int</span> start, List&lt;List&lt;Integer&gt;&gt; adj) {
+    <span class="kw">boolean</span>[] visited = <span class="kw">new</span> <span class="kw">boolean</span>[n];
+    Queue&lt;Integer&gt; q = <span class="kw">new</span> LinkedList&lt;&gt;();
+    q.add(start); visited[start] = <span class="kw">true</span>;
+    <span class="kw">while</span> (!q.isEmpty()) {
+        <span class="tp">int</span> node = q.poll();
+        System.out.print(node + <span class="str">" "</span>);
+        <span class="kw">for</span> (<span class="tp">int</span> nbr : adj.get(node))
+            <span class="kw">if</span> (!visited[nbr]) { visited[nbr]=<span class="kw">true</span>; q.add(nbr); }
+    }
+} <span class="cmt">// O(V + E)</span>
+
+<span class="cmt">// DFS — uses Stack (or recursion)</span>
+<span class="kw">void</span> <span class="fn">DFS</span>(<span class="tp">int</span> node, <span class="kw">boolean</span>[] visited, List&lt;List&lt;Integer&gt;&gt; adj) {
+    visited[node] = <span class="kw">true</span>;
+    System.out.print(node + <span class="str">" "</span>);
+    <span class="kw">for</span> (<span class="tp">int</span> nbr : adj.get(node))
+        <span class="kw">if</span> (!visited[nbr]) DFS(nbr, visited, adj);
+} <span class="cmt">// O(V + E)</span></div>
+    <ul class="rl" style="margin-top:10px">
+      <li><strong>BFS finds shortest path</strong> in unweighted graphs. DFS is better for cycle detection and topological sort.</li>
+      <li><strong>Adjacency Matrix:</strong> O(V²) space. O(1) edge check. Good for dense graphs.</li>
+      <li><strong>Adjacency List:</strong> O(V+E) space. Good for sparse graphs (most real problems).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════ SORTING & SEARCH ══════════════ -->
+<div id="sorting" class="sec">
+  <div class="sch"><h2>Sorting &amp; Searching</h2><p>All sorting algorithms with code + binary search</p></div>
+  <div class="tip">Know bubble sort, merge sort, and quick sort code. For searching, binary search is the most tested — know its variants (first/last occurrence, rotated array).</div>
+
+  <div class="card">
+    <div class="ct">🫧 Bubble Sort — O(n²)</div>
+    <div class="code">
+<span class="kw">void</span> <span class="fn">bubbleSort</span>(<span class="tp">int</span>[] arr) {
+    <span class="tp">int</span> n = arr.length;
+    <span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i &lt; n-<span class="num">1</span>; i++) {
+        <span class="kw">boolean</span> swapped = <span class="kw">false</span>;
+        <span class="kw">for</span> (<span class="tp">int</span> j = <span class="num">0</span>; j &lt; n-i-<span class="num">1</span>; j++) {
+            <span class="kw">if</span> (arr[j] &gt; arr[j+<span class="num">1</span>]) {
+                <span class="tp">int</span> temp = arr[j]; arr[j] = arr[j+<span class="num">1</span>]; arr[j+<span class="num">1</span>] = temp;
+                swapped = <span class="kw">true</span>;
+            }
+        }
+        <span class="kw">if</span> (!swapped) <span class="kw">break</span>;  <span class="cmt">// already sorted — O(n) best case</span>
+    }
+}</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔀 Merge Sort — O(n log n), Stable</div>
+    <div class="code">
+<span class="kw">void</span> <span class="fn">mergeSort</span>(<span class="tp">int</span>[] arr, <span class="tp">int</span> l, <span class="tp">int</span> r) {
+    <span class="kw">if</span> (l &lt; r) {
+        <span class="tp">int</span> mid = (l + r) / <span class="num">2</span>;
+        mergeSort(arr, l, mid);      <span class="cmt">// sort left half</span>
+        mergeSort(arr, mid+<span class="num">1</span>, r);   <span class="cmt">// sort right half</span>
+        merge(arr, l, mid, r);       <span class="cmt">// merge both halves</span>
+    }
+}
+<span class="cmt">// merge() compares elements from both halves and places in order</span>
+<span class="cmt">// Divide-and-conquer → O(n log n) always. Uses O(n) extra space.</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">⚡ Binary Search — O(log n)</div>
+    <div class="code">
+<span class="cmt">// Only works on SORTED arrays</span>
+<span class="tp">int</span> <span class="fn">binarySearch</span>(<span class="tp">int</span>[] arr, <span class="tp">int</span> target) {
+    <span class="tp">int</span> low = <span class="num">0</span>, high = arr.length - <span class="num">1</span>;
+    <span class="kw">while</span> (low &lt;= high) {
+        <span class="tp">int</span> mid = low + (high - low) / <span class="num">2</span>;  <span class="cmt">// avoids overflow</span>
+        <span class="kw">if</span> (arr[mid] == target) <span class="kw">return</span> mid;
+        <span class="kw">else if</span> (arr[mid] &lt; target) low = mid + <span class="num">1</span>;
+        <span class="kw">else</span> high = mid - <span class="num">1</span>;
+    }
+    <span class="kw">return</span> -<span class="num">1</span>;  <span class="cmt">// not found</span>
+}
+<span class="cmt">// mid = (low+high)/2 can overflow for large values! Use low+(high-low)/2</span></div>
+
+    <ul class="rl" style="margin-top:10px">
+      <li><strong>Binary search on answer:</strong> When the answer itself has a monotonic property — search on the answer space, not the array. (e.g. "minimum capacity", "kth smallest")</li>
+      <li><strong>First/last occurrence:</strong> Don't return on match — continue to the left (first) or right (last) half and record the answer.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════ RECURSION & DP ══════════════ -->
+<div id="dp" class="sec">
+  <div class="sch"><h2>Recursion &amp; Dynamic Programming</h2><p>Recursive thinking, memoization, classic DP problems</p></div>
+  <div class="tip">TCS TQT tests Fibonacci, factorial, and simple DP (knapsack, coin change) in MCQ form. Know how to trace recursion trees and identify overlapping subproblems.</div>
+
+  <div class="card">
+    <div class="ct">🔁 Recursion Fundamentals</div>
+    <ul class="rl">
+      <li><strong>Every recursive function needs:</strong> (1) Base case — when to stop. (2) Recursive case — reduce problem towards base case.</li>
+      <li><strong>Call stack:</strong> Each recursive call adds a stack frame. Maximum depth = O(n) for linear recursion, O(log n) for binary recursion (like merge sort).</li>
+      <li><strong>Tail recursion:</strong> Recursive call is the LAST operation. Can be optimized by compiler to O(1) space.</li>
+    </ul>
+    <div class="code">
+<span class="cmt">// Factorial — O(n) time, O(n) space (call stack)</span>
+<span class="tp">int</span> <span class="fn">factorial</span>(<span class="tp">int</span> n) {
+    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> <span class="num">1</span>;        <span class="cmt">// base case</span>
+    <span class="kw">return</span> n * factorial(n - <span class="num">1</span>);  <span class="cmt">// recursive case</span>
+}
+<span class="cmt">// factorial(4) → 4×factorial(3) → 4×3×factorial(2) → ... → 24</span>
+
+<span class="cmt">// Fibonacci — naive O(2ⁿ), with memo O(n)</span>
+<span class="tp">int</span>[] memo = <span class="kw">new</span> <span class="tp">int</span>[<span class="num">100</span>];
+<span class="tp">int</span> <span class="fn">fib</span>(<span class="tp">int</span> n) {
+    <span class="kw">if</span> (n &lt;= <span class="num">1</span>) <span class="kw">return</span> n;
+    <span class="kw">if</span> (memo[n] != <span class="num">0</span>) <span class="kw">return</span> memo[n];
+    <span class="kw">return</span> memo[n] = fib(n-<span class="num">1</span>) + fib(n-<span class="num">2</span>);
+}</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">💎 Dynamic Programming — Key Idea</div>
+    <ul class="rl g">
+      <li><strong>When to use DP:</strong> Problem has OVERLAPPING SUBPROBLEMS (same subproblem computed multiple times) AND OPTIMAL SUBSTRUCTURE (optimal solution contains optimal subsolutions).</li>
+      <li><strong>Top-Down (Memoization):</strong> Recursive + cache results in a memo table. More intuitive to code.</li>
+      <li><strong>Bottom-Up (Tabulation):</strong> Fill a table iteratively from base cases. Usually faster (no recursion overhead).</li>
+    </ul>
+    <div class="code">
+<span class="cmt">// 0/1 Knapsack — O(n×W) time and space</span>
+<span class="cmt">// n items, each with weight[i] and value[i], max capacity W</span>
+<span class="tp">int</span> <span class="fn">knapsack</span>(<span class="tp">int</span>[] w, <span class="tp">int</span>[] v, <span class="tp">int</span> n, <span class="tp">int</span> W) {
+    <span class="tp">int</span>[][] dp = <span class="kw">new</span> <span class="tp">int</span>[n+<span class="num">1</span>][W+<span class="num">1</span>];
+    <span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">1</span>; i &lt;= n; i++) {
+        <span class="kw">for</span> (<span class="tp">int</span> j = <span class="num">0</span>; j &lt;= W; j++) {
+            dp[i][j] = dp[i-<span class="num">1</span>][j];  <span class="cmt">// don't take item i</span>
+            <span class="kw">if</span> (w[i-<span class="num">1</span>] &lt;= j)
+                dp[i][j] = Math.max(dp[i][j],
+                    dp[i-<span class="num">1</span>][j-w[i-<span class="num">1</span>]] + v[i-<span class="num">1</span>]);  <span class="cmt">// take item i</span>
+        }
+    }
+    <span class="kw">return</span> dp[n][W];
+}</div>
+
+    <div class="code" style="margin-top:8px">
+<span class="cmt">// Longest Common Subsequence (LCS) — O(mn)</span>
+<span class="tp">int</span> <span class="fn">LCS</span>(String s1, String s2) {
+    <span class="tp">int</span> m=s1.length(), n=s2.length();
+    <span class="tp">int</span>[][] dp = <span class="kw">new</span> <span class="tp">int</span>[m+<span class="num">1</span>][n+<span class="num">1</span>];
+    <span class="kw">for</span> (<span class="tp">int</span> i=<span class="num">1</span>; i&lt;=m; i++)
+        <span class="kw">for</span> (<span class="tp">int</span> j=<span class="num">1</span>; j&lt;=n; j++) {
+            <span class="kw">if</span> (s1.charAt(i-<span class="num">1</span>) == s2.charAt(j-<span class="num">1</span>))
+                dp[i][j] = dp[i-<span class="num">1</span>][j-<span class="num">1</span>] + <span class="num">1</span>;
+            <span class="kw">else</span>
+                dp[i][j] = Math.max(dp[i-<span class="num">1</span>][j], dp[i][j-<span class="num">1</span>]);
+        }
+    <span class="kw">return</span> dp[m][n];
+}</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📋 Classic DP Problems — Know These for TCS</div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Fibonacci: fib(0)=0, fib(1)=1, fib(n)=fib(n-1)+fib(n-2)</span><span class="aar">▶</span></div>
+      <div class="ab">Values: 0,1,1,2,3,5,8,13,21,34,55,89… Naive recursion is O(2ⁿ). DP/memoization is O(n). fib(10)=55.</div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Coin Change: minimum coins to make amount</span><span class="aar">▶</span></div>
+      <div class="ab">dp[0]=0. For each amount i from 1 to target: dp[i] = min over all coins c where c≤i: 1+dp[i−c]. O(amount × coins). Classic unbounded knapsack.</div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Longest Increasing Subsequence (LIS)</span><span class="aar">▶</span></div>
+      <div class="ab">dp[i] = max LIS ending at index i = 1 + max(dp[j]) for all j&lt;i where arr[j]&lt;arr[i]. O(n²) basic. O(n log n) with patience sorting.</div></div>
+    <div class="ai"><div class="ah" onclick="ta(this)"><span>Matrix Chain Multiplication</span><span class="aar">▶</span></div>
+      <div class="ab">Minimum scalar multiplications to multiply a chain of matrices. O(n³) DP. Key recurrence: dp[i][j] = min over k from i to j-1: dp[i][k] + dp[k+1][j] + p[i-1]×p[k]×p[j].</div></div>
+  </div>
+</div>
+
+<!-- ══════════════ OUTPUT QUESTIONS ══════════════ -->
+<div id="output" class="sec">
+  <div class="sch"><h2>Output-Based MCQs</h2><p>Trace the code and find the output — most common TCS TQT question type</p></div>
+  <div class="tip">Read code character by character. Track every variable. Never assume — trace step by step. Post-increment (i++) vs pre-increment (++i) is the most common trap.</div>
+
+  <div id="output-container"></div>
+</div>
+
+<!-- ══════════════ FLASHCARDS ══════════════ -->
+<div id="flashcards" class="sec">
+  <div class="sch"><h2>Concept Flashcards</h2><p>Test yourself on key DSA concepts and complexities</p></div>
+  <div class="card">
+    <div class="fcpb"><div class="fcpbf" id="fcbar" style="width:0%"></div></div>
+    <div class="fcw">
+      <div class="fc" id="fcard" onclick="fcFlip()">
+        <div class="fcf fcfront">
+          <div class="fct" id="fctopic">–</div>
+          <div class="fcq" id="fcq">–</div>
+          <div class="fchint">tap to reveal answer</div>
+        </div>
+        <div class="fcf fcback">
+          <div class="fca" id="fca">–</div>
+          <div class="fcn" id="fcn">–</div>
+        </div>
+      </div>
+    </div>
+    <div class="fcnav">
+      <button class="fcbtn" onclick="fcPrev()">← Prev</button>
+      <span id="fcctr" style="font-size:13px;color:var(--muted)">1/30</span>
+      <button class="fcbtn" onclick="fcNext()">Next →</button>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:6px">Try answering before flipping. Active recall is far more effective than passive reading.</div>
+</div>
+
+<!-- ══════════════ PRACTICE QUIZ ══════════════ -->
+<div id="quiz" class="sec">
+  <div class="sch"><h2>Practice Quiz — 45 Questions</h2><p>MCQs on DSA, complexity, and output — with detailed explanations</p></div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px">
+    <span style="font-size:14px;color:var(--muted)">Score:</span>
+    <span id="scoreD" class="sbadge">0 / 0 answered</span>
+    <span id="scorePct" style="font-size:13px;color:var(--muted)"></span>
+    <button onclick="resetQ()" style="font-size:12px;padding:5px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--muted);cursor:pointer;font-family:var(--fb)">Reset</button>
+  </div>
+  <div class="frow" id="filterRow"></div>
+  <div id="qc"></div>
+</div>
+
+<!-- ══════════════ CHEAT SHEET ══════════════ -->
+<div id="cheatsheet" class="sec">
+  <div class="sch"><h2>Coding Cheat Sheet</h2><p>All complexities and key facts at a glance — review before your exam</p></div>
+  <div class="csg" id="csGrid"></div>
+  <div class="tip" style="margin-top:18px">Exam tip: For output questions — trace line by line, track every variable in a table. For complexity — count the loops and how the loop variable changes.</div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+// ══════ TAB SWITCH ══════
+function sw(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function ta(h){const b=h.nextElementSibling,a=h.querySelector('.aar');b.classList.toggle('open');a.classList.toggle('open');}
+
+// ══════ OUTPUT QUESTIONS ══════
+const outputQs=[
+  {code:`int x = 5, y = 3;
+System.out.println(x++ + ++y);`,opts:['9','10','8','11'],ans:0,exp:'x++ uses x=5 THEN increments. ++y increments first giving y=4. So 5+4=9. After: x=6, y=4.'},
+  {code:`int i = 10;
+while (i > 5) {
+    System.out.print(i-- + " ");
+}`,opts:['10 9 8 7 6 ','10 9 8 7 6 5 ','9 8 7 6 ','10 9 8 7 '],ans:0,exp:'i-- prints THEN decrements. Starts at 10, stops when i≤5. Prints: 10 9 8 7 6. After printing 6, i becomes 5, condition false.'},
+  {code:`for (int i=0; i<3; i++) {
+    for (int j=0; j<3; j++) {
+        if (i == j) System.out.print("* ");
+    }
+}`,opts:['* * * ','* ','* * ','None'],ans:0,exp:'Prints when i==j: (0,0),(1,1),(2,2) → three asterisks: * * *'},
+  {code:`int[] arr = {1,2,3,4,5};
+int sum = 0;
+for (int i=0; i<arr.length; i+=2)
+    sum += arr[i];
+System.out.println(sum);`,opts:['15','9','6','12'],ans:1,exp:'i goes 0,2,4 (step 2). arr[0]+arr[2]+arr[4] = 1+3+5 = 9.'},
+  {code:`String s = "Hello";
+System.out.println(s.length() + s.charAt(1));`,opts:['5e','101','6','Error'],ans:1,exp:'s.length()=5 (int). s.charAt(1)=\'e\'=101 (ASCII). int+char = int addition = 5+101=106. Wait: actually Java prints 106. But let me recheck: int(5) + char(\'e\') = int + int = 106. Hmm but option says 101. Let me fix this question.'},
+  {code:`int n = 16;
+int count = 0;
+while (n > 1) {
+    n /= 2;
+    count++;
+}
+System.out.println(count);`,opts:['3','4','5','8'],ans:1,exp:'16→8(1)→4(2)→2(3)→1(4). Loop stops when n≤1. count=4.'},
+  {code:`static int fact(int n) {
+    if (n == 1) return 1;
+    return n * fact(n-1);
+}
+// fact(4) = ?`,opts:['24','12','16','6'],ans:0,exp:'fact(4)=4×fact(3)=4×3×fact(2)=4×3×2×fact(1)=4×3×2×1=24.'},
+  {code:`int a = 1;
+for (int i=1; i<=5; i++) {
+    a *= i;
+}
+System.out.println(a);`,opts:['15','120','24','5'],ans:1,exp:'a=1×1×2×3×4×5=120. This computes 5! = 120.'},
+  {code:`String s = "abcde";
+System.out.println(s.substring(1,3));`,opts:['abc','bc','bcd','ab'],ans:1,exp:'substring(1,3) returns chars from index 1 (inclusive) to 3 (exclusive). Indices 1,2 → "bc".'},
+  {code:`int x = 5;
+System.out.println(x>3 ? x>4 ? "A" : "B" : "C");`,opts:['A','B','C','Error'],ans:0,exp:'x>3 is true, so evaluate x>4. x>4 (5>4) is also true → return "A".'},
+  {code:`int[] arr = {3,1,4,1,5,9,2,6};
+Arrays.sort(arr);
+System.out.println(arr[0] + " " + arr[arr.length-1]);`,opts:['3 6','1 9','3 9','1 6'],ans:1,exp:'After sorting ascending: {1,1,2,3,4,5,6,9}. arr[0]=1, arr[7]=9.'},
+  {code:`int x = 0b1010; // binary literal
+System.out.println(x);`,opts:['1010','10','8','2'],ans:1,exp:'0b1010 is binary for 1×8+0×4+1×2+0×1 = 10 in decimal.'},
+  {code:`int i=0, j=10;
+while (i < j) {
+    i += 2; j--;
+}
+System.out.println(i + " " + j);`,opts:['6 6','8 7','6 7','7 6'],ans:2,exp:'Trace: i=0,j=10 → i=2,j=9 → i=4,j=8 → i=6,j=7. Now i<j (6<7) → i=8,j=6. Now 8>6 → stop. i=8,j=6. Wait let me retrace: i=0,j=10; i+=2→2,j--→9; i+=2→4,j--→8; i+=2→6,j--→7; check 6<7→true; i+=2→8,j--→6; check 8<6→false. Stop. Print: 8 6.'},
+  {code:`for (int i=1; i<=4; i++) {
+    if (i%2 == 0) continue;
+    System.out.print(i + " ");
+}`,opts:['1 2 3 4 ','2 4 ','1 3 ','1 2 '],ans:2,exp:'continue skips the print when i%2==0. So prints only odd values: 1 and 3.'},
+  {code:`int x = 7;
+switch(x%3) {
+    case 0: System.out.print("A");
+    case 1: System.out.print("B");
+    case 2: System.out.print("C"); break;
+    default: System.out.print("D");
+}`,opts:['A','B','BC','BCD'],ans:2,exp:'x%3 = 7%3 = 1. Matches case 1. Prints "B". No break, falls through to case 2 → prints "C". break exits. Output: "BC".'},
+];
+
+// fix output question 4 (length + charAt)
+outputQs[4]={code:`int a = 5, b = 2;
+System.out.println(a / b);
+System.out.println(a % b);`,opts:['2.5 then 1','2 then 1','2 then 0.5','Error'],ans:1,exp:'Integer division: 5/2=2 (truncates). 5%2=1 (remainder). Both print on separate lines: 2 then 1.'};
+
+// fix output question 12
+outputQs[12]={code:`int i=0, j=10;
+while (i < j) {
+    i += 2; j--;
+}
+System.out.println(i + " " + j);`,opts:['8 6','6 7','6 6','8 8'],ans:0,exp:'Trace: (0,10)→(2,9)→(4,8)→(6,7)→(8,6). At (8,6): 8<6 is false. Stop. Print: 8 6.'};
+
+function buildOutput(){
+  const c=document.getElementById('output-container');
+  outputQs.forEach((q,i)=>{
+    const div=document.createElement('div');
+    div.className='out-q';div.id='oq-'+i;
+    div.innerHTML=`<div class="out-qt"><strong style="font-size:11px;background:rgba(61,214,140,.12);color:#3dd68c;padding:3px 9px;border-radius:20px">Q${i+1} — What is the output?</strong><br><br><pre class="code" style="margin-bottom:10px;margin-top:8px">${q.code}</pre></div>
+    <div class="out-opts">${q.opts.map((o,oi)=>`<button class="out-opt" onclick="checkOut(${i},${oi},${q.ans},this)">${o}</button>`).join('')}</div>
+    <div class="expln" id="oexp-${i}">${q.exp}</div>`;
+    c.appendChild(div);
+  });
+}
+buildOutput();
+
+// ══════ FLASHCARDS ══════
+const fcCards=[
+  {t:'Arrays',q:'Time complexity of accessing arr[i]?',a:'O(1) — constant time',n:'Direct memory address calculation. Index offset from base address.'},
+  {t:'Arrays',q:'Time complexity of inserting at middle of array?',a:'O(n) — must shift elements',n:'All elements after insertion point must move right by 1.'},
+  {t:'Strings',q:'How to check if two strings are anagrams in O(n)?',a:'Sort both and compare, OR use frequency array of size 26',n:'Frequency array: count chars in s1, subtract for s2, check all zeros.'},
+  {t:'Linked List',q:'Time complexity of reversing a linked list?',a:'O(n) time, O(1) space',n:'Three pointers: prev, curr, next. Single pass through the list.'},
+  {t:'Linked List',q:'Algorithm to detect cycle in linked list?',a:"Floyd's Cycle Detection — slow+fast pointers",n:'Slow moves 1 step, fast moves 2. If they meet, cycle exists.'},
+  {t:'Stack',q:'What order does a stack follow?',a:'LIFO — Last In First Out',n:'push() adds to top, pop() removes from top. Both O(1).'},
+  {t:'Stack',q:'Classic application of stack in expression evaluation?',a:'Balanced parentheses check, infix to postfix conversion',n:'Also used for: function call stack, undo/redo, backtracking.'},
+  {t:'Queue',q:'What order does a queue follow?',a:'FIFO — First In First Out',n:'enqueue() adds to rear, dequeue() removes from front. Both O(1).'},
+  {t:'Queue',q:'Which traversal uses a Queue?',a:'BFS — Breadth First Search',n:'Also: level-order traversal of trees. O(V+E) time.'},
+  {t:'Trees',q:'Inorder traversal of BST gives?',a:'Elements in sorted ascending order',n:'This is why BST is useful — inorder = sorted list automatically.'},
+  {t:'Trees',q:'What are the 4 tree traversals in order?',a:'Inorder(LNR), Preorder(NLR), Postorder(LRN), Level-order(BFS)',n:'Preorder = root first. Postorder = root last. Inorder = root middle.'},
+  {t:'Trees',q:'Height of a complete binary tree with n nodes?',a:'⌊log₂n⌋',n:'At height h, tree has between 2^h and 2^(h+1)−1 nodes.'},
+  {t:'Sorting',q:'Which sort is stable and uses O(n) extra space?',a:'Merge Sort — O(n log n), stable, O(n) space',n:'Best for linked lists. Guaranteed O(n log n) even in worst case.'},
+  {t:'Sorting',q:'Worst-case time of Quick Sort?',a:'O(n²) — when pivot is always min or max element',n:'Average case O(n log n). Best: randomised pivot selection.'},
+  {t:'Sorting',q:'Which sort has O(1) space and is NOT stable?',a:'Heap Sort — O(n log n), in-place, not stable',n:'Uses a max-heap. Building heap is O(n), n deletions each O(log n).'},
+  {t:'Searching',q:'Prerequisite for binary search?',a:'Array must be SORTED',n:'O(log n). Divides search space in half at each step.'},
+  {t:'Complexity',q:'Big O of two nested loops each running n times?',a:'O(n²)',n:'Inner loop runs n times for each of n outer iterations → n×n.'},
+  {t:'Complexity',q:'What Big O is this: for(i=1; i<n; i*=2)?',a:'O(log n)',n:'i doubles each time: 1,2,4,8,16… Reaches n in log₂n steps.'},
+  {t:'Complexity',q:'Space complexity of recursive factorial(n)?',a:'O(n) — n stack frames on call stack',n:'Each recursive call adds a frame. Maximum depth = n.'},
+  {t:'Complexity',q:'Time complexity of binary search?',a:'O(log n)',n:'Search space halves each step. After k steps: n/2^k = 1 → k=log n.'},
+  {t:'DP',q:'Two conditions for a problem to have DP solution?',a:'1. Overlapping subproblems  2. Optimal substructure',n:'Overlapping: same subproblems recomputed. Optimal: best solution built from best subsolutions.'},
+  {t:'DP',q:'Fibonacci: naive recursion vs memoized complexity?',a:'Naive: O(2ⁿ). Memoized: O(n) time, O(n) space',n:'Naive recalculates same values exponentially. Memo stores results once.'},
+  {t:'Hashing',q:'Average time for insert, search, delete in hash table?',a:'O(1) average — all three operations',n:'Worst case O(n) due to collisions. Load factor determines performance.'},
+  {t:'Graphs',q:'Time complexity of BFS and DFS?',a:'O(V + E) for both',n:'V = vertices (nodes), E = edges. Visit each once.'},
+  {t:'Graphs',q:'Adjacency matrix vs list — which for sparse graphs?',a:'Adjacency List — O(V+E) space vs O(V²)',n:'Matrix wastes space for sparse graphs. List is preferred for most problems.'},
+  {t:'Java/OOP',q:'What is the difference between == and .equals() in Java?',a:'== compares references. .equals() compares values.',n:'For strings: "abc"=="abc" may be false. "abc".equals("abc") is always true.'},
+  {t:'Java/OOP',q:'What is the output of i++ vs ++i when used in expression?',a:'i++ uses current value THEN increments. ++i increments THEN uses.',n:'int x=5; println(x++) prints 5, x is now 6. println(++x) prints 7.'},
+  {t:'Java/OOP',q:'What are the 4 OOP pillars?',a:'Encapsulation, Abstraction, Inheritance, Polymorphism',n:'Encapsulation = data hiding. Abstraction = hide complexity. Inheritance = IS-A. Polymorphism = many forms.'},
+  {t:'Recursion',q:'What is the base case in factorial recursion?',a:'factorial(0) = 1 or factorial(1) = 1',n:'Without a base case, recursion runs forever → StackOverflowError.'},
+  {t:'Bit Manipulation',q:'How to check if a number n is a power of 2?',a:'(n & (n-1)) == 0 and n > 0',n:'Powers of 2 have exactly one bit set. Subtracting 1 flips all lower bits. AND = 0 means one bit.'},
+];
+
+let fci=0,fcfl=false;
+function fcRender(){
+  const c=fcCards[fci];
+  document.getElementById('fctopic').textContent=c.t;
+  document.getElementById('fcq').textContent=c.q;
+  document.getElementById('fca').textContent=c.a;
+  document.getElementById('fcn').textContent=c.n;
+  document.getElementById('fcctr').textContent=(fci+1)+'/'+fcCards.length;
+  document.getElementById('fcbar').style.width=((fci+1)/fcCards.length*100)+'%';
+  document.getElementById('fcard').classList.remove('flipped');fcfl=false;
+}
+function fcFlip(){fcfl=!fcfl;document.getElementById('fcard').classList.toggle('flipped',fcfl);}
+function fcNext(){fci=(fci+1)%fcCards.length;fcRender();}
+function fcPrev(){fci=(fci-1+fcCards.length)%fcCards.length;fcRender();}
+fcRender();
+
+// ══════ QUIZ QUESTIONS ══════
+const Qs=[
+  {t:'Complexity',q:'What is the time complexity of binary search?',o:['O(n)','O(log n)','O(n log n)','O(1)'],a:1,e:'Binary search divides the search space in half at each step → O(log n).'},
+  {t:'Complexity',q:'What is the worst-case time complexity of Quick Sort?',o:['O(n log n)','O(n²)','O(n)','O(log n)'],a:1,e:'When pivot is always the smallest or largest element (already sorted array), Quick Sort degrades to O(n²).'},
+  {t:'Complexity',q:'A function has two nested loops: outer runs n times, inner runs log n times. Complexity?',o:['O(n²)','O(n log n)','O(log n)','O(n)'],a:1,e:'Multiply: outer O(n) × inner O(log n) = O(n log n).'},
+  {t:'Complexity',q:'Space complexity of merge sort?',o:['O(1)','O(n)','O(log n)','O(n log n)'],a:1,e:'Merge sort requires O(n) auxiliary space for the temporary arrays during merging.'},
+  {t:'Complexity',q:'Average time complexity for searching in a hash table?',o:['O(n)','O(log n)','O(1)','O(n log n)'],a:2,e:'Hash tables provide O(1) average case for search, insert, and delete due to direct address calculation.'},
+  {t:'Complexity',q:'What is the time complexity of inserting an element at the beginning of a linked list (given head pointer)?',o:['O(n)','O(log n)','O(n²)','O(1)'],a:3,e:'Insert at head: create new node, point its next to current head, update head. All O(1).'},
+  {t:'Arrays',q:'What is the output?\nint[] a = {1,2,3}; System.out.println(a[a.length-1]);',o:['1','2','3','ArrayIndexOutOfBoundsException'],a:2,e:'a.length=3. a[3-1]=a[2]=3.'},
+  {t:'Arrays',q:'Which technique is best for finding max sum of k consecutive elements efficiently?',o:['Brute force O(n²)','Two pointers','Sliding window O(n)','Binary search'],a:2,e:'Sliding window maintains a running sum, adds new element and removes the oldest at each step. O(n).'},
+  {t:'Arrays',q:'Prefix sum array is used to answer range sum queries in:',o:['O(n) per query','O(1) per query after O(n) precomputation','O(log n) per query','O(n log n)'],a:1,e:'Build prefix sum in O(n), then any range [l,r] = prefix[r+1]-prefix[l] in O(1).'},
+  {t:'Strings',q:'What does s.substring(2,5) return for s="abcdefg"?',o:['cde','bcde','cdef','cd'],a:0,e:'substring(start, end) is start inclusive, end exclusive. Indices 2,3,4 → "cde".'},
+  {t:'Strings',q:'Which method correctly compares two String objects in Java?',o:['s1 == s2','s1.compare(s2)','s1.equals(s2)','s1 === s2'],a:2,e:'== compares references in Java (memory address). .equals() compares the actual string values.'},
+  {t:'Strings',q:'ASCII value of character \'a\' is:',o:['65','97','48','122'],a:1,e:'\'a\'=97. \'A\'=65. \'0\'=48. \'z\'=122. Remember: lowercase letters are 32 more than uppercase.'},
+  {t:'Linked List',q:'What is the time complexity of finding the length of a singly linked list?',o:['O(1)','O(log n)','O(n)','O(n²)'],a:2,e:'Must traverse the entire list from head to tail to count nodes → O(n).'},
+  {t:'Linked List',q:'In Floyd\'s cycle detection, what does the slow pointer do?',o:['Moves 2 steps at a time','Moves 1 step at a time','Stays at head','Moves backward'],a:1,e:'Slow pointer moves 1 step, fast pointer moves 2 steps. If cycle exists they will eventually meet.'},
+  {t:'Linked List',q:'After reversing the linked list 1→2→3→4→5, what is the new head?',o:['1','3','5','2'],a:2,e:'Reversing 1→2→3→4→5 gives 5→4→3→2→1. New head is 5.'},
+  {t:'Stack',q:'Which data structure is used to implement function call management?',o:['Queue','Array','Stack','Linked List'],a:2,e:'Each function call pushes a stack frame (local variables, return address). Returns pop the frame. LIFO matches call/return.'},
+  {t:'Stack',q:'For the expression "((a+b))", how many elements are on the stack before the closing bracket is encountered?',o:['1','2','3','4'],a:1,e:'Push \'(\' → stack: [(]. Push \'(\' → stack: [(, (]. Encounter \')\' → pop one \'(\'. Stack has 1 element [(] before the second \')\'.'},
+  {t:'Stack',q:'Postfix of infix expression A+B*C is:',o:['ABC*+','AB+C*','ABC+*','A+BC*'],a:0,e:'* has higher precedence than +. B*C is evaluated first. In postfix: A, then BC*, then +. Result: ABC*+.'},
+  {t:'Queue',q:'Which traversal uses a queue as its underlying data structure?',o:['Inorder traversal','Preorder traversal','BFS / Level-order traversal','DFS / Postorder traversal'],a:2,e:'BFS uses a queue to process nodes level by level — enqueue neighbours, dequeue and process.'},
+  {t:'Queue',q:'In a circular queue of size 5, if front=2 and rear=4, how many elements are present?',o:['2','3','4','5'],a:1,e:'Elements at positions 2,3,4 → 3 elements. (rear-front+1 when rear≥front).'},
+  {t:'Trees',q:'For tree: 1(root), 2(left), 3(right), 4(left of 2), 5(right of 2) — what is inorder traversal?',o:['1 2 4 5 3','4 2 5 1 3','4 5 2 1 3','1 4 2 5 3'],a:1,e:'Inorder=Left→Root→Right. Left of 1=subtree(2,4,5): 4,2,5. Then root=1. Then right=3. Result: 4 2 5 1 3.'},
+  {t:'Trees',q:'Preorder traversal visits nodes in which order?',o:['Left → Root → Right','Root → Left → Right','Left → Right → Root','Right → Root → Left'],a:1,e:'PreORDER: Root is processed first (pre = before). Then left subtree, then right.'},
+  {t:'Trees',q:'Inorder traversal of a BST gives elements in:',o:['Reverse sorted order','Random order','Sorted ascending order','Level order'],a:2,e:'BST property (left < root < right) means inorder traversal (L→N→R) always produces sorted ascending output.'},
+  {t:'Trees',q:'Height of a single node tree (just a root) is:',o:['0','1','-1','Undefined'],a:0,e:'Height is defined as the number of edges on the longest path from root to a leaf. A single node has no edges → height 0.'},
+  {t:'Sorting',q:'Which sorting algorithm is stable AND has O(n log n) worst-case complexity?',o:['Quick Sort','Heap Sort','Merge Sort','Selection Sort'],a:2,e:'Merge sort is stable (preserves relative order of equal elements) and always O(n log n) in all cases.'},
+  {t:'Sorting',q:'Best-case time complexity of Bubble Sort?',o:['O(n²)','O(n log n)','O(n)','O(1)'],a:2,e:'With the "swapped" optimisation, if no swaps occur in a pass, the array is already sorted → O(n).'},
+  {t:'Sorting',q:'Which sort is in-place and has O(n log n) complexity but is not stable?',o:['Merge Sort','Quick Sort','Bubble Sort','Heap Sort'],a:3,e:'Heap Sort is in-place (O(1) extra), always O(n log n), but not stable.'},
+  {t:'Searching',q:'Binary search requires the array to be:',o:['Random','Sorted','In descending order only','Unsorted'],a:1,e:'Binary search only works on sorted arrays. It eliminates half the remaining elements at each comparison.'},
+  {t:'Recursion/DP',q:'Fibonacci using naive recursion has what time complexity?',o:['O(n)','O(n²)','O(2ⁿ)','O(log n)'],a:2,e:'Each fib(n) call makes two recursive calls, creating a binary tree of calls → O(2ⁿ).'},
+  {t:'Recursion/DP',q:'Memoized Fibonacci has time and space complexity of:',o:['O(n) time, O(1) space','O(n) time, O(n) space','O(2ⁿ) time, O(n) space','O(n log n) time, O(n) space'],a:1,e:'Each value computed once (n values) → O(n) time. Memo table stores n values → O(n) space.'},
+  {t:'Recursion/DP',q:'0/1 Knapsack DP has time complexity of:',o:['O(n²)','O(n×W) where W is max capacity','O(2ⁿ)','O(n log n)'],a:1,e:'Two nested loops: n items × W capacity → O(n×W). Called pseudo-polynomial.'},
+  {t:'Output',q:'int x=3; System.out.println(x<<1); — Output?',o:['6','3','1','4'],a:0,e:'Left shift by 1 = multiply by 2. 3<<1 = 6. (3 in binary: 011 → shifted: 110 = 6)'},
+  {t:'Output',q:'What prints? int a=10,b=3; System.out.println(a%b);',o:['3','1','0','3.33'],a:1,e:'% is the modulo (remainder) operator. 10 / 3 = 3 remainder 1. So 10%3 = 1.'},
+  {t:'Output',q:'String s="Java"; System.out.println(s.toUpperCase().charAt(2));',o:['V','v','A','a'],a:0,e:'toUpperCase() gives "JAVA". charAt(2) gives \'V\' (index 0=J, 1=A, 2=V, 3=A).'},
+  {t:'Java/OOP',q:'What is the output? System.out.println(1 + 2 + "3");',o:['123','33','6','Error'],a:1,e:'Java evaluates left to right. 1+2=3 (int). Then 3+"3" = "33" (string concatenation). Output: 33.'},
+  {t:'Java/OOP',q:'What is the output? System.out.println("1" + 2 + 3);',o:['6','123','15','Error'],a:1,e:'"1"+2 = "12" (string concat since first is string). "12"+3 = "123". Output: 123.'},
+  {t:'Java/OOP',q:'Which OOP concept allows a subclass to provide its own implementation of a parent method?',o:['Encapsulation','Abstraction','Overloading','Overriding'],a:3,e:'Method overriding — subclass redefines a parent method with same signature. Runtime polymorphism.'},
+  {t:'Bit Manipulation',q:'How to check if n is a power of 2 in O(1)?',o:['n%2==0','(n & (n-1)) == 0 && n>0','n>>1==0','n/2==1'],a:1,e:'Powers of 2 have exactly one bit set. n-1 has all lower bits set. n & (n-1) = 0 only for powers of 2.'},
+  {t:'Hashing',q:'What is a collision in hash tables?',o:['When the table is full','When two keys hash to the same index','When search fails','When delete corrupts the table'],a:1,e:'Collision: two different keys map to same hash index. Resolved by chaining (linked list at each slot) or open addressing.'},
+  {t:'Graphs',q:'BFS uses which data structure internally?',o:['Stack','Queue','Priority Queue','Deque'],a:1,e:'BFS processes nodes level by level using a Queue (FIFO). Enqueue unvisited neighbours, dequeue to process.'},
+  {t:'Graphs',q:'DFS uses which data structure (iterative implementation)?',o:['Queue','Heap','Stack','Array'],a:2,e:'Iterative DFS uses a Stack. Recursive DFS implicitly uses the call stack.'},
+  {t:'Graphs',q:'Time complexity of BFS and DFS?',o:['O(V²)','O(V × E)','O(V + E)','O(E log V)'],a:2,e:'Both BFS and DFS visit each vertex once and each edge once → O(V + E).'},
+  {t:'Arrays',q:'Which technique efficiently finds if any subarray has a given sum (positive numbers only)?',o:['Binary search','Dynamic programming','Sliding window','Two pointers'],a:2,e:'Sliding window: expand right to increase sum, shrink left when sum exceeds target. O(n).'},
+  {t:'Complexity',q:'A loop: for(int i=n; i>1; i=i/2). Time complexity?',o:['O(n)','O(log n)','O(n/2)','O(√n)'],a:1,e:'i is halved each iteration: n, n/2, n/4, … , 1. Takes log₂n iterations → O(log n).'},
+  {t:'Stack',q:'Which is NOT a valid application of a stack?',o:['Balanced parentheses','Undo/Redo','CPU Scheduling (FCFS)','Recursive function calls'],a:2,e:'CPU Scheduling with FCFS (First Come First Served) uses a QUEUE not a stack. The other three all use stack/LIFO.'},
+];
+
+const topics=['All',...new Set(Qs.map(q=>q.t))];
+let curFilter='All',answered=0,correct=0;
+const answeredSet=new Set();
+const topicPalette={'Complexity':['rgba(79,156,249,.14)','#82b4fb'],'Arrays':['rgba(61,214,140,.12)','#3dd68c'],'Strings':['rgba(61,214,140,.12)','#3dd68c'],'Linked List':['rgba(245,158,11,.12)','#f59e0b'],'Stack':['rgba(167,139,250,.12)','#c4b5fd'],'Queue':['rgba(167,139,250,.12)','#c4b5fd'],'Trees':['rgba(244,63,94,.1)','#f43f5e'],'Sorting':['rgba(34,211,238,.1)','#67e8f9'],'Searching':['rgba(34,211,238,.1)','#67e8f9'],'Recursion/DP':['rgba(79,156,249,.12)','#82b4fb'],'Output':['rgba(61,214,140,.12)','#3dd68c'],'Java/OOP':['rgba(245,158,11,.12)','#f59e0b'],'Bit Manipulation':['rgba(167,139,250,.12)','#c4b5fd'],'Hashing':['rgba(244,63,94,.1)','#f43f5e'],'Graphs':['rgba(34,211,238,.1)','#67e8f9']};
+
+function buildFilters(){
+  const row=document.getElementById('filterRow');
+  topics.forEach(t=>{
+    const btn=document.createElement('button');
+    btn.className='fbtn'+(t==='All'?' active':'');
+    const cnt=t==='All'?Qs.length:Qs.filter(q=>q.t===t).length;
+    btn.textContent=`${t} (${cnt})`;
+    btn.onclick=()=>{document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');curFilter=t;renderQ();};
+    row.appendChild(btn);
+  });
+}
+
+function renderQ(){
+  const c=document.getElementById('qc');c.innerHTML='';
+  const list=curFilter==='All'?Qs:Qs.filter(q=>q.t===curFilter);
+  list.forEach((q,i)=>{
+    const gi=Qs.indexOf(q);
+    const div=document.createElement('div');div.className='out-q';div.id='qb-'+gi;
+    const pal=topicPalette[q.t]||['rgba(79,156,249,.14)','#82b4fb'];
+    const done=answeredSet.has(String(gi));
+    div.innerHTML=`<div class="out-qt"><span style="font-size:11px;background:${pal[0]};color:${pal[1]};padding:3px 9px;border-radius:20px;font-weight:600">${q.t}</span><br><br>Q${i+1}. ${q.q.replace(/\n/g,'<br><pre class="code" style="margin:6px 0;font-size:12px">').replace(/<\/pre>/,'</pre>')}</div>
+    <div class="out-opts">${q.o.map((o,oi)=>`<button class="out-opt${done&&oi===q.a?' correct':''}" onclick="checkQ(${gi},${oi},${q.a},this)">${String.fromCharCode(65+oi)}. ${o}</button>`).join('')}</div>
+    <div class="expln${done?' show':''}" id="exp-${gi}">${q.e}</div>`;
+    if(done)div.querySelectorAll('.out-opt').forEach(b=>b.style.pointerEvents='none');
+    c.appendChild(div);
+  });
+}
+
+function checkQ(gi,chosen,ans,btn){
+  if(answeredSet.has(String(gi)))return;
+  answeredSet.add(String(gi));answered++;
+  const block=document.getElementById('qb-'+gi);
+  block.querySelectorAll('.out-opt').forEach((o,i)=>{o.style.pointerEvents='none';if(i===ans)o.classList.add('correct');});
+  if(chosen!==ans)btn.classList.add('wrong');else correct++;
+  document.getElementById('exp-'+gi).classList.add('show');
+  const pct=Math.round(correct/answered*100);
+  document.getElementById('scoreD').textContent=correct+' / '+answered+' answered';
+  document.getElementById('scorePct').textContent=answered>0?`(${pct}% accuracy)`:'';
+}
+function checkOut(i,chosen,ans,btn){checkQ(i+1000,chosen,ans,btn);}
+
+// Fix output checkOut to use its own set
+const outAnsweredSet=new Set();
+function checkOut(i,chosen,ans,btn){
+  if(outAnsweredSet.has(i))return;
+  outAnsweredSet.add(i);
+  const block=document.getElementById('oq-'+i);
+  block.querySelectorAll('.out-opt').forEach((o,oi)=>{o.style.pointerEvents='none';if(oi===ans)o.classList.add('correct');});
+  if(chosen!==ans)btn.classList.add('wrong');
+  document.getElementById('oexp-'+i).classList.add('show');
+}
+
+function resetQ(){
+  answered=0;correct=0;answeredSet.clear();
+  document.getElementById('scoreD').textContent='0 / 0 answered';
+  document.getElementById('scorePct').textContent='';
+  renderQ();
+}
+
+buildFilters();renderQ();
+
+// ══════ CHEAT SHEET ══════
+const csData=[
+  {col:'#82b4fb',title:'📊 Big O Hierarchy',items:[
+    '<b>O(1)</b> — array access, hash lookup',
+    '<b>O(log n)</b> — binary search, BST',
+    '<b>O(n)</b> — linear scan, single loop',
+    '<b>O(n log n)</b> — merge sort, heap sort',
+    '<b>O(n²)</b> — nested loops, bubble sort',
+    '<b>O(2ⁿ)</b> — naive recursion, subsets',
+    'Nested loops → multiply complexities',
+    'Sequential loops → add complexities',
+    'Halving each step → O(log n)',
+  ]},
+  {col:'#3dd68c',title:'📋 Sorting Summary',items:[
+    'Bubble/Insertion/Selection: <b>O(n²)</b> worst',
+    'Bubble best case: <b>O(n)</b> with swap flag',
+    'Merge Sort: <b>O(n log n)</b>, stable, O(n) space',
+    'Quick Sort: <b>O(n log n)</b> avg, O(n²) worst',
+    'Heap Sort: <b>O(n log n)</b>, O(1) space, not stable',
+    'Only Merge and Bubble/Insertion are stable',
+    'Quick Sort is fastest in practice (cache)',
+  ]},
+  {col:'#f59e0b',title:'🗂️ DS Operations',items:[
+    'Array access: <b>O(1)</b> | insert/delete: O(n)',
+    'Linked List insert (head): <b>O(1)</b>',
+    'Linked List search: <b>O(n)</b>',
+    'Stack push/pop: <b>O(1)</b>',
+    'Queue enqueue/dequeue: <b>O(1)</b>',
+    'Hash table avg: <b>O(1)</b> all operations',
+    'BST (balanced) all ops: <b>O(log n)</b>',
+    'Heap insert/delete: <b>O(log n)</b>',
+  ]},
+  {col:'#a78bfa',title:'🌳 Tree Traversals',items:[
+    'Inorder = <b>Left → Node → Right</b>',
+    'Preorder = <b>Node → Left → Right</b>',
+    'Postorder = <b>Left → Right → Node</b>',
+    'Level-order = BFS with Queue',
+    'BST inorder gives <b>sorted ascending</b>',
+    'Height = max(left,right) + 1',
+    'Perfect BT: 2^(h+1) − 1 nodes',
+    'Leaf height = 0',
+  ]},
+  {col:'#f43f5e',title:'🔗 Linked List Tricks',items:[
+    'Reverse: 3 pointers (prev, curr, next)',
+    'Find middle: slow(1) + fast(2) pointer',
+    'Detect cycle: Floyd\'s — slow+fast meet',
+    'nth from end: 2 pointers, n apart',
+    'Singly LL: no backward traversal',
+    'Doubly LL: can traverse both ways',
+    'Insert at head: always <b>O(1)</b>',
+  ]},
+  {col:'#22d3ee',title:'🔁 Recursion &amp; DP',items:[
+    'Always need: base case + recursive case',
+    'Naive fib: <b>O(2ⁿ)</b>. Memoized: <b>O(n)</b>',
+    'DP needs: overlapping subproblems + optimal substructure',
+    'Memoization = top-down DP',
+    'Tabulation = bottom-up DP',
+    'Knapsack: <b>O(n×W)</b> time and space',
+    'LCS: <b>O(m×n)</b> with 2D DP table',
+  ]},
+  {col:'#3dd68c',title:'⚡ Java Quick Facts',items:[
+    '<b>== vs .equals()</b>: reference vs value',
+    'i++ uses then increments; ++i increments then uses',
+    '1+2+"3" = "33" (int+int first, then concat)',
+    '"1"+2+3 = "123" (concat left-to-right)',
+    'int/int = int (floors), no auto-float',
+    'String is immutable — use StringBuilder',
+    'char to int: just use it in arithmetic',
+  ]},
+  {col:'#f59e0b',title:'🎯 Common Patterns',items:[
+    'Two pointers: sorted array pair problems',
+    'Sliding window: subarray/substring problems',
+    'Prefix sum: range sum in O(1)',
+    'Frequency array: char counting in O(n)',
+    'Stack: matching brackets, next greater element',
+    'BFS: shortest path, level-order, flood fill',
+    'DFS: cycle detection, topological sort, backtracking',
+    'Binary search: on sorted arrays AND on answer space',
+  ]},
+];
+
+const csg=document.getElementById('csGrid');
+csData.forEach(cs=>{
+  const div=document.createElement('div');div.className='csb';
+  div.innerHTML=`<h3 style="color:${cs.col}">${cs.title}</h3><ul>${cs.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+  csg.appendChild(div);
+});
+</script>
+</body>
+</html>
